@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I-TOP Therm — Strategic Transformation Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #07050f;
+  --bg2:      #0d0a1a;
+  --surface:  #120f22;
+  --surface2: #1a1530;
+  --border:   rgba(120,90,200,.18);
+  --border2:  rgba(124,58,237,.35);
+  --purple:   #7c3aed;
+  --purple2:  #9b5cff;
+  --purple3:  #c4a0ff;
+  --glow:     rgba(124,58,237,.5);
+  --text:     #f1eefe;
+  --muted:    #8b7fac;
+  --dim:      #4a4165;
+  --white:    #ffffff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:'IBM Plex Sans Arabic',sans-serif;
+  overflow-x:hidden;
+}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--purple);border-radius:2px}
+
+/* global purple glow mesh */
+body::before{
+  content:'';position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 65% 55% at 65% -5%,  rgba(100,45,220,.30) 0%,transparent 60%),
+    radial-gradient(ellipse 45% 40% at 8%  70%,  rgba(80,25,180,.17) 0%,transparent 55%),
+    radial-gradient(ellipse 38% 32% at 92% 92%,  rgba(60,15,150,.13) 0%,transparent 50%);
+  pointer-events:none;z-index:0;
+}
+/* noise grain */
+body::after{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity:.03;pointer-events:none;z-index:1;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 3.5rem;height:66px;
+  background:rgba(7,5,15,.8);
+  backdrop-filter:blur(24px) saturate(150%);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:900;font-size:1.25rem;letter-spacing:.07em;
+  color:var(--white);display:flex;align-items:center;gap:.5rem;
+}
+.nav-dot{
+  width:9px;height:9px;border-radius:50%;
+  background:var(--purple2);
+  box-shadow:0 0 10px var(--purple2),0 0 22px var(--glow);
+}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{
+  font-size:.78rem;font-weight:500;letter-spacing:.04em;
+  color:var(--muted);text-decoration:none;transition:color .2s;
+}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{
+  background:var(--purple);color:#fff;
+  padding:.45rem 1.3rem;border-radius:100px;
+  font-size:.78rem;font-weight:600;
+  border:none;cursor:pointer;
+  font-family:'IBM Plex Sans Arabic',sans-serif;
+  box-shadow:0 0 20px var(--glow);
+  transition:all .25s;
+}
+.nav-cta:hover{background:var(--purple2);box-shadow:0 0 30px var(--glow)}
+
+/* corner dots (Banky signature) */
+.cdot{
+  position:fixed;width:7px;height:7px;border-radius:50%;
+  background:rgba(124,58,237,.4);z-index:50;
+  box-shadow:0 0 6px rgba(124,58,237,.5);
+}
+
+/* ── HERO ── */
+#hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;
+  padding:0 3.5rem;overflow:hidden;z-index:2;
+}
+.orb-a{
+  position:absolute;top:-18%;right:-8%;
+  width:680px;height:680px;
+  background:radial-gradient(circle,rgba(100,50,220,.32) 0%,rgba(75,18,175,.14) 40%,transparent 68%);
+  border-radius:50%;pointer-events:none;
+  animation:orbFloat 9s ease-in-out infinite alternate;
+}
+.orb-b{
+  position:absolute;bottom:-12%;left:3%;
+  width:380px;height:380px;
+  background:radial-gradient(circle,rgba(75,20,175,.18) 0%,transparent 65%);
+  border-radius:50%;pointer-events:none;
+}
+.grid-bg{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(var(--border) 1px,transparent 1px),
+    linear-gradient(90deg,var(--border) 1px,transparent 1px);
+  background-size:90px 90px;opacity:.5;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 25%,transparent 78%);
+}
+.hero-inner{
+  position:relative;z-index:3;
+  max-width:1100px;width:100%;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:5rem;align-items:center;padding-top:4.5rem;
+}
+/* ─ left ─ */
+.hero-tag{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.7rem;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--purple3);
+  background:rgba(124,58,237,.1);
+  border:1px solid rgba(124,58,237,.28);
+  padding:.3rem .95rem;border-radius:100px;margin-bottom:2rem;
+  opacity:0;animation:fadeUp .6s .1s ease forwards;
+}
+.hero-tag::before{
+  content:'';width:5px;height:5px;background:var(--purple2);
+  border-radius:50%;animation:pulse 2s infinite;
+}
+.hero-h1{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:900;
+  font-size:clamp(3.8rem,6.5vw,6rem);
+  line-height:.92;letter-spacing:-.02em;
+  color:var(--white);margin-bottom:1.6rem;
+  opacity:0;animation:fadeUp .8s .25s ease forwards;
+}
+.hero-h1 .grad{
+  background:linear-gradient(130deg,var(--purple2),var(--purple3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-sub{
+  font-size:.98rem;color:var(--muted);line-height:1.78;
+  max-width:420px;margin-bottom:2.5rem;
+  opacity:0;animation:fadeUp .8s .42s ease forwards;
+}
+.hero-actions{
+  display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;
+  opacity:0;animation:fadeUp .8s .58s ease forwards;
+}
+.btn-hero{
+  display:inline-flex;align-items:center;gap:.65rem;
+  background:var(--white);color:var(--bg);
+  padding:.75rem 1.7rem;border-radius:100px;
+  font-size:.86rem;font-weight:700;
+  border:none;cursor:pointer;font-family:'IBM Plex Sans Arabic',sans-serif;
+  transition:all .25s;
+}
+.btn-hero .arr{
+  width:26px;height:26px;border-radius:50%;
+  background:var(--purple);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.68rem;transition:background .2s;
+}
+.btn-hero:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,0,0,.38)}
+.btn-hero:hover .arr{background:var(--purple2)}
+.hero-note{
+  display:flex;align-items:center;gap:.45rem;
+  font-size:.84rem;color:var(--muted);
+}
+.hero-note .star{color:#f5a623}
+/* ─ right card ─ */
+.hero-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--border2);
+  backdrop-filter:blur(20px);
+  border-radius:20px;padding:2rem;
+  position:relative;overflow:hidden;
+  opacity:0;animation:fadeUp .9s .55s ease forwards;
+}
+.hero-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(124,58,237,.08),transparent 55%);
+  pointer-events:none;
+}
+.hc-label{
+  font-size:.65rem;font-weight:700;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--purple3);margin-bottom:1rem;
+}
+.hc-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);
+  border-radius:12px;overflow:hidden;margin-bottom:1rem;
+}
+.hc-stat{
+  background:var(--surface);
+  padding:1.2rem 1rem;text-align:center;
+}
+.hc-val{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:2.3rem;font-weight:900;
+  background:linear-gradient(130deg,var(--purple2),var(--purple3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;line-height:1;
+}
+.hc-lbl{font-size:.7rem;color:var(--muted);margin-top:.3rem;font-weight:500}
+.hc-badge{
+  display:flex;align-items:flex-start;gap:.7rem;
+  background:rgba(124,58,237,.1);
+  border:1px solid rgba(124,58,237,.25);
+  border-radius:12px;padding:.85rem 1rem;
+}
+.hc-badge-dot{
+  width:8px;height:8px;flex-shrink:0;border-radius:50%;
+  background:var(--purple2);margin-top:.35rem;
+  animation:pulse 2s infinite;
+}
+.hc-badge p{font-size:.8rem;color:var(--muted);line-height:1.5}
+.hc-badge p strong{color:var(--text);font-weight:600}
+/* card corner dots */
+.cc{position:absolute;width:7px;height:7px;border-radius:50%;background:rgba(124,58,237,.35)}
+.cc-tr{top:1rem;left:1rem}
+.cc-tl{top:1rem;right:1rem}
+.cc-br{bottom:1rem;left:1rem}
+.cc-bl{bottom:1rem;right:1rem}
+
+/* scroll hint */
+.scroll-hint{
+  position:absolute;bottom:2.4rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.4rem;
+  font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--dim);z-index:4;
+  opacity:0;animation:fadeUp .6s 1.2s ease forwards;
+}
+.scroll-line{
+  width:1px;height:34px;
+  background:linear-gradient(var(--purple2),transparent);
+  animation:scrollDrop 1.6s 1.8s ease infinite;
+}
+
+/* ── SECTION GENERIC ── */
+section{position:relative;z-index:2;padding:8rem 3.5rem 6rem}
+.s-inner{max-width:1100px;margin:0 auto}
+.s-tag{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.67rem;font-weight:700;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--purple3);
+  margin-bottom:1.1rem;
+}
+.s-tag::before{content:'';width:16px;height:1px;background:var(--purple2)}
+.s-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(2.5rem,5vw,3.8rem);
+  font-weight:900;line-height:.95;color:var(--white);margin-bottom:1.2rem;
+}
+.s-title .hi{
+  background:linear-gradient(130deg,var(--purple2),var(--purple3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.s-desc{font-size:.95rem;color:var(--muted);line-height:1.78;max-width:500px}
+
+/* glass card */
+.glass{
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--border);
+  backdrop-filter:blur(12px);border-radius:16px;
+  transition:border-color .3s,transform .3s,box-shadow .3s;
+}
+.glass:hover{
+  border-color:rgba(124,58,237,.42);
+  transform:translateY(-4px);
+  box-shadow:0 18px 48px rgba(0,0,0,.32),0 0 0 1px rgba(124,58,237,.1);
+}
+
+/* ── DIAGNOSIS ── */
+#diagnosis{background:var(--bg2)}
+.diag-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:4rem}
+.diag-panel{border-radius:16px;overflow:hidden}
+.diag-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 1.5rem;border-bottom:1px solid var(--border);
+}
+.diag-ht{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.diag-en{font-size:.65rem;color:var(--dim);letter-spacing:.06em}
+.tg{color:#34d399}.tr{color:#f87171}
+.d-row{
+  display:flex;align-items:center;gap:.85rem;
+  padding:.88rem 1.5rem;border-bottom:1px solid var(--border);
+  transition:background .2s;
+}
+.d-row:hover{background:rgba(124,58,237,.06)}
+.d-row:last-child{border-bottom:none}
+.d-dot{width:6px;height:6px;flex-shrink:0;border-radius:50%}
+.dg{background:#34d399}.dr{background:#f87171}
+.d-row span{font-size:.87rem;color:var(--text);font-weight:400}
+
+/* ── VISION ── */
+#vision{}
+.vis-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:4rem;align-items:center}
+.v-from{
+  padding:1.8rem 2rem;border-radius:16px;
+  background:rgba(255,255,255,.025);border:1px solid var(--border);
+}
+.v-to{
+  padding:1.8rem 2rem;border-radius:16px;
+  background:linear-gradient(135deg,rgba(124,58,237,.22),rgba(100,38,200,.1));
+  border:1px solid rgba(124,58,237,.42);
+  box-shadow:0 0 40px rgba(124,58,237,.1);
+}
+.v-lbl{font-size:.64rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.8rem}
+.v-lbl.m{color:var(--dim)}.v-lbl.a{color:var(--purple3)}
+.v-txt{font-size:1.18rem;font-weight:600;line-height:1.5}
+.v-txt.m{color:var(--muted);font-style:italic;font-weight:400}
+.v-txt.b{color:var(--white)}
+.v-arrow{text-align:center;padding:.6rem 0;font-size:1.4rem;color:var(--purple2)}
+.why-list{display:flex;flex-direction:column;gap:.9rem}
+.why-item{
+  display:flex;gap:1rem;align-items:flex-start;
+  padding:1.1rem 1.4rem;border-radius:14px;
+  background:rgba(255,255,255,.025);border:1px solid var(--border);
+  cursor:default;transition:all .25s;
+}
+.why-item:hover{border-color:rgba(124,58,237,.38);background:rgba(124,58,237,.07);transform:translateX(-4px)}
+.w-icon{font-size:1.45rem;flex-shrink:0;width:2.1rem;text-align:center;margin-top:.1rem}
+.why-item h4{font-size:.87rem;font-weight:700;margin-bottom:.25rem;color:var(--text)}
+.why-item p{font-size:.77rem;color:var(--muted);line-height:1.55}
+
+/* ── PILLARS ── */
+#pillars{background:var(--bg2)}
+.pillars-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:1px;margin-top:4rem;
+  background:var(--border);
+  border:1px solid var(--border);border-radius:20px;overflow:hidden;
+}
+.pillar{
+  background:var(--surface);padding:1.8rem 1.3rem;
+  display:flex;flex-direction:column;gap:.7rem;
+  position:relative;overflow:hidden;
+  cursor:default;transition:background .3s;
+}
+.pillar:hover{background:var(--surface2)}
+.pillar::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:var(--c);transform:scaleX(0);transform-origin:right;transition:transform .35s;
+}
+.pillar:hover::after{transform:scaleX(1);transform-origin:left}
+.p-num{font-family:'Barlow Condensed',sans-serif;font-size:2.8rem;font-weight:900;color:var(--c);opacity:.17;line-height:1}
+.p-icon{font-size:1.8rem}
+.p-en{font-family:'Barlow Condensed',sans-serif;font-size:.93rem;font-weight:700;letter-spacing:.04em;color:var(--c);text-transform:uppercase}
+.p-ar{font-size:.82rem;font-weight:600;color:var(--text)}
+.p-list{list-style:none;display:flex;flex-direction:column;gap:.33rem;margin-top:.3rem}
+.p-list li{font-size:.74rem;color:var(--muted);padding-right:.78rem;position:relative}
+.p-list li::before{content:'·';position:absolute;right:0;color:var(--c)}
+
+/* ── MEDIA ── */
+#media{}
+.media-top{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:4rem;align-items:start}
+.prod-phase{padding:1.4rem 1.6rem;border-radius:14px;margin-bottom:1rem}
+.prod-ph-label{font-size:.64rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--purple3);margin-bottom:.88rem}
+.prod-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:.42rem 0;border-bottom:1px solid var(--border);
+}
+.prod-row:last-child{border-bottom:none}
+.prod-row span{font-size:.82rem;color:var(--muted)}
+.prod-row strong{font-size:.82rem;color:var(--purple3);font-weight:700}
+.media-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:4rem}
+.mcard{padding:1.6rem;border-radius:16px;position:relative;overflow:hidden}
+.mcard-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:3.5rem;font-weight:900;color:var(--purple2);opacity:.07;
+  position:absolute;top:.2rem;left:.8rem;line-height:1;
+}
+.mcard-icon{font-size:1.55rem;margin-bottom:.85rem}
+.mcard h3{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:1.05rem;font-weight:700;letter-spacing:.04em;
+  color:var(--purple3);text-transform:uppercase;margin-bottom:.4rem;
+}
+.mcard p{font-size:.8rem;color:var(--muted);line-height:1.6}
+.mcard ul{list-style:none;margin-top:.7rem;display:flex;flex-direction:column;gap:.28rem}
+.mcard ul li{font-size:.74rem;color:var(--dim);padding-right:.75rem;position:relative}
+.mcard ul li::before{content:'→';position:absolute;right:0;color:var(--purple2);font-size:.63rem}
+
+/* ── ROADMAP ── */
+#roadmap{background:var(--bg2)}
+.timeline{
+  position:relative;margin-top:5rem;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;
+}
+.timeline::before{
+  content:'';position:absolute;top:21px;right:6%;left:6%;
+  height:1px;
+  background:linear-gradient(90deg,#9b5cff,#a78bfa,#c084fc,#34d399);
+  z-index:0;
+}
+.phase{position:relative;z-index:1}
+.ph-dot{
+  width:42px;height:42px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:900;
+  margin-bottom:1.8rem;
+  border:2px solid var(--c);color:var(--c);
+  background:var(--bg2);
+  box-shadow:0 0 16px color-mix(in srgb,var(--c) 30%,transparent);
+}
+.ph-badge{
+  display:inline-block;font-size:.64rem;font-weight:700;letter-spacing:.1em;
+  color:var(--c);
+  background:color-mix(in srgb,var(--c) 11%,transparent);
+  border:1px solid color-mix(in srgb,var(--c) 32%,transparent);
+  padding:.2rem .65rem;border-radius:100px;margin-bottom:.9rem;text-transform:uppercase;
+}
+.ph-title{font-family:'Barlow Condensed',sans-serif;font-size:1.35rem;font-weight:700;color:var(--white);margin-bottom:.3rem;line-height:1}
+.ph-ar{font-size:.77rem;color:var(--c);margin-bottom:1rem;font-weight:600}
+.ph-list{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.ph-list li{font-size:.77rem;color:var(--muted);display:flex;align-items:flex-start;gap:.44rem}
+.ph-list li::before{content:'→';color:var(--c);flex-shrink:0;font-size:.63rem;margin-top:.16rem}
+
+/* ── KPIs ── */
+#kpis{}
+.kpis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:4rem}
+.kpi{padding:2.2rem 1.8rem;border-radius:16px;text-align:center;position:relative;overflow:hidden}
+.kpi::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--c);transform:scaleX(0);transition:transform .4s;
+}
+.kpi:hover::before{transform:scaleX(1)}
+.kpi-icon{font-size:1.85rem;margin-bottom:.88rem}
+.kpi-val{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:3.2rem;font-weight:900;line-height:1;margin-bottom:.25rem;
+  color:var(--c);text-shadow:0 0 28px color-mix(in srgb,var(--c) 40%,transparent);
+}
+.kpi-period{font-size:.67rem;color:var(--dim);margin-bottom:.7rem;font-weight:600;letter-spacing:.06em}
+.kpi-label{font-size:.84rem;color:var(--text);font-weight:500}
+
+/* ── TEAM ── */
+#team{background:var(--bg2)}
+.team-wrap{margin-top:4rem;display:flex;flex-direction:column;align-items:center;gap:2.5rem}
+.team-dir{
+  background:linear-gradient(135deg,var(--purple),rgba(95,35,190,.8));
+  padding:1.4rem 3.5rem;border-radius:14px;
+  text-align:center;min-width:370px;
+  box-shadow:0 0 42px rgba(124,58,237,.32);
+  position:relative;overflow:hidden;
+}
+.team-dir::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.07),transparent);border-radius:inherit}
+.team-dir h3{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:900;letter-spacing:.04em;color:#fff;text-transform:uppercase}
+.team-dir p{font-size:.77rem;color:rgba(255,255,255,.62);margin-top:.2rem}
+.team-conn{width:1px;height:36px;background:var(--border2);position:relative}
+.team-conn::after{content:'';position:absolute;bottom:0;left:-90px;right:-90px;height:1px;background:var(--border2)}
+.team-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;width:100%}
+.tcard{padding:1.4rem;border-radius:14px;text-align:center;transition:all .3s}
+.tcard:hover{transform:translateY(-4px)}
+.tcard-icon{font-size:1.8rem;margin-bottom:.7rem}
+.tcard-role{font-family:'Barlow Condensed',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.03em;color:var(--text);text-transform:uppercase;margin-bottom:.3rem}
+.tcard-desc{font-size:.75rem;color:var(--muted)}
+.team-note{
+  background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.22);
+  border-radius:12px;padding:1rem 2rem;
+  text-align:center;font-size:.82rem;color:var(--muted);
+}
+.team-note span{color:var(--purple3);font-weight:600}
+
+/* ── CLOSE ── */
+#close{position:relative;min-height:100vh;display:grid;place-items:center;overflow:hidden}
+.close-orb{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:620px;height:620px;
+  background:radial-gradient(circle,rgba(124,58,237,.18) 0%,transparent 65%);
+  border-radius:50%;pointer-events:none;
+  animation:orbFloat 10s ease-in-out infinite alternate;
+}
+.close-inner{position:relative;z-index:2;max-width:720px;padding:4rem 2rem;text-align:center}
+.close-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(3rem,6.5vw,5.2rem);
+  font-weight:900;line-height:.92;color:var(--white);margin-bottom:2rem;
+}
+.close-title .grad{
+  background:linear-gradient(130deg,var(--purple2),var(--purple3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.close-quote{
+  font-size:1.03rem;line-height:1.82;color:var(--muted);
+  border-right:3px solid var(--purple2);padding-right:1.5rem;
+  text-align:right;margin-bottom:3rem;
+}
+.close-quote strong{color:var(--text)}
+.decisions{display:flex;flex-direction:column;gap:.7rem;text-align:right;margin-bottom:3rem}
+.dec{
+  display:flex;align-items:center;gap:1rem;
+  padding:.88rem 1.4rem;border-radius:12px;
+  background:rgba(255,255,255,.025);border:1px solid var(--border);
+  transition:all .25s;
+}
+.dec:hover{border-color:rgba(124,58,237,.42);background:rgba(124,58,237,.07);transform:translateX(-4px)}
+.dec-n{
+  width:28px;height:28px;flex-shrink:0;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(124,58,237,.18);border:1px solid rgba(124,58,237,.38);
+  color:var(--purple3);font-size:.77rem;font-weight:700;
+}
+.dec span{font-size:.9rem;color:var(--text)}
+.close-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.cbtn-p{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:var(--white);color:var(--bg);
+  padding:.75rem 1.75rem;border-radius:100px;
+  font-size:.84rem;font-weight:700;
+  border:none;cursor:pointer;font-family:'IBM Plex Sans Arabic',sans-serif;
+  transition:all .25s;
+}
+.cbtn-p .arr{width:26px;height:26px;border-radius:50%;background:var(--purple);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.68rem;transition:background .2s}
+.cbtn-p:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,0,0,.38)}
+.cbtn-p:hover .arr{background:var(--purple2)}
+.cbtn-s{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:transparent;color:var(--text);
+  padding:.75rem 1.75rem;border-radius:100px;
+  font-size:.84rem;font-weight:600;
+  border:1px solid var(--border2);cursor:pointer;
+  font-family:'IBM Plex Sans Arabic',sans-serif;transition:all .25s;
+}
+.cbtn-s:hover{border-color:var(--purple2);color:var(--purple3)}
+
+/* ── FOOTER ── */
+footer{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.5rem 3.5rem;border-top:1px solid var(--border);
+  font-size:.68rem;color:var(--dim);letter-spacing:.06em;
+}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-x{opacity:0;transform:translateX(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal-x.visible{opacity:1;transform:translateX(0)}
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(1.65)}}
+@keyframes orbFloat{from{transform:translate(0,0) scale(1)}to{transform:translate(-28px,36px) scale(1.07)}}
+@keyframes scrollDrop{
+  0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}
+  51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:0 1.5rem}.nav-links{display:none}
+  section{padding:5rem 1.5rem 4rem}
+  .hero-inner,.diag-grid,.vis-grid,.media-top{grid-template-columns:1fr}
+  .pillars-grid{grid-template-columns:1fr 1fr}
+  .timeline{grid-template-columns:1fr 1fr}
+  .kpis-grid{grid-template-columns:1fr 1fr}
+  .team-row{grid-template-columns:1fr 1fr}
+  footer{padding:1.2rem 1.5rem;flex-direction:column;gap:.5rem;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- corner dots -->
+<div class="cdot" style="top:78px;right:3.5rem"></div>
+<div class="cdot" style="top:78px;left:3.5rem"></div>
+<div class="cdot" style="bottom:2rem;right:3.5rem"></div>
+<div class="cdot" style="bottom:2rem;left:3.5rem"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><div class="nav-dot"></div>I-TOP THERM</div>
+  <ul class="nav-links">
+    <li><a href="#diagnosis">التشخيص</a></li>
+    <li><a href="#vision">الرؤية</a></li>
+    <li><a href="#pillars">المحاور</a></li>
+    <li><a href="#roadmap">التنفيذ</a></li>
+    <li><a href="#close">القرار</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('close').scrollIntoView({behavior:'smooth'})">
+    القرار المطلوب
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="orb-a"></div>
+  <div class="orb-b"></div>
+  <div class="grid-bg"></div>
+
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">مشروع التحول الاستراتيجي · 2026</div>
+      <h1 class="hero-h1">MARKET<br><span class="grad">LEADERSHIP</span><br>PLAN</h1>
+      <p class="hero-sub">تحويل I-TOP Therm من مصنع جيد إلى اسم صناعي قيادي في المملكة — جاهز للمناقصات الكبرى، مؤهل للتصدير، وجاذب للاستثمار.</p>
+      <div class="hero-actions">
+        <button class="btn-hero" onclick="document.getElementById('diagnosis').scrollIntoView({behavior:'smooth'})">
+          اكتشف الخطة <span class="arr">↓</span>
+        </button>
+        <div class="hero-note"><span class="star">★</span> خطة 12 شهراً · 5 محاور</div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="cc cc-tl"></div><div class="cc cc-tr"></div>
+        <div class="cc cc-bl"></div><div class="cc cc-br"></div>
+        <div class="hc-label">الأهداف الاستراتيجية</div>
+        <div class="hc-grid">
+          <div class="hc-stat"><div class="hc-val">5</div><div class="hc-lbl">محاور التحول</div></div>
+          <div class="hc-stat"><div class="hc-val">12</div><div class="hc-lbl">شهر تنفيذ</div></div>
+          <div class="hc-stat"><div class="hc-val">30%+</div><div class="hc-lbl">نمو متوقع</div></div>
+          <div class="hc-stat"><div class="hc-val">50+</div><div class="hc-lbl">فيديو صناعي</div></div>
+        </div>
+        <div class="hc-badge">
+          <div class="hc-badge-dot"></div>
+          <p><strong>الهدف النهائي</strong><br>من مصنع مواسير إلى شريك البنية التحتية المستدامة في المملكة</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint"><div class="scroll-line"></div>SCROLL</div>
+</section>
+
+<!-- DIAGNOSIS -->
+<section id="diagnosis">
+  <div class="s-inner">
+    <div class="s-tag">التشخيص التنفيذي</div>
+    <h2 class="s-title reveal">نمتلك مصنعاً قوياً.<br><span class="hi">لكن السوق لا يراه.</span></h2>
+    <p class="s-desc reveal">القوة الحقيقية لـ I-TOP Therm غير مرئية في السوق. الفجوة ليست في الإنتاج — بل في التمركز والحضور الصناعي.</p>
+    <div class="diag-grid">
+      <div class="diag-panel glass reveal">
+        <div class="diag-head">
+          <span class="diag-ht tg">✅ &nbsp;نقاط القوة</span>
+          <span class="diag-en">Strengths</span>
+        </div>
+        <div class="d-row"><div class="d-dot dg"></div><span>تصنيع سعودي 100% · طاقة 15,000 طن / سنة</span></div>
+        <div class="d-row"><div class="d-dot dg"></div><span>9 خطوط إنتاج مؤتمتة بنسبة 95%</span></div>
+        <div class="d-row"><div class="d-dot dg"></div><span>شهادات ISO 9001 / 14001 / SASO</span></div>
+        <div class="d-row"><div class="d-dot dg"></div><span>منتجات PPR / UPVC / HDPE متكاملة</span></div>
+        <div class="d-row"><div class="d-dot dg"></div><span>مشاريع مع NHC وABR وجهات كبرى</span></div>
+        <div class="d-row"><div class="d-dot dg"></div><span>ضمان 25 سنة على منتجات PPR</span></div>
+      </div>
+      <div class="diag-panel glass reveal">
+        <div class="diag-head">
+          <span class="diag-ht tr">❌ &nbsp;الفجوات الاستراتيجية</span>
+          <span class="diag-en">Strategic Gaps</span>
+        </div>
+        <div class="d-row"><div class="d-dot dr"></div><span>غياب Brand Book وهوية مؤسسية موحدة</span></div>
+        <div class="d-row"><div class="d-dot dr"></div><span>لا يوجد Company Profile عالمي المستوى</span></div>
+        <div class="d-row"><div class="d-dot dr"></div><span>لا يوجد نظام Lead Generation منظم</span></div>
+        <div class="d-row"><div class="d-dot dr"></div><span>صفحة مشاريع غائبة تماماً من الموقع</span></div>
+        <div class="d-row"><div class="d-dot dr"></div><span>LinkedIn غير مستثمر مؤسسياً</span></div>
+        <div class="d-row"><div class="d-dot dr"></div><span>لا يوجد محتوى مرئي صناعي مؤثر</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section id="vision">
+  <div class="s-inner">
+    <div class="s-tag">الرؤية الجديدة</div>
+    <h2 class="s-title reveal">التحول من <span class="hi">مصنع</span><br>إلى شريك استراتيجي</h2>
+    <div class="vis-grid">
+      <div class="reveal" style="display:flex;flex-direction:column;gap:1.2rem">
+        <div class="v-from"><div class="v-lbl m">الوضع الحالي</div><div class="v-txt m">"نحن مصنع مواسير."</div></div>
+        <div class="v-arrow">↓</div>
+        <div class="v-to"><div class="v-lbl a">الهدف الاستراتيجي</div><div class="v-txt b">"نحن شريك البنية التحتية المستدامة في المملكة."</div></div>
+      </div>
+      <div class="why-list reveal-x">
+        <div class="why-item glass"><div class="w-icon">🏗</div><div><h4>رؤية 2030 تضخ مئات المليارات</h4><p>الطلب على أنظمة البنية التحتية في ارتفاع غير مسبوق — والفرصة لمن يُبني حضوره الآن.</p></div></div>
+        <div class="why-item glass"><div class="w-icon">📈</div><div><h4>السوق ينمو 8% سنوياً</h4><p>الحصة السوقية تذهب لمن يبني الثقة أولاً، لا لمن يقدم أقل سعر.</p></div></div>
+        <div class="why-item glass"><div class="w-icon">🏆</div><div><h4>المناقصات تختار الأسماء القوية</h4><p>القرار في المناقصات الكبرى يعتمد على الثقة والسمعة قبل السعر.</p></div></div>
+        <div class="why-item glass"><div class="w-icon">🚀</div><div><h4>من يتحرك أولاً يقود السوق</h4><p>المنافسون يبنون حضورهم الآن — ونحن بإمكاناتنا نستحق القيادة.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section id="pillars">
+  <div class="s-inner">
+    <div class="s-tag">محاور التحول</div>
+    <h2 class="s-title reveal">خمسة محاور.<br><span class="hi">تحول شامل.</span></h2>
+    <div class="pillars-grid reveal">
+      <div class="pillar" style="--c:#9b5cff"><div class="p-num">01</div><div class="p-icon">🏛</div><div class="p-en">Brand Authority</div><div class="p-ar">هيمنة العلامة الصناعية</div><ul class="p-list"><li>Brand Book رسمي</li><li>Company Profile عالمي</li><li>هوية بصرية موحدة</li><li>لغة هندسية احترافية</li></ul></div>
+      <div class="pillar" style="--c:#22d3ee"><div class="p-num">02</div><div class="p-icon">🎬</div><div class="p-en">Industrial Media</div><div class="p-ar">المحتوى المرئي الصناعي</div><ul class="p-list"><li>فيلم المصنع الرئيسي</li><li>فيديوهات العمليات</li><li>توثيق المشاريع</li><li>محتوى للمهندسين</li></ul></div>
+      <div class="pillar" style="--c:#f59e0b"><div class="p-num">03</div><div class="p-icon">📋</div><div class="p-en">Tender Readiness</div><div class="p-ar">الجاهزية للمناقصات</div><ul class="p-list"><li>Technical Proposal Template</li><li>صفحة Projects رسمية</li><li>Data Sheets تفصيلية</li><li>مكتبة شهادات رقمية</li></ul></div>
+      <div class="pillar" style="--c:#a78bfa"><div class="p-num">04</div><div class="p-icon">📊</div><div class="p-en">Market Value</div><div class="p-ar">رفع القيمة السوقية</div><ul class="p-list"><li>CRM لإدارة Pipeline</li><li>تقرير أداء سنوي</li><li>LinkedIn نشط مؤسسياً</li><li>نظام Lead Generation</li></ul></div>
+      <div class="pillar" style="--c:#34d399"><div class="p-num">05</div><div class="p-icon">🌍</div><div class="p-en">Regional Expansion</div><div class="p-ar">التوسع الإقليمي</div><ul class="p-list"><li>نسخة إنجليزية احترافية</li><li>منصات B2B دولية</li><li>معارض صناعية خليجية</li><li>حملات LinkedIn إقليمية</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA -->
+<section id="media">
+  <div class="s-inner">
+    <div class="s-tag">استراتيجية المحتوى المرئي</div>
+    <h2 class="s-title reveal">المصنع القوي<br><span class="hi">يُظهر قوته.</span></h2>
+    <div class="media-top">
+      <div class="reveal">
+        <p class="s-desc">الفارق بين شركة صناعية عادية وشركة <strong style="color:var(--purple3)">Tier-1</strong> عالمياً هو Industrial Storytelling. المشتري الصناعي اليوم يريد أن <strong style="color:var(--purple3)">يرى</strong> المصنع والمعدات والجودة — وليس مجرد قراءة كتالوج.</p>
+        <br>
+        <p class="s-desc" style="color:var(--dim)">كما تفعل Siemens وCaterpillar وHilti — نبني سمعتنا عبر محتوى مرئي صناعي يُثبت قدراتنا قبل أي اجتماع.</p>
+      </div>
+      <div class="reveal-x">
+        <div class="prod-phase glass">
+          <div class="prod-ph-label">المرحلة الأولى · 30 يوم</div>
+          <div class="prod-row"><span>Corporate Factory Film</span><strong>1 فيلم</strong></div>
+          <div class="prod-row"><span>تصوير احترافي للمصنع</span><strong>100+ صورة</strong></div>
+          <div class="prod-row"><span>مقاطع العمليات القصيرة</span><strong>15 فيديو</strong></div>
+        </div>
+        <div class="prod-phase glass">
+          <div class="prod-ph-label">المرحلة الثانية · 90 يوم</div>
+          <div class="prod-row"><span>LinkedIn Industrial Videos</span><strong>20 فيديو</strong></div>
+          <div class="prod-row"><span>فيديوهات تقنية للمهندسين</span><strong>10 فيديوهات</strong></div>
+          <div class="prod-row"><span>Project Case Study Videos</span><strong>5 فيديوهات</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="media-cards">
+      <div class="mcard glass reveal"><div class="mcard-num">01</div><div class="mcard-icon">🎥</div><h3>Corporate Factory Film</h3><p>الفيلم الرئيسي · 3–4 دقائق · يظهر خطوط الإنتاج والمختبر والجودة. أهم فيديو في الشركة.</p></div>
+      <div class="mcard glass reveal"><div class="mcard-num">02</div><div class="mcard-icon">⚙️</div><h3>Industrial Process Videos</h3><p>مقاطع تبني الثقة وتُظهر الكفاءة التقنية.</p><ul><li>Extrusion Process</li><li>Pressure Testing</li><li>Quality Inspection</li><li>Welding Systems</li></ul></div>
+      <div class="mcard glass reveal"><div class="mcard-num">03</div><div class="mcard-icon">🏗</div><h3>Project Case Studies</h3><p>توثيق كل مشروع بشكل احترافي للموقع وLinkedIn.</p><ul><li>اسم المشروع والجهة</li><li>نوع المواسير المستخدمة</li><li>الكمية والمدة الزمنية</li><li>صور ميدانية احترافية</li></ul></div>
+      <div class="mcard glass reveal"><div class="mcard-num">04</div><div class="mcard-icon">👨‍💻</div><h3>Engineer-Level Content</h3><p>محتوى تقني موجه للمهندسين يبني المصداقية.</p><ul><li>الفرق بين PPR وHDPE</li><li>عمر الأنابيب في الظروف القاسية</li><li>أنظمة اللحام الصحيحة</li><li>دليل التركيب والمعايير</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="s-inner">
+    <div class="s-tag">خارطة التنفيذ</div>
+    <h2 class="s-title reveal">12 شهراً.<br><span class="hi">4 مراحل. تحول كامل.</span></h2>
+    <div class="timeline">
+      <div class="phase reveal"><div class="ph-dot" style="--c:#9b5cff">1</div><div class="ph-badge" style="--c:#9b5cff">اليوم 0 – 60</div><div class="ph-title">Foundation</div><div class="ph-ar" style="color:#9b5cff">التأسيس</div><ul class="ph-list" style="--c:#9b5cff"><li>Brand Book رسمي</li><li>Company Profile عالمي</li><li>إعادة هيكلة الموقع</li><li>صفحة Projects</li><li>LinkedIn Company Page</li><li>تصوير المصنع</li><li>Corporate Factory Film</li></ul></div>
+      <div class="phase reveal"><div class="ph-dot" style="--c:#22d3ee">2</div><div class="ph-badge" style="--c:#22d3ee">اليوم 60 – 120</div><div class="ph-title">Activation</div><div class="ph-ar" style="color:#22d3ee">التنشيط</div><ul class="ph-list" style="--c:#22d3ee"><li>محتوى LinkedIn أسبوعي</li><li>فيديوهات العمليات</li><li>حملات B2B</li><li>CRM ونظام متابعة</li><li>ملف مناقصات احترافي</li><li>زيارات صناعية منظمة</li></ul></div>
+      <div class="phase reveal"><div class="ph-dot" style="--c:#a78bfa">3</div><div class="ph-badge" style="--c:#a78bfa">اليوم 120 – 180</div><div class="ph-title">Authority</div><div class="ph-ar" style="color:#a78bfa">بناء الهيبة</div><ul class="ph-list" style="--c:#a78bfa"><li>Project Case Study Videos</li><li>تقرير أداء سنوي</li><li>مكتبة المواصفات التقنية</li><li>شبكة علاقات صناعية</li><li>Engineer-Level Content</li></ul></div>
+      <div class="phase reveal"><div class="ph-dot" style="--c:#34d399">4</div><div class="ph-badge" style="--c:#34d399">شهر 6 – 12</div><div class="ph-title">Expansion</div><div class="ph-ar" style="color:#34d399">التوسع</div><ul class="ph-list" style="--c:#34d399"><li>نسخة تصدير احترافية</li><li>منصات B2B دولية</li><li>معارض صناعية خليجية</li><li>حملات LinkedIn إقليمية</li><li>شراكات استراتيجية</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- KPIs -->
+<section id="kpis">
+  <div class="s-inner">
+    <div class="s-tag">مؤشرات الأداء</div>
+    <h2 class="s-title reveal">نتائج قابلة<br><span class="hi">للقياس.</span></h2>
+    <div class="kpis-grid">
+      <div class="kpi glass reveal" style="--c:#9b5cff"><div class="kpi-icon">🎬</div><div class="kpi-val">50+</div><div class="kpi-period">خلال 12 شهر</div><div class="kpi-label">فيديو صناعي منشور</div></div>
+      <div class="kpi glass reveal" style="--c:#22d3ee"><div class="kpi-icon">🌐</div><div class="kpi-val">5K+</div><div class="kpi-period">خلال 12 شهر</div><div class="kpi-label">متابع LinkedIn صناعي</div></div>
+      <div class="kpi glass reveal" style="--c:#f59e0b"><div class="kpi-icon">📋</div><div class="kpi-val">+50%</div><div class="kpi-period">تحسن سنوي</div><div class="kpi-label">عدد المناقصات المقدمة</div></div>
+      <div class="kpi glass reveal" style="--c:#a78bfa"><div class="kpi-icon">🏗</div><div class="kpi-val">30+</div><div class="kpi-period">موثقة رسمياً</div><div class="kpi-label">مشروع في مكتبة المشاريع</div></div>
+      <div class="kpi glass reveal" style="--c:#34d399"><div class="kpi-icon">💼</div><div class="kpi-val">100+</div><div class="kpi-period">شهرياً</div><div class="kpi-label">عميل محتمل في Pipeline</div></div>
+      <div class="kpi glass reveal" style="--c:#fb923c"><div class="kpi-icon">🚀</div><div class="kpi-val">3+</div><div class="kpi-period">أسواق جديدة</div><div class="kpi-label">فرص تصدير خليجية</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="s-inner">
+    <div class="s-tag">الهيكل التنفيذي</div>
+    <h2 class="s-title reveal">فريق صغير.<br><span class="hi">أثر كبير.</span></h2>
+    <div class="team-wrap">
+      <div class="team-dir reveal"><h3>Brand & Marketing Director</h3><p>القائد التنفيذي لمشروع التحول · يرفع تقاريره مباشرة للإدارة العليا</p></div>
+      <div class="team-conn reveal"></div>
+      <div class="team-row">
+        <div class="tcard glass reveal"><div class="tcard-icon">📝</div><div class="tcard-role">Content Strategist</div><div class="tcard-desc">محتوى LinkedIn والمشاريع الرقمية</div></div>
+        <div class="tcard glass reveal"><div class="tcard-icon">🎥</div><div class="tcard-role">Industrial Videographer</div><div class="tcard-desc">إنتاج المحتوى المرئي الصناعي</div></div>
+        <div class="tcard glass reveal"><div class="tcard-icon">🎨</div><div class="tcard-role">Brand Designer</div><div class="tcard-desc">الهوية البصرية والمواد التسويقية</div></div>
+        <div class="tcard glass reveal"><div class="tcard-icon">📊</div><div class="tcard-role">CRM Coordinator</div><div class="tcard-desc">إدارة Pipeline والعلاقات الصناعية</div></div>
+      </div>
+      <div class="team-note reveal">يمكن أن يكون <span>Videographer وDesigner</span> بصيغة Freelance في البداية · البدء بـ <span>2–3 أشخاص</span> والتوسع التدريجي خلال 6 أشهر</div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section id="close">
+  <div class="close-orb"></div>
+  <div class="grid-bg" style="opacity:.25"></div>
+  <div class="close-inner">
+    <div class="s-tag" style="justify-content:center">القرار المطلوب</div>
+    <h2 class="close-title reveal">FROM MANUFACTURER<br>TO <span class="grad">MARKET LEADER.</span></h2>
+    <div class="close-quote reveal">
+      <strong>خلال الفترة الماضية درست موقعنا في السوق، واكتشفت أننا نمتلك مصنعاً قوياً لكن حضورنا السوقي لا يعكس هذه القوة.</strong>
+      السوق اليوم لا يكافئ المصنع فقط — بل يكافئ المصنع الذي يعرف كيف يُظهر قدراته.
+      <br><br>نحن لا نحتاج أن ننافس بالسعر… بل أن ننافس بالثقة والقوة الصناعية.
+    </div>
+    <div class="decisions">
+      <div class="dec reveal"><div class="dec-n">1</div><span>اعتماد مشروع التحول الاستراتيجي الشامل رسمياً</span></div>
+      <div class="dec reveal"><div class="dec-n">2</div><span>تعيين Brand & Marketing Director لقيادة المشروع</span></div>
+      <div class="dec reveal"><div class="dec-n">3</div><span>تشكيل فريق إعلام صناعي صغير للمحتوى المرئي</span></div>
+      <div class="dec reveal"><div class="dec-n">4</div><span>بدء التنفيذ الفعلي خلال 30 يوماً من الموافقة</span></div>
+    </div>
+    <div class="close-btns reveal">
+      <button class="cbtn-p" onclick="window.scrollTo({top:0,behavior:'smooth'})">العودة للبداية <span class="arr">↑</span></button>
+      <button class="cbtn-s" onclick="window.print()">طباعة / PDF ↓</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>I-TOP THERM · THERM INDUSTRY CO.</span>
+  <span>STRATEGIC TRANSFORMATION PLAN · 2026–2028</span>
+  <span>CONFIDENTIAL</span>
+</footer>
+
+<script>
+const io = new IntersectionObserver(e => {
+  e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible') });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal,.reveal-x').forEach(el => io.observe(el));
+
+['.pillars-grid .pillar','.kpis-grid .kpi','.media-cards .mcard',
+ '.timeline .phase','.team-row .tcard','.decisions .dec'].forEach(sel => {
+  document.querySelectorAll(sel).forEach((el,i) => {
+    el.style.transitionDelay = (i * 0.09) + 's';
+    el.classList.add('reveal');
+    io.observe(el);
+  });
+});
+
+const secs  = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if(scrollY >= s.offsetTop - 120) cur = s.id });
+  links.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#'+cur ? 'var(--text)' : '';
+  });
+});
+</script>
+</body>
+</html>
