@@ -240,20 +240,7 @@ nav{
 .cc-br{bottom:1rem;left:1rem}
 .cc-bl{bottom:1rem;right:1rem}
 
-/* scroll hint */
-.scroll-hint{
-  position:absolute;bottom:2.4rem;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:.4rem;
-  font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--dim);z-index:4;
-  opacity:0;animation:fadeUp .6s 1.2s ease forwards;
-  pointer-events:none;
-}
-.scroll-line{
-  width:1px;height:34px;
-  background:linear-gradient(var(--purple2),transparent);
-  animation:scrollDrop 1.6s 1.8s ease infinite;
-}
+
 
 /* ── SECTION GENERIC ── */
 section{position:relative;z-index:2;padding:8rem 3.5rem 6rem}
@@ -417,7 +404,7 @@ footer{position:relative;z-index:2;display:flex;align-items:center;justify-conte
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(1.65)}}
 @keyframes orbFloat{from{transform:translate(0,0) scale(1)}to{transform:translate(-28px,36px) scale(1.07)}}
-@keyframes scrollDrop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
@@ -442,7 +429,7 @@ footer{position:relative;z-index:2;display:flex;align-items:center;justify-conte
   .close-title{font-size: clamp(2.2rem, 9vw, 3.2rem);}
   .close-quote{font-size: 0.95rem; padding-right: 1rem; margin-bottom: 2rem;}
   .dec span{font-size: 0.85rem;}
-  .scroll-hint{bottom:-4rem;}
+
   footer{padding:1.5rem 1.2rem;flex-direction:column;gap:.8rem;text-align:center; font-size: 0.6rem;}
 }
 @media(max-width:480px){
@@ -515,7 +502,7 @@ footer{position:relative;z-index:2;display:flex;align-items:center;justify-conte
     </div>
   </div>
 
-  <div class="scroll-hint"><div class="scroll-line"></div>SCROLL</div>
+
 </section>
 
 <!-- DIAGNOSIS -->
