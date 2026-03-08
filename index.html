@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>I-TOP Therm — الخطة الاستراتيجية لتعزيز الحضور</title>
+<title>I-TOP Therm — التحول الاستراتيجي 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -23,6 +23,8 @@
   --muted:    #8b7fac;
   --dim:      #4a4165;
   --white:    #ffffff;
+  --success:  #10b981;
+  --error:    #ef4444;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
@@ -54,7 +56,7 @@ body::after{
 /* ── NAV ── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
-  display:flex;align-items:center;justify-content:center;
+  display:flex;align-items:center;justify-content:space-between;
   padding:0 3.5rem;height:66px;
   background:rgba(7,5,15,.8);
   backdrop-filter:blur(24px) saturate(150%);
@@ -70,54 +72,34 @@ nav{
   background:var(--purple2);
   box-shadow:0 0 10px var(--purple2),0 0 22px var(--glow);
 }
-.nav-links{display:none;gap:2rem;list-style:none}
+.nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{
   font-size:.78rem;font-weight:500;letter-spacing:.04em;
   color:var(--muted);text-decoration:none;transition:color .2s;
 }
 .nav-links a:hover{color:var(--text)}
-	.nav-cta{
-	  background:var(--purple);color:white;
-	  padding:.45rem 1.3rem;border-radius:100px;
-	  font-size:.78rem;font-weight:600;
-	  border:none;cursor:pointer;
-	  font-family:'IBM Plex Sans Arabic',sans-serif;
-	  box-shadow:0 0 20px var(--glow);
-	  transition:all .25s;
-	}
+.nav-cta{
+  background:var(--purple);color:white;
+  padding:.45rem 1.3rem;border-radius:100px;
+  font-size:.78rem;font-weight:600;
+  border:none;cursor:pointer;
+  font-family:'IBM Plex Sans Arabic',sans-serif;
+  box-shadow:0 0 20px var(--glow);
+  transition:all .25s;
+  text-decoration:none;
+}
 .nav-cta:hover{background:var(--purple2);box-shadow:0 0 30px var(--glow)}
 
-/* corner dots (Banky signature) */
-.cdot{
-  position:fixed;width:7px;height:7px;border-radius:50%;
-  background:rgba(124,58,237,.4);z-index:50;
-  box-shadow:0 0 6px rgba(124,58,237,.5);
-}
-
 /* ── HERO ── */
-#hero, .hero, .hero-section, .main-hero {
+#hero {
   position:relative;min-height:100vh;
   display:flex;align-items:center;
-  padding:56px 3.5rem 0 !important;overflow:hidden;z-index:2;
-  padding-top: 60px !important;
+  padding:120px 3.5rem 60px;overflow:hidden;z-index:2;
 }
-@media (max-width: 768px) {
-  #hero, .hero, .hero-section, .main-hero {
-    padding-top: 80px !important;
-  }
-}
-
 .orb-a{
   position:absolute;top:-18%;right:-8%;
   width:680px;height:680px;
   background:radial-gradient(circle,rgba(100,50,220,.32) 0%,rgba(75,18,175,.14) 40%,transparent 68%);
-  border-radius:50%;pointer-events:none;
-  animation:orbFloat 9s ease-in-out infinite alternate;
-}
-.orb-b{
-  position:absolute;bottom:-12%;left:3%;
-  width:380px;height:380px;
-  background:radial-gradient(circle,rgba(75,20,175,.18) 0%,transparent 65%);
   border-radius:50%;pointer-events:none;
 }
 .grid-bg{
@@ -132,607 +114,623 @@ nav{
   position:relative;z-index:3;
   max-width:1100px;width:100%;margin:0 auto;
   display:flex;flex-direction:column;
-  align-items:center;text-align:center;padding-top:4.5rem;
+  align-items:center;text-align:center;
 }
-/* ─ left ─ */
-.hero-tag, .badge {
+.hero-tag {
   display:inline-flex;align-items:center;gap:.5rem;
   font-size:.7rem;font-weight:600;letter-spacing:.14em;
   text-transform:uppercase;color:var(--purple3);
   background:rgba(124,58,237,.1);
   border:1px solid rgba(124,58,237,.28);
-  padding:.3rem .95rem;border-radius:100px;margin-top:8px !important;margin-bottom:18px !important;
-  opacity:0;animation:fadeUp .6s .1s ease forwards;
-}
-.hero-tag::before{
-  content:'';width:5px;height:5px;background:var(--purple2);
-  border-radius:50%;animation:pulse 2s infinite;
+  padding:.3rem .95rem;border-radius:100px;margin-bottom:1.5rem;
 }
 .hero-h1{
-  font-family:'IBM Plex Sans Arabic',sans-serif;
   font-weight:900;
-  font-size:clamp(2.5rem,5vw,4rem);
-  line-height:1.2;letter-spacing:-.02em;
-  color:var(--white);margin-top:0 !important;margin-bottom:16px !important;
-  opacity:0;animation:fadeUp .8s .25s ease forwards;
+  font-size:clamp(2.5rem,6vw,4.5rem);
+  line-height:1.1;letter-spacing:-.02em;
+  color:var(--white);margin-bottom:1.5rem;
 }
-.hero-h1 .grad{
-  background:linear-gradient(130deg,var(--purple2),var(--purple3));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;
-  display: block;
-  margin-top: 0.5rem;
+.hero-h1 span.purple {
+  color: var(--purple2);
 }
 .hero-sub{
-  font-size:.98rem;color:#E5E7EB;line-height:1.78;
-  max-width:600px;margin-bottom:20px !important;
-  opacity:0;animation:fadeUp .8s .42s ease forwards;
+  font-size:1.1rem;color:#E5E7EB;line-height:1.6;
+  max-width:700px;margin-bottom:2.5rem;
 }
-.hero-actions{
-  display:flex;justify-content:center;align-items:center;gap:1.2rem;flex-wrap:wrap;
-  opacity:0;animation:fadeUp .8s .58s ease forwards;
+.hero-stats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.btn-hero{
+.stat-card {
+  text-align: center;
+}
+.stat-val {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--white);
+  display: block;
+  line-height: 1;
+}
+.stat-lbl {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+.btn-primary {
   display:inline-flex;align-items:center;gap:.65rem;
-  background:var(--white);color:var(--bg);
-  padding:.75rem 1.7rem;border-radius:100px;
-  font-size:.86rem;font-weight:600;
-  border:none;cursor:pointer;font-family:'IBM Plex Sans Arabic',sans-serif;
+  background:var(--purple);color:white;
+  padding:1rem 2rem;border-radius:100px;
+  font-size:1rem;font-weight:600;
+  border:none;cursor:pointer;text-decoration:none;
   transition:all .25s;
-  position:relative;
-  animation:heroBtnPulse 3s infinite ease-in-out;
+  box-shadow:0 0 20px var(--glow);
 }
-.btn-hero::after{
-  content:'';position:absolute;inset:-4px;
-  background:var(--purple);border-radius:100px;
-  filter:blur(15px);opacity:.4;z-index:-1;
-  animation:glowPulse 3s infinite ease-in-out;
-}
-@keyframes heroBtnPulse {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-@keyframes glowPulse {
-  0%, 100% { opacity: .3; transform: scale(1); }
-  50% { opacity: .6; transform: scale(1.05); }
-}
-.btn-hero .arr{
-  width:26px;height:26px;border-radius:50%;
-  background:var(--purple);color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  font-size:.68rem;transition:background .2s;
-}
-.btn-hero:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,0,0,.38)}
-.btn-hero:hover .arr{background:var(--purple2)}
-.hero-note{
-  display:flex;align-items:center;gap:.45rem;
-  font-size:.84rem;color:var(--muted);
-}
-.hero-note .star{color:#f5a623}
-/* ─ right card ─ */
-.hero-card{
-  background:rgba(255,255,255,.04);
-  border:1px solid var(--border2);
-  backdrop-filter:blur(20px);
-  border-radius:20px;padding:2rem;
-  position:relative;overflow:hidden;
-  opacity:0;animation:fadeUp .9s .55s ease forwards;
-}
-.hero-card::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(124,58,237,.08),transparent 55%);
-  pointer-events:none;
-}
-.hc-label{
-  font-size:.65rem;font-weight:700;letter-spacing:.15em;
-  text-transform:uppercase;color:var(--purple3);margin-bottom:1rem;
-}
-.hc-grid{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:1px;background:var(--border);
-  border:1px solid var(--border);
-  border-radius:12px;overflow:hidden;margin-bottom:1rem;
-}
-.hc-stat{
-  background:var(--surface);
-  padding:1.2rem 1rem;text-align:center;
-}
-.hc-val{
-  font-family:'IBM Plex Sans Arabic',sans-serif;
-  font-size:2.3rem;font-weight:900;
-  background:linear-gradient(130deg,var(--purple2),var(--purple3));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;line-height:1;
-}
-.hc-lbl{font-size:.7rem;color:var(--muted);margin-top:.3rem;font-weight:500}
-.hc-badge{
-  display:flex;align-items:flex-start;gap:.7rem;
-  background:rgba(124,58,237,.1);
-  border:1px solid rgba(124,58,237,.25);
-  border-radius:12px;padding:.85rem 1rem;
-}
-.hc-badge-dot{
-  width:8px;height:8px;flex-shrink:0;border-radius:50%;
-  background:var(--purple2);margin-top:.35rem;
-  animation:pulse 2s infinite;
-}
-.hc-badge p{font-size:.8rem;color:var(--muted);line-height:1.5}
-.hc-badge p strong{color:var(--text);font-weight:600}
-/* card corner dots */
-.cc{position:absolute;width:7px;height:7px;border-radius:50%;background:rgba(124,58,237,.35)}
-.cc-tr{top:1rem;left:1rem}
-.cc-tl{top:1rem;right:1rem}
-.cc-br{bottom:1rem;left:1rem}
-.cc-bl{bottom:1rem;right:1rem}
-
-
-
-/* ── SECTION GENERIC ── */
-section{position:relative;z-index:2;padding:8rem 3.5rem 6rem}
-.s-inner{max-width:1100px;margin:0 auto}
-.s-tag{
-  display:inline-flex;align-items:center;gap:.5rem;
-  font-size:.67rem;font-weight:700;letter-spacing:.17em;
-  text-transform:uppercase;color:var(--purple3);
-  margin-bottom:1.1rem;
-}
-.s-tag::before{content:'';width:16px;height:1px;background:var(--purple2)}
-.s-title{
-  font-family:'IBM Plex Sans Arabic',sans-serif;
-  font-size:clamp(2.5rem,5vw,3.8rem);
-  font-weight:900;line-height:1.1;color:var(--white);margin-bottom:1.2rem;
-}
-.s-title .hi{
-  background:linear-gradient(130deg,var(--purple2),var(--purple3));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-.s-desc{font-size:.95rem;color:#E5E7EB;line-height:1.78;max-width:600px}
-
-/* glass card */
-.glass{
-  background:rgba(255,255,255,.03);
-  border:1px solid var(--border);
-  backdrop-filter:blur(12px);border-radius:16px;
-  transition:border-color .3s,transform .3s,box-shadow .3s;
-}
-.glass:hover{
-  border-color:rgba(124,58,237,.42);
-  transform:translateY(-5px);
-  box-shadow:0 12px 40px rgba(0,0,0,.3);
+.btn-primary:hover {
+  background:var(--purple2);
+  transform:translateY(-2px);
+  box-shadow:0 0 30px var(--glow);
 }
 
-/* ── TASK 2: Market Cards Custom CSS ── */
-.market-card {
-  margin-bottom: 20px;
-  padding: 22px !important;
+/* ── SECTIONS ── */
+section {
+  padding: 8rem 3.5rem;
+  position: relative;
+  z-index: 2;
 }
-.card-title {
-  font-size: 18px !important;
-  font-weight: 600 !important;
-  margin-bottom: 8px;
+.s-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.s-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--purple3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
   display: block;
 }
-.card-description {
-  font-size: 14px !important;
-  line-height: 1.7 !important;
-  color: #E5E7EB !important;
+.s-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+.s-desc {
+  font-size: 1.1rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 800px;
+  margin-bottom: 3rem;
+}
+
+/* ── MARKET REALITY ── */
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+.market-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  border-radius: 16px;
+  transition: transform 0.3s;
+}
+.market-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border2);
+}
+.market-card h3 {
+  font-size: 1.25rem;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+.market-card p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ── DIAGNOSIS ── */
+.diag-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.diag-box {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2.5rem;
+}
+.diag-box h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.diag-box.success h3 { color: var(--success); }
+.diag-box.error h3 { color: var(--error); }
+.diag-list {
+  list-style: none;
+}
+.diag-list li {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+.diag-list li::before {
+  content: '•';
+  color: var(--purple2);
+  font-weight: bold;
+}
+
+/* ── STRATEGIC GAP ── */
+.gap-section {
+  background: var(--bg2);
+  text-align: center;
+  padding: 6rem 3.5rem;
+}
+.gap-text {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--white);
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.4;
+}
+.gap-highlight {
+  color: var(--purple2);
+  display: block;
+  margin-top: 1rem;
 }
 
 /* ── PILLARS ── */
-.pillars-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:1.5rem;margin-top:4rem;
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
-.pillar{
-  background:rgba(255,255,255,.02);
-  border:1px solid var(--border);
-  padding:2.2rem;border-radius:20px;
-  position:relative;overflow:hidden;
-  transition:all .4s cubic-bezier(.23,1,.32,1);
+.pillar-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
 }
-.pillar:hover{
-  background:rgba(255,255,255,.05);
-  border-color:var(--c);
-  transform:translateY(-8px);
+.pillar-num {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  font-size: 4rem;
+  font-weight: 900;
+  color: rgba(124,58,237,0.1);
+  line-height: 1;
 }
-.pillar::before{
-  content:'';position:absolute;top:0;right:0;width:80px;height:80px;
-  background:radial-gradient(circle at top right,var(--c),transparent 70%);
-  opacity:.15;transition:opacity .3s;
+.pillar-card h3 {
+  font-size: 1.4rem;
+  color: var(--white);
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
 }
-.pillar:hover::before{opacity:.3}
-.p-num{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:3.5rem;font-weight:900;color:var(--white);
-  opacity:.06;position:absolute;top:1rem;left:1.5rem;
+.pillar-card p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
 }
-.p-icon{font-size:2rem;margin-bottom:1.5rem;position:relative}
-.p-en{
-  font-size:.65rem;font-weight:700;letter-spacing:.15em;
-  text-transform:uppercase;color:var(--muted);margin-bottom:.3rem;
+.pillar-list {
+  list-style: none;
+  font-size: 0.85rem;
+  color: var(--text);
 }
-.p-ar{font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:1rem}
-.p-list{list-style:none;margin-top:1.2rem}
-.p-list li{
-  font-size:.82rem;color:var(--muted);margin-bottom:.6rem;
-  display:flex;align-items:center;gap:.6rem;
+.pillar-list li {
+  margin-bottom: 0.5rem;
+  padding-right: 1.2rem;
+  position: relative;
 }
-.p-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--c)}
+.pillar-list li::before {
+  content: '→';
+  position: absolute;
+  right: 0;
+  color: var(--purple2);
+}
 
-/* ── DIAG ── */
-.diag-grid{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:2rem;margin-top:4rem;
+/* ── FRAMEWORK ── */
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 3rem;
 }
-.diag-panel{padding:2.5rem}
-.diag-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem}
-.diag-ht{font-size:1.1rem;font-weight:700}
-.diag-en{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
-.d-row{display:flex;align-items:flex-start;gap:.9rem;margin-bottom:1.2rem;font-size:.9rem;color:var(--muted)}
-.d-dot{width:6px;height:6px;border-radius:50%;margin-top:.55rem;flex-shrink:0}
-.dg{background:#10b981;box-shadow:0 0 8px #10b981}
-.dr{background:#ef4444;box-shadow:0 0 8px #ef4444}
-
-/* ── VISION ── */
-.vis-grid{
-  display:grid;grid-template-columns:1.2fr 1fr;
-  gap:5rem;margin-top:4.5rem;align-items:center;
+.phase-card {
+  background: var(--surface2);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-top: 4px solid var(--purple);
 }
-.v-from{background:var(--surface);padding:1.5rem;border-radius:12px;border:1px solid var(--border)}
-.v-lbl{font-size:.6rem;font-weight:700;text-transform:uppercase;margin-bottom:.5rem;letter-spacing:.1em}
-.v-txt{font-size:1.2rem;font-weight:700}
-.m{color:var(--purple3)}
-.v-arrow{font-size:2rem;color:var(--dim);margin:.5rem 0}
-.why-list{display:flex;flex-direction:column;gap:1.2rem}
-.why-item{display:flex;gap:1.2rem;padding:1.5rem}
-.w-icon{font-size:1.5rem;flex-shrink:0;margin-top:.2rem}
-.why-item h4{font-size:1rem;margin-bottom:.3rem;color:var(--white)}
-.why-item p{font-size:.85rem;color:var(--muted);line-height:1.6}
-
-/* ── MEDIA ── */
-.media-top{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:4rem}
-.prod-phase{padding:1.8rem;margin-bottom:1rem}
-.prod-ph-label{font-size:.65rem;font-weight:700;color:var(--purple3);margin-bottom:1rem;text-transform:uppercase}
-.prod-row{font-size:.85rem;margin-bottom:.7rem;display:flex;align-items:center;gap:.6rem}
-.prod-row::before{content:'→';color:var(--purple2)}
-.media-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
-.mcard{padding:2rem;text-align:center}
-.mcard-num{font-size:.7rem;font-weight:700;color:var(--dim);margin-bottom:1rem}
-.mcard-icon{font-size:2rem;margin-bottom:1.2rem}
-.mcard h3{font-size:1rem;margin-bottom:.8rem}
-.mcard p{font-size:.8rem;color:var(--muted);line-height:1.6}
-
-/* ── ROADMAP ── */
-.timeline{display:flex;flex-direction:column;gap:2rem;margin-top:4rem}
-.phase{
-  display:grid;grid-template-columns:60px 140px 140px 1fr 1.5fr;
-  align-items:center;gap:2rem;padding:1.8rem 2.5rem;
-  background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:100px;
+.phase-card h4 {
+  font-size: 0.8rem;
+  color: var(--purple3);
+  margin-bottom: 0.5rem;
 }
-.ph-dot{
-  width:44px;height:44px;border-radius:50%;background:var(--bg2);
-  border:2px solid var(--c);display:flex;align-items:center;justify-content:center;
-  font-weight:900;color:var(--white);font-size:1.1rem;
+.phase-card h3 {
+  font-size: 1.1rem;
+  color: var(--white);
+  margin-bottom: 1rem;
 }
-.ph-badge{
-  font-size:.65rem;font-weight:700;padding:.3rem .8rem;
-  border-radius:100px;border:1px solid var(--c);text-align:center;
+.phase-list {
+  list-style: none;
+  font-size: 0.8rem;
+  color: var(--muted);
 }
-.ph-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:.05em}
-.ph-ar{font-weight:700;font-size:1rem}
-.ph-list{display:flex;flex-wrap:wrap;gap:x .8rem;list-style:none}
-.ph-list li{font-size:.75rem;color:var(--muted)}
-.ph-list li::after{content:'·';margin-right:.8rem;color:var(--c)}
+.phase-list li {
+  margin-bottom: 0.4rem;
+}
 
 /* ── KPIs ── */
-.kpis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem}
-.kpi{padding:2.2rem;border-radius:20px;position:relative}
-.kpi-icon{font-size:1.8rem;margin-bottom:1.2rem}
-.kpi-label{font-size:1rem;font-weight:700;margin-bottom:.8rem;color:var(--white)}
-.metric-description{font-size:.82rem;color:var(--muted);line-height:1.6}
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+.kpi-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  border-radius: 16px;
+  text-align: center;
+}
+.kpi-card h4 {
+  font-size: 1.2rem;
+  color: var(--purple2);
+  margin-bottom: 0.5rem;
+}
+.kpi-card p {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
 
 /* ── TEAM ── */
-.team-wrap{text-align:center;margin-top:2rem}
-.team-dir{
-  display:inline-block;padding:2rem 3rem;background:var(--surface2);
-  border:1px solid var(--purple2);border-radius:16px;margin-bottom:3rem;
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
 }
-.team-dir h3{font-size:1.2rem;margin-bottom:.5rem}
-.team-dir p{font-size:.85rem;color:var(--muted)}
-.team-conn{width:2px;height:40px;background:var(--purple);margin:0 auto 0;opacity:.4}
-.team-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.tcard{padding:2rem}
-.tcard-icon{font-size:1.5rem;margin-bottom:1rem}
-.tcard-role{font-weight:700;margin-bottom:.5rem}
-.tcard-desc{font-size:.8rem;color:var(--muted)}
-.team-note{margin-top:3rem;font-size:.85rem;color:var(--dim)}
-
-/* ── CLOSE ── */
-#close{padding:10rem 3.5rem;text-align:center;overflow:hidden}
-.close-orb{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:800px;height:800px;background:radial-gradient(circle,rgba(124,58,237,.15) 0%,transparent 70%);
-  pointer-events:none;
+.team-card {
+  background: var(--surface);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
 }
-.close-inner{position:relative;z-index:3;max-width:800px;margin:0 auto}
-.close-title{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;line-height:1;margin-bottom:2.5rem}
-.close-quote{font-size:1.2rem;line-height:1.7;color:var(--muted);margin-bottom:3.5rem}
-.close-quote strong{color:var(--text);display:block;margin-bottom:1rem}
-.decisions{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:4rem;text-align:right}
-.dec{display:flex;align-items:center;gap:1.2rem;padding:1.2rem 1.8rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px}
-.dec-n{width:28px;height:28px;border-radius:50%;background:var(--purple);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:900;flex-shrink:0}
-.close-btns{display:flex;justify-content:center;gap:1.5rem}
-.cbtn-p{background:var(--white);color:var(--bg);padding:.9rem 2.2rem;border-radius:100px;font-weight:700;border:none;cursor:pointer;transition:all .3s}
-.cbtn-s{background:transparent;color:var(--white);padding:.9rem 2.2rem;border-radius:100px;font-weight:700;border:1px solid var(--border);cursor:pointer;transition:all .3s}
-.cbtn-p:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(255,255,255,.2)}
-
-footer{
-  padding:4rem 3.5rem;border-top:1px solid var(--border);
-  display:flex;justify-content:space-between;font-size:.65rem;
-  color:var(--dim);letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+.team-card h3 {
+  font-size: 1.1rem;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.team-card p {
+  font-size: 0.85rem;
+  color: var(--muted);
 }
 
-/* ── ANIMATIONS ── */
-@keyframes orbFloat{
-  0%{transform:translate(0,0) scale(1)}
-  100%{transform:translate(-30px,40px) scale(1.05)}
-}
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(30px)}
-  to{opacity:1;transform:translateY(0)}
-}
-@keyframes pulse{
-  0%{transform:scale(1);opacity:1}
-  50%{transform:scale(1.5);opacity:.5}
-  100%{transform:scale(1);opacity:1}
+/* ── FOOTER ── */
+footer {
+  padding: 4rem 3.5rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--dim);
+  font-size: 0.8rem;
 }
 
-.reveal{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.23,1,.32,1)}
-.reveal-x{opacity:0;transform:translateX(30px);transition:all .8s cubic-bezier(.23,1,.32,1)}
-.reveal.visible, .reveal-x.visible{opacity:1;transform:translate(0,0)}
-
-@media (max-width: 1024px) {
-  nav{padding:0 1.5rem}
-  section{padding:6rem 1.5rem}
-  .diag-grid, .vis-grid, .media-top{grid-template-columns:1fr;gap:3rem}
-  .media-cards, .kpis-grid, .team-row{grid-template-columns:1fr 1fr}
-  .phase{grid-template-columns:50px 1fr;border-radius:24px;padding:1.5rem}
-  .decisions{grid-template-columns:1fr}
-}
-@media (max-width: 640px) {
-  .media-cards, .kpis-grid, .team-row{grid-template-columns:1fr}
-  .close-btns{flex-direction:column}
+@media (max-width: 768px) {
+  nav { padding: 0 1.5rem; }
+  section { padding: 4rem 1.5rem; }
+  .diag-grid { grid-template-columns: 1fr; }
+  .timeline { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
 }
 </style>
 </head>
 <body>
-
-<div class="cdot" style="top:2rem;left:2rem"></div>
-<div class="cdot" style="bottom:3rem;right:4rem"></div>
 
 <nav>
   <div class="nav-logo">
     <div class="nav-dot"></div>
     I-TOP THERM
   </div>
+  <ul class="nav-links">
+    <li><a href="#hero">الرئيسية</a></li>
+    <li><a href="#market">السوق</a></li>
+    <li><a href="#pillars">المحاور</a></li>
+    <li><a href="#roadmap">الخطة</a></li>
+  </ul>
+  <a href="dashboard.html" class="nav-cta">لوحة البيانات التفاعلية</a>
 </nav>
 
 <!-- HERO -->
-<section id="hero" class="main-hero">
+<section id="hero">
   <div class="orb-a"></div>
-  <div class="orb-b"></div>
   <div class="grid-bg"></div>
-    <div class="hero-inner">
-      <div class="hero-content">
-        <div class="hero-tag badge">مشروع التحول الاستراتيجي · 2026</div>
-        <h1 class="hero-h1">تعزيز الحضور الصناعي لشركة<br><span class="grad">I-TOP Therm</span></h1>
-        <p class="hero-sub">خطة استراتيجية متكاملة تهدف إلى تطوير الهوية المؤسسية والتوثيق الصناعي لتعزيز الثقة في السوق ورفع الحصة السوقية في مشاريع البنية التحتية.</p>
-        <div class="hero-actions">
-          <button class="btn-hero" onclick="document.getElementById('diagnosis').scrollIntoView({behavior:'smooth'})">
-            استكشاف الخطة <span class="arr">←</span>
-          </button>
-        </div>
+  <div class="hero-inner">
+    <div class="hero-tag">خطة التحول الاستراتيجي 2026</div>
+    <h1 class="hero-h1">من مصنع أنابيب إلى<br><span class="purple">شريك حلول للبنية التحتية</span></h1>
+    <p class="hero-sub">خطة تنفيذية لمدة 12 شهراً لتعزيز الحضور الصناعي وبناء الجاهزية للمشاريع الكبرى في المملكة العربية السعودية.</p>
+    
+    <div class="hero-stats">
+      <div class="stat-card">
+        <span class="stat-val">15,000</span>
+        <span class="stat-lbl">طن إنتاج سنوي</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-val">9</span>
+        <span class="stat-lbl">خطوط إنتاج مؤتمتة</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-val">95%</span>
+        <span class="stat-lbl">نسبة الأتمتة الصناعية</span>
       </div>
     </div>
+
+    <div class="hero-actions">
+      <a href="#pillars" class="btn-primary">استعراض الخطة الاستراتيجية ←</a>
+    </div>
+  </div>
 </section>
 
-<!-- STRATEGIC GOALS -->
-<section id="goals" style="background:var(--bg2)">
+<!-- MARKET REALITY -->
+<section id="market" style="background: var(--bg2);">
   <div class="s-inner">
-    <div class="s-tag">الأهداف الاستراتيجية</div>
-    <h2 class="s-title reveal">أهداف واضحة.<br><span class="hi">نمو مستدام.</span></h2>
-    <div class="pillars-grid reveal">
-      <!-- CARD 1 -->
-      <div class="pillar" style="--c:#9b5cff">
-        <div class="p-num">12</div>
-        <div class="p-icon">📅</div>
-        <div class="p-ar">مدة تنفيذ البرنامج</div>
-        <p class="s-desc">برنامج تطوير استراتيجي لمدة 12 شهر يهدف إلى تعزيز مكانة المصنع في مشاريع البنية التحتية والقطاع الصناعي.</p>
+    <span class="s-tag">واقع السوق</span>
+    <h2 class="s-title">واقع السوق الصناعي في المملكة</h2>
+    <p class="s-desc">تشهد المملكة اليوم أكبر موجة استثمار في البنية التحتية في تاريخها، مما يفتح آفاقاً غير مسبوقة للمصانع الوطنية المؤهلة.</p>
+    
+    <div class="market-grid">
+      <div class="market-card">
+        <h3>توسع مشاريع البنية التحتية</h3>
+        <p>تضخ مئات المليارات في مشاريع المياه والطاقة والإسكان ضمن رؤية 2030.</p>
       </div>
-      <!-- CARD 2 -->
-      <div class="pillar" style="--c:#22d3ee">
-        <div class="p-num">5</div>
-        <div class="p-icon">🎯</div>
-        <div class="p-ar">محاور التطوير</div>
-        <p class="s-desc">خمسة محاور رئيسية تشمل تعزيز العلامة الصناعية، تطوير المحتوى الفني، وبناء حضور قوي في السوق.</p>
+      <div class="market-card">
+        <h3>ارتفاع معايير التأهيل</h3>
+        <p>المناقصات الكبرى لم تعد تكتفي بالسعر، بل تتطلب توثيقاً فنياً وحضوراً مؤسسياً قوياً.</p>
       </div>
-      <!-- CARD 3 -->
-      <div class="pillar" style="--c:#f59e0b">
-        <div class="p-icon">🏆</div>
-        <div class="p-ar">تعزيز حضور المصنع في السوق</div>
-        <p class="s-desc">رفع مستوى ظهور المصنع أمام شركات المقاولات والمكاتب الاستشارية وصناع القرار في المشاريع الكبرى.</p>
+      <div class="market-card">
+        <h3>تصاعد المنافسة المحلية</h3>
+        <p>المصانع التي لا تبني حضوراً واضحاً ستجد نفسها في حرب أسعار مستنزفة.</p>
       </div>
-      <!-- CARD 4 -->
-      <div class="pillar" style="--c:#34d399">
-        <div class="p-icon">📈</div>
-        <div class="p-ar">توسيع الحصة السوقية</div>
-        <p class="s-desc">تعزيز فرص الشركة في مشاريع البنية التحتية وشبكات المياه والصرف داخل المملكة.</p>
+      <div class="market-card">
+        <h3>التحول نحو الشريك التقني</h3>
+        <p>المهندسون يبحثون عن شريك تقني ومستشار، وليس مجرد مورد للمواد.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DIAGNOSIS -->
+<!-- CURRENT REALITY -->
 <section id="diagnosis">
   <div class="s-inner">
-    <div class="s-tag">التشخيص التنفيذي</div>
-    <h2 class="s-title reveal">تمتلك شركة I-TOP Therm بنية تصنيع متقدمة وقدرات إنتاجية عالية تلبي متطلبات المشاريع الكبرى.</h2>
-    <p class="s-desc reveal">لكن حضور الشركة في السوق لا يعكس بعد حجم هذه القدرات الصناعية. الفجوة ليست في التصنيع، بل في التموضع الصناعي وصورة الشركة في السوق.</p>
+    <span class="s-tag">التشخيص الحالي</span>
+    <h2 class="s-title">الواقع الحالي: فجوة الإدراك</h2>
+    <p class="s-desc">يمتلك المصنع قدرات إنتاجية حقيقية، لكن ما يراه السوق لا يعكس حجم هذه الإمكانيات.</p>
+    
     <div class="diag-grid">
-      <div class="diag-panel glass reveal">
-        <div class="diag-head">
-          <span class="diag-ht tg">✅ &nbsp;نقاط القوة</span>
-          <span class="diag-en">Strengths</span>
-        </div>
-        <div class="d-row"><div class="d-dot dg"></div><span>تصنيع سعودي بالكامل وفق أعلى المعايير الصناعية</span></div>
-        <div class="d-row"><div class="d-dot dg"></div><span>طاقة إنتاجية تتجاوز 15,000 طن سنوياً</span></div>
-        <div class="d-row"><div class="d-dot dg"></div><span>9 خطوط إنتاج مؤتمتة بنسبة 95%</span></div>
-        <div class="d-row"><div class="d-dot dg"></div><span>منتجات متكاملة تشمل: PPR / HDPE / UPVC</span></div>
-        <div class="d-row"><div class="d-dot dg"></div><span>شهادات جودة دولية ISO 9001 / ISO 14001 / SASO</span></div>
-        <div class="d-row"><div class="d-dot dg"></div><span>توريد لمشاريع كبرى داخل المملكة</span></div>
-        <div class="d-row"><div class="d-dot dg"></div><span>ضمان يصل إلى 25 سنة على منتجات PPR</span></div>
+      <div class="diag-box success">
+        <h3>ما يمتلكه المصنع</h3>
+        <ul class="diag-list">
+          <li>تصنيع سعودي بالكامل وفق أعلى المعايير</li>
+          <li>طاقة إنتاجية تتجاوز 15,000 طن سنوياً</li>
+          <li>9 خطوط إنتاج مؤتمتة بنسبة 95%</li>
+          <li>منتجات متكاملة: PPR / HDPE / UPVC</li>
+          <li>شهادات جودة دولية: ISO / SASO</li>
+          <li>ضمان يصل إلى 25 سنة على المنتجات</li>
+        </ul>
       </div>
-      <div class="diag-panel glass reveal">
-        <div class="diag-head">
-          <span class="diag-ht tr">❌ &nbsp;الفجوات الاستراتيجية</span>
-          <span class="diag-en">Strategic Gaps</span>
-        </div>
-        <div class="d-row"><div class="d-dot dr"></div><span>غياب Brand Book وهوية مؤسسية موحدة</span></div>
-        <div class="d-row"><div class="d-dot dr"></div><span>عدم وجود Company Profile احترافي يعكس قدرات المصنع</span></div>
-        <div class="d-row"><div class="d-dot dr"></div><span>عدم وجود توثيق مؤسسي يعكس خبرة المصنع في المشاريع</span></div>
-        <div class="d-row"><div class="d-dot dr"></div><span>عدم وجود صفحة مشاريع توثق الخبرة الصناعية</span></div>
-        <div class="d-row"><div class="d-dot dr"></div><span>ضعف الحضور المؤسسي على LinkedIn</span></div>
-        <div class="d-row"><div class="d-dot dr"></div><span>غياب حضور صناعي مؤثر يعكس قدرات المصنع</span></div>
+      <div class="diag-box error">
+        <h3>ما لا يراه السوق</h3>
+        <ul class="diag-list">
+          <li>لا يوجد ملف مؤسسي يعكس حجم القدرات</li>
+          <li>المشاريع المنفذة غير موثقة - السوق لا يعلم عنها</li>
+          <li>الحضور الرقمي لا يتناسب مع حجم المصنع</li>
+          <li>لا توجد مواد فنية جاهزة للمناقصات الكبرى</li>
+          <li>ظهور ضعيف في الشبكات المهنية الهندسية</li>
+          <li>لا توجد هوية مؤسسية موحدة تعكس المكانة</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- VISION -->
-<section id="vision" style="background:var(--bg2)">
-  <div class="s-inner">
-    <div class="s-tag">التحول الاستراتيجي</div>
-    <h2 class="s-title reveal">التحول الاستراتيجي</h2>
-    <div class="vis-grid">
-      <div class="reveal" style="display:flex;flex-direction:column;gap:1.2rem">
-        <div class="v-from"><div class="v-lbl m">From Manufacturer</div><div class="v-txt m">To Infrastructure Solutions Partner</div></div>
-        <div class="v-arrow">↓</div>
-        <p class="s-desc" style="margin-top:1rem">الهدف هو نقل صورة الشركة من مصنع منتجات إلى شريك صناعي موثوق يدعم مشاريع البنية التحتية في المملكة.</p>
-      </div>
-      <div class="why-list reveal-x">
-        <div class="why-item glass market-card"><div class="w-icon">🏗</div><div><h4 class="card-title">واقع السوق</h4><p class="card-description">تشهد مشاريع البنية التحتية في المملكة نمواً متسارعاً مدفوعاً بمبادرات رؤية 2030.</p></div></div>
-        <div class="why-item glass market-card"><div class="w-icon">📈</div><div><h4 class="card-title">فرص الفوز بالمشاريع</h4><p class="card-description">الشركات التي تبني سمعة صناعية قوية وتوثق قدراتها بشكل احترافي هي الأكثر قدرة على الفوز بالمشاريع الكبرى.</p></div></div>
-        <div class="why-item glass market-card"><div class="w-icon">🏆</div><div><h4 class="card-title">بناء الحضور</h4><p class="card-description">بناء هذا الحضور يمثل فرصة حقيقية لشركة I-TOP Therm لتعزيز موقعها في السوق.</p></div></div>
-      </div>
-    </div>
+<!-- STRATEGIC GAP -->
+<div class="gap-section">
+  <div class="gap-text">
+    الفجوة ليست في الإنتاج.. الفجوة في كيفية تقديم هذا الإنتاج أمام صناع القرار.
+    <span class="gap-highlight">المقاولون والمهندسون لا يرون ما يكفي ليقرروا الشراكة.</span>
   </div>
-</section>
+</div>
 
 <!-- PILLARS -->
 <section id="pillars">
   <div class="s-inner">
-    <div class="s-tag">محاور الخطة الاستراتيجية</div>
-    <h2 class="s-title reveal">خمسة محاور.<br><span class="hi">تحول شامل.</span></h2>
-    <div class="pillars-grid reveal">
-      <div class="pillar" style="--c:#9b5cff"><div class="p-num">01</div><div class="p-icon">🏛</div><div class="p-en">Brand Authority</div><div class="p-ar">تعزيز قوة العلامة الصناعية</div><p class="s-desc" style="font-size:0.8rem;margin-bottom:1rem">بناء هوية مؤسسية قوية تعكس مكانة الشركة الصناعية في السوق.</p><ul class="p-list"><li>Brand Book رسمي</li><li>Company Profile عالمي</li><li>هوية بصرية موحدة</li><li>لغة هندسية احترافية</li></ul></div>
-      <div class="pillar" style="--c:#22d3ee"><div class="p-num">02</div><div class="p-icon">🎬</div><div class="p-en">Industrial Media</div><div class="p-ar">التوثيق المرئي للقدرات الصناعية</div><p class="s-desc" style="font-size:0.8rem;margin-bottom:1rem">إنتاج محتوى مرئي احترافي يهدف إلى توثيق عمليات التصنيع وجودة المنتجات وتطبيقاتها في المشاريع.</p><ul class="p-list"><li>Corporate Factory Film</li><li>تصوير فوتوغرافي صناعي</li><li>فيديوهات العمليات</li><li>توثيق المشاريع</li></ul></div>
-      <div class="pillar" style="--c:#f59e0b"><div class="p-num">03</div><div class="p-icon">📝</div><div class="p-en">Tender Readiness</div><div class="p-ar">الجاهزية للمناقصات والمشاريع الكبرى</div><p class="s-desc" style="font-size:0.8rem;margin-bottom:1rem">تطوير المواد الفنية والملفات المؤسسية التي تدعم مشاركة الشركة في المناقصات والمشاريع الكبرى.</p><ul class="p-list"><li>ملف فني متكامل</li><li>مكتبة المواصفات</li><li>شهادات الاعتماد</li><li>سابقة أعمال موثقة</li></ul></div>
-      <div class="pillar" style="--c:#a78bfa"><div class="p-num">04</div><div class="p-icon">📊</div><div class="p-en">Market Value</div><div class="p-ar">تعزيز قيمة الشركة في السوق</div><ul class="p-list"><li>رفع اتساق الحضور المؤسسي</li><li>تطوير المواد التعريفية الداعمة للعلامة</li><li>LinkedIn نشط مؤسسياً</li><li>تقرير أداء سنوي</li></ul></div>
-      <div class="pillar" style="--c:#34d399"><div class="p-num">05</div><div class="p-icon">🌍</div><div class="p-en">Regional Expansion</div><div class="p-ar">تطوير فرص التوسع في الأسواق الإقليمية</div><ul class="p-list"><li>نسخة إنجليزية احترافية</li><li>منصات B2B دولية</li><li>معارض صناعية خليجية</li><li>حملات LinkedIn إقليمية</li></ul></div>
+    <span class="s-tag">محاور التحول</span>
+    <h2 class="s-title">محاور التحول الاستراتيجي الخمسة</h2>
+    <p class="s-desc">خمسة محاور مترابطة، كل محور يبني على ما قبله حتى يكتمل التحول.</p>
+    
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-num">01</div>
+        <h3>توثيق القدرات الصناعية</h3>
+        <p>توثيق التاريخ الصناعي الحقيقي للمصنع وتقديمه بطريقة يثق بها المهندسون والمقاولون.</p>
+        <ul class="pillar-list">
+          <li>ملف مؤسسي شامل</li>
+          <li>توثيق المشاريع المنفذة</li>
+          <li>فيلم مؤسسي للمصنع</li>
+          <li>تصوير صناعي للمراحل</li>
+        </ul>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">02</div>
+        <h3>الجاهزية للمناقصات</h3>
+        <p>تطوير المواد الفنية والملفات التي تتطلبها المناقصات الكبرى على مستوى المشروع.</p>
+        <ul class="pillar-list">
+          <li>ملف فني متكامل</li>
+          <li>مكتبة مواصفات رقمية</li>
+          <li>سابقة أعمال موثقة</li>
+          <li>قوالب عروض فنية</li>
+        </ul>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">03</div>
+        <h3>الحضور في القطاع الهندسي</h3>
+        <p>التواجد حيث يتواجد المهندسون والمقاولون (LinkedIn) لبناء الثقة قبل قرار الشراء.</p>
+        <ul class="pillar-list">
+          <li>صفحة LinkedIn نشطة</li>
+          <li>محتوى تقني موجه</li>
+          <li>دراسات حالة للمشاريع</li>
+          <li>حضور في الشبكات المهنية</li>
+        </ul>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">04</div>
+        <h3>التموضع كشريك حلول</h3>
+        <p>الفرق بين مورد ومستشار هو الطريقة التي تقدم بها نفسك.</p>
+        <ul class="pillar-list">
+          <li>هوية مؤسسية موحدة</li>
+          <li>لغة تواصل هندسية</li>
+          <li>مواد تعريفية متخصصة</li>
+          <li>حضور في المعارض</li>
+        </ul>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">05</div>
+        <h3>التواصل الصناعي الاستراتيجي</h3>
+        <p>الرسالة الصحيحة للشخص الصحيح في الوقت الصحيح.</p>
+        <ul class="pillar-list">
+          <li>خطة تواصل للاستشاريين</li>
+          <li>محتوى يثبت الخبرة</li>
+          <li>تقارير أداء دورية</li>
+          <li>قياس الأثر على الفرص</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- MEDIA -->
-<section id="media" style="background:var(--bg2)">
+<!-- EXECUTION FRAMEWORK -->
+<section id="roadmap" style="background: var(--bg2);">
   <div class="s-inner">
-    <div class="s-tag">استراتيجية التوثيق الصناعي المرئي</div>
-    <h2 class="s-title reveal">بناء ثقة السوق عبر<br><span class="hi">توثيق القدرات الصناعية.</span></h2>
-    <div class="media-top">
-      <div class="reveal">
-        <p class="s-desc">الشركات الصناعية الرائدة لا تكتفي بالتصنيع فقط، بل توثق قدراتها الصناعية بشكل احترافي. هذا التوثيق يعزز ثقة السوق، ويظهر الخبرة التقنية للشركة أمام العملاء والشركاء.</p>
-        <br>
-        <p class="s-desc" style="color:var(--dim)">المشتري الصناعي اليوم لا يعتمد فقط على الكتالوجات، بل يبحث عن دليل عملي على جودة المصنع وكفاءته التشغيلية وقدرته على دعم المشاريع الكبرى. لذلك يمثل التوثيق الصناعي المرئي أحد أهم أدوات بناء الثقة في السوق.</p>
-      </div>
-      <div class="reveal-x">
-        <div class="prod-phase glass">
-          <div class="prod-ph-label">المرحلة الأولى · التأسيس</div>
-          <div class="prod-row"><span>إنتاج فيلم مؤسسي يعكس قوة المصنع</span></div>
-          <div class="prod-row"><span>توثيق عمليات الإنتاج والجودة</span></div>
-          <div class="prod-row"><span>بناء مكتبة محتوى صناعي احترافية</span></div>
-        </div>
-        <div class="prod-phase glass">
-          <div class="prod-ph-label">المرحلة الثانية · الحضور الصناعي</div>
-          <div class="prod-row"><span>إطلاق محتوى تقني موجه للمهندسين</span></div>
-          <div class="prod-row"><span>نشر دراسات حالة للمشاريع</span></div>
-          <div class="prod-row"><span>تعزيز الحضور المهني للشركة على LinkedIn</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="media-cards">
-      <div class="mcard glass reveal"><div class="mcard-num">01</div><div class="mcard-icon">🎥</div><h3>الفيلم المؤسسي للمصنع</h3><p>فيلم احترافي يعرض قدرات المصنع، ويُستخدم لتعزيز صورة الشركة أمام العملاء والشركاء والجهات المستهدفة.</p></div>
-      <div class="mcard glass reveal"><div class="mcard-num">02</div><div class="mcard-icon">⚙️</div><h3>توثيق العمليات الصناعية</h3><p>محتوى مرئي يوضح مراحل التصنيع واختبارات الجودة والإجراءات التشغيلية، بما يعكس كفاءة المصنع وموثوقية منتجاته.</p></div>
-      <div class="mcard glass reveal"><div class="mcard-num">03</div><div class="mcard-icon">🏗</div><h3>دراسات حالة المشاريع</h3><p>توثيق المشاريع التي تم التوريد لها بطريقة احترافية توضح نوع التطبيق والخبرة الفنية للشركة في السوق.</p></div>
-      <div class="mcard glass reveal"><div class="mcard-num">04</div><div class="mcard-icon">👨‍💻</div><h3>محتوى تقني موجه للسوق</h3><p>محتوى احترافي موجه للمهندسين والمقاولين والاستشاريين، يوضح المزايا الفنية للمنتجات وتطبيقاتها في مشاريع البنية التحتية.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ROADMAP -->
-<section id="roadmap">
-  <div class="s-inner">
-    <div class="s-tag">خطة التنفيذ الاستراتيجية</div>
-    <h2 class="s-title reveal">12 شهراً من التحول الصناعي</h2>
+    <span class="s-tag">إطار التنفيذ</span>
+    <h2 class="s-title">خطة الـ 12 شهراً</h2>
     <div class="timeline">
-      <div class="phase reveal"><div class="ph-dot" style="--c:#9b5cff">1</div><div class="ph-badge" style="--c:#9b5cff">اليوم 0 – 60</div><div class="ph-title">Foundation</div><div class="ph-ar" style="color:#9b5cff">التأسيس</div><ul class="ph-list" style="--c:#9b5cff"><li>Brand Book رسمي</li><li>Company Profile عالمي</li><li>إعادة هيكلة الموقع</li><li>صفحة Projects</li><li>LinkedIn Company Page</li><li>تصوير المصنع</li><li>Corporate Factory Film</li></ul></div>
-      <div class="phase reveal"><div class="ph-dot" style="--c:#22d3ee">2</div><div class="ph-badge" style="--c:#22d3ee">اليوم 60 – 120</div><div class="ph-title">Activation</div><div class="ph-ar" style="color:#22d3ee">التنشيط</div><ul class="ph-list" style="--c:#22d3ee"><li>محتوى LinkedIn أسبوعي</li><li>فيديوهات العمليات</li><li>تطوير الحضور المؤسسي الرقمي</li><li>توثيق القدرات الصناعية</li><li>ملف مناقصات احترافي</li><li>زيارات صناعية منظمة</li></ul></div>
-      <div class="phase reveal"><div class="ph-dot" style="--c:#a78bfa">3</div><div class="ph-badge" style="--c:#a78bfa">اليوم 120 – 180</div><div class="ph-title">Authority</div><div class="ph-ar" style="color:#a78bfa">التمكين</div><ul class="ph-list" style="--c:#a78bfa"><li>تقارير أداء ربع سنوية</li><li>حملات توعية تقنية</li><li>توسيع قاعدة العملاء الاستراتيجيين</li><li>تعزيز مكانة العلامة</li></ul></div>
+      <div class="phase-card">
+        <h4>المرحلة 1 (0-60 يوم)</h4>
+        <h3>توثيق القدرات</h3>
+        <ul class="phase-list">
+          <li>الملف المؤسسي الكامل</li>
+          <li>تصوير صناعي شامل</li>
+          <li>الفيلم المؤسسي</li>
+          <li>إطلاق صفحة LinkedIn</li>
+        </ul>
+      </div>
+      <div class="phase-card">
+        <h4>المرحلة 2 (60-120 يوم)</h4>
+        <h3>بناء المكتبة الفنية</h3>
+        <ul class="phase-list">
+          <li>توثيق 10 مشاريع كبرى</li>
+          <li>ملف المناقصات الكامل</li>
+          <li>مكتبة المواصفات الرقمية</li>
+          <li>قوالب التواصل</li>
+        </ul>
+      </div>
+      <div class="phase-card">
+        <h4>المرحلة 3 (120-180 يوم)</h4>
+        <h3>تعزيز الحضور</h3>
+        <ul class="phase-list">
+          <li>تعزيز التواجد الهندسي</li>
+          <li>دراسات حالة للمشاريع</li>
+          <li>تواصل مع شركات المقاولات</li>
+          <li>المشاركة في الفعاليات</li>
+        </ul>
+      </div>
+      <div class="phase-card">
+        <h4>المرحلة 4 (6-12 شهر)</h4>
+        <h3>رفع الجاهزية</h3>
+        <ul class="phase-list">
+          <li>مشاركة فعلية في المناقصات</li>
+          <li>بناء علاقات مع صناع القرار</li>
+          <li>استكشاف الأسواق الخليجية</li>
+          <li>التقرير السنوي الشامل</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- KPIs -->
-<section id="kpis" style="background:var(--bg2)">
+<section id="kpis">
   <div class="s-inner">
-    <div class="s-tag">مؤشرات الأداء المستهدفة</div>
-    <h2 class="s-title reveal">محاور التأثير<br><span class="hi">الاستراتيجي.</span></h2>
-    <div class="kpis-grid">
-      <!-- CARD 1 -->
-      <div class="kpi glass reveal" style="--c:#9b5cff">
-        <div class="kpi-icon">🎬</div>
-        <div class="kpi-label">تعزيز الظهور الصناعي</div>
-        <p class="metric-description">إبراز قدرات المصنع الإنتاجية وخطوط التصنيع أمام شركات المقاولات والمكاتب الاستشارية.</p>
+    <span class="s-tag">مؤشرات الأداء</span>
+    <h2 class="s-title">الأثر المستهدف خلال 12 شهراً</h2>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <h4>مكتبة فنية</h4>
+        <p>توثيق فني كامل جاهز للمناقصات</p>
       </div>
-      <!-- CARD 2 -->
-      <div class="kpi glass reveal" style="--c:#22d3ee">
-        <div class="kpi-icon">🌐</div>
-        <div class="kpi-label">بناء حضور صناعي مؤثر</div>
-        <p class="metric-description">تعزيز حضور الشركة داخل المجتمع الصناعي وصناع القرار في قطاع البنية التحتية.</p>
+      <div class="kpi-card">
+        <h4>10+ مشاريع</h4>
+        <p>مشاريع كبرى موثقة فنياً</p>
       </div>
-      <!-- CARD 3 -->
-      <div class="kpi glass reveal" style="--c:#f59e0b">
-        <div class="kpi-icon">📋</div>
-        <div class="kpi-label">رفع الجاهزية المؤسسية للمشاريع</div>
-        <p class="metric-description">تعزيز جاهزية الشركة من حيث العرض المؤسسي والتوثيق الفني لدعم حضورها في المشاريع الكبرى.</p>
+      <div class="kpi-card">
+        <h4>حضور نشط</h4>
+        <p>تواصل أسبوعي مع المهندسين</p>
       </div>
-      <!-- CARD 4 -->
-      <div class="kpi glass reveal" style="--c:#a78bfa">
-        <div class="kpi-icon">🏗</div>
-        <div class="kpi-label">توثيق المشاريع الصناعية</div>
-        <p class="metric-description">إبراز المشاريع المنفذة وبناء سجل مشاريع يعكس خبرة الشركة في السوق.</p>
+      <div class="kpi-card">
+        <h4>50+ مقطع</h4>
+        <p>محتوى مرئي يوثق القدرات</p>
       </div>
-      <!-- CARD 5 -->
-      <div class="kpi glass reveal" style="--c:#34d399">
-        <div class="kpi-icon">💼</div>
-        <div class="kpi-label">تعزيز الحضور أمام الجهات المستهدفة</div>
-        <p class="metric-description">رفع مستوى حضور الشركة المؤسسي أمام المقاولين والاستشاريين والجهات ذات العلاقة في القطاع.</p>
+      <div class="kpi-card">
+        <h4>جاهزية كاملة</h4>
+        <p>تأهيل المصنع للمشاريع الكبرى</p>
       </div>
-      <!-- CARD 6 -->
-      <div class="kpi glass reveal" style="--c:#fb923c">
-        <div class="kpi-icon">🚀</div>
-        <div class="kpi-label">استكشاف فرص التوسع الإقليمي</div>
-        <p class="metric-description">دعم ظهور الشركة في الأسواق الخليجية بهوية صناعية احترافية ومواد تعريفية مناسبة للتوسع الإقليمي.</p>
+      <div class="kpi-card">
+        <h4>3+ أسواق</h4>
+        <p>ظهور في الأسواق الخليجية</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY IT WORKS -->
+<section id="why" style="background: var(--bg2);">
+  <div class="s-inner">
+    <span class="s-tag">لماذا الآن؟</span>
+    <h2 class="s-title">لماذا يعمل هذا التحول؟</h2>
+    <div class="market-grid">
+      <div class="market-card">
+        <h3>قدرات موجودة بالفعل</h3>
+        <p>التحول لا يبني من الصفر، بل يظهر ما هو موجود بالفعل من طاقة إنتاجية وتاريخ.</p>
+      </div>
+      <div class="market-card">
+        <h3>سوق في توسع مستمر</h3>
+        <p>رؤية 2030 تخلق طلباً متصاعداً، والفرصة قائمة لمن يثبت جدارته.</p>
+      </div>
+      <div class="market-card">
+        <h3>دعم الصناعة المحلية</h3>
+        <p>التوجه الحكومي يدعم المنتج السعودي، والمصنع مؤهل بشهادات دولية.</p>
+      </div>
+      <div class="market-card">
+        <h3>الطلب على الحلول</h3>
+        <p>السوق يريد شركاء يفهمون المشروع، وهذا ما سيصبح عليه ITOP THERM.</p>
       </div>
     </div>
   </div>
@@ -741,77 +739,45 @@ footer{
 <!-- TEAM -->
 <section id="team">
   <div class="s-inner">
-    <div class="s-tag">الهيكل التنفيذي للمشروع</div>
-    <h2 class="s-title reveal">فريق متخصص.<br><span class="hi">أثر استراتيجي.</span></h2>
-    <p class="s-desc reveal" style="margin-bottom:3rem">يتطلب تنفيذ هذه المبادرة فريقاً صغيراً متخصصاً يقود عملية تطوير الحضور الصناعي للشركة.</p>
-    <div class="team-wrap">
-      <div class="team-dir reveal"><h3>مدير العلامة والتسويق</h3><p>القائد التنفيذي لمشروع التحول · يرفع تقاريره مباشرة للإدارة العليا</p></div>
-      <div class="team-conn reveal"></div>
-      <div class="team-row">
-        <div class="tcard glass reveal"><div class="tcard-icon">📝</div><div class="tcard-role">مختص المحتوى الرقمي</div><div class="tcard-desc">محتوى LinkedIn والمشاريع الرقمية</div></div>
-        <div class="tcard glass reveal"><div class="tcard-icon">🎥</div><div class="tcard-role">مصور صناعي</div><div class="tcard-desc">إنتاج المحتوى المرئي الصناعي</div></div>
-        <div class="tcard glass reveal"><div class="tcard-icon">🎨</div><div class="tcard-role">مصمم الهوية والمواد البصرية</div><div class="tcard-desc">الهوية البصرية والمواد التسويقية</div></div>
+    <span class="s-tag">فريق العمل</span>
+    <h2 class="s-title">الفريق التنفيذي للمشروع</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <h3>مدير التطوير والعلامة</h3>
+        <p>القائد التنفيذي للمشروع، يرفع تقاريره للإدارة العليا.</p>
       </div>
-      <div class="team-note reveal">يمكن البدء بفريق صغير والتوسع تدريجياً حسب مراحل التنفيذ.</div>
+      <div class="team-card">
+        <h3>مختص التوثيق الصناعي</h3>
+        <p>مسؤول عن المحتوى، دراسات الحالة، والملف المؤسسي.</p>
+      </div>
+      <div class="team-card">
+        <h3>مصور ومنتج مرئي</h3>
+        <p>توثيق المصنع، العمليات، والفيلم المؤسسي.</p>
+      </div>
+      <div class="team-card">
+        <h3>مصمم الهوية المؤسسية</h3>
+        <p>مسؤول عن الهوية البصرية والمواد الفنية.</p>
+      </div>
+      <div class="team-card">
+        <h3>منسق علاقات السوق</h3>
+        <p>التواصل مع الاستشاريين والمقاولين وLinkedIn.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CLOSE -->
-<section id="close" style="background:var(--bg2)">
-  <div class="close-orb"></div>
-  <div class="grid-bg" style="opacity:.25"></div>
-  <div class="close-inner">
-    <div class="s-tag" style="justify-content:center">التوصية الاستراتيجية</div>
-    <h2 class="close-title reveal">من مصنع أنابيب<br>إلى شركة رائدة<br>في حلول البنية التحتية</h2>
-    <div class="close-quote reveal">
-      <strong>خلال الفترة الماضية تمت دراسة موقع الشركة في السوق. وتبين أن الشركة تمتلك قدرات تصنيع قوية، لكن حضورها في السوق لا يعكس هذه القوة بالشكل الكافي.</strong>
-      تعزيز الحضور الصناعي للشركة يمثل فرصة استراتيجية لزيادة الثقة في السوق ودعم توسع الشركة في المشاريع الكبرى.
-    </div>
-    <div class="decisions">
-      <div class="dec reveal"><div class="dec-n">1</div><span>اعتماد إطلاق مشروع تعزيز الحضور الصناعي للشركة</span></div>
-      <div class="dec reveal"><div class="dec-n">2</div><span>تعيين قائد للمشروع للإشراف على التنفيذ</span></div>
-      <div class="dec reveal"><div class="dec-n">3</div><span>بناء منظومة محتوى صناعي احترافية</span></div>
-      <div class="dec reveal"><div class="dec-n">4</div><span>بدء التنفيذ خلال 30 يوماً من اعتماد المشروع</span></div>
-    </div>
-    <div class="close-btns reveal">
-      <button class="cbtn-p" onclick="window.scrollTo({top:0,behavior:'smooth'})">العودة للبداية <span class="arr">↑</span></button>
-      <a href="https://wa.me/966537311886" target="_blank" class="cbtn-s" style="text-decoration:none;display:inline-flex;align-items:center;gap:.6rem">تواصل معي 💬</a>
-    </div>
+<!-- CONCLUSION -->
+<section id="conclusion" style="background: var(--purple); color: white; text-align: center;">
+  <div class="s-inner">
+    <h2 class="s-title" style="color: white;">التحول الحقيقي يبدأ بقرار</h2>
+    <p class="s-desc" style="color: rgba(255,255,255,0.8); margin: 0 auto 2rem;">من مصنع أنابيب إلى شريك حلول للبنية التحتية. القدرات موجودة، الخطة جاهزة، والوقت هو الآن.</p>
+    <div class="hero-tag" style="background: white; color: var(--purple); border: none;">ITOP THERM · 2026</div>
   </div>
 </section>
 
 <footer>
-  <span>I-TOP THERM · THERM INDUSTRY CO.</span>
-  <span>STRATEGIC TRANSFORMATION PLAN · 2026–2028</span>
-  <span>CONFIDENTIAL</span>
+  &copy; 2026 ITOP THERM — جميع الحقوق محفوظة. وثيقة محتوى استراتيجي سرية.
 </footer>
 
-<script>
-const io = new IntersectionObserver(e => {
-  e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible') });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.reveal,.reveal-x').forEach(el => io.observe(el));
-
-['.pillars-grid .pillar','.kpis-grid .kpi','.media-cards .mcard',
- '.timeline .phase','.team-row .tcard','.decisions .dec'].forEach(sel => {
-  document.querySelectorAll(sel).forEach((el,i) => {
-    el.style.transitionDelay = (i * 0.09) + 's';
-    el.classList.add('reveal');
-    io.observe(el);
-  });
-});
-
-const secs  = document.querySelectorAll('section[id]');
-const links = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let cur = '';
-  secs.forEach(s => { if(scrollY >= s.offsetTop - 120) cur = s.id });
-  links.forEach(a => {
-    a.style.color = a.getAttribute('href') === '#'+cur ? 'var(--text)' : '';
-  });
-});
-</script>
 </body>
 </html>
