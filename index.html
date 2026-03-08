@@ -124,8 +124,8 @@ nav{
 .hero-inner{
   position:relative;z-index:3;
   max-width:1100px;width:100%;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:5rem;align-items:center;padding-top:4.5rem;
+  display:flex;flex-direction:column;
+  align-items:center;text-align:center;padding-top:4.5rem;
 }
 /* ─ left ─ */
 	.hero-tag, .badge {
@@ -154,23 +154,39 @@ nav{
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
   background-clip:text;
 }
-	.hero-sub{
-	  font-size:.98rem;color:#E5E7EB;line-height:1.78;
-	  max-width:480px;margin-bottom:2.5rem;
-	  opacity:0;animation:fadeUp .8s .42s ease forwards;
-	}
+.hero-sub{
+  font-size:.98rem;color:#E5E7EB;line-height:1.78;
+  max-width:600px;margin-bottom:2.5rem;
+  opacity:0;animation:fadeUp .8s .42s ease forwards;
+}
 .hero-actions{
-  display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;
+  display:flex;justify-content:center;align-items:center;gap:1.2rem;flex-wrap:wrap;
   opacity:0;animation:fadeUp .8s .58s ease forwards;
 }
-	.btn-hero{
-	  display:inline-flex;align-items:center;gap:.65rem;
-	  background:var(--white);color:var(--bg);
-	  padding:.75rem 1.7rem;border-radius:100px;
-	  font-size:.86rem;font-weight:600;
-	  border:none;cursor:pointer;font-family:'IBM Plex Sans Arabic',sans-serif;
-	  transition:all .25s;
-	}
+.btn-hero{
+  display:inline-flex;align-items:center;gap:.65rem;
+  background:var(--white);color:var(--bg);
+  padding:.75rem 1.7rem;border-radius:100px;
+  font-size:.86rem;font-weight:600;
+  border:none;cursor:pointer;font-family:'IBM Plex Sans Arabic',sans-serif;
+  transition:all .25s;
+  position:relative;
+  animation:heroBtnPulse 3s infinite ease-in-out;
+}
+.btn-hero::after{
+  content:'';position:absolute;inset:-4px;
+  background:var(--purple);border-radius:100px;
+  filter:blur(15px);opacity:.4;z-index:-1;
+  animation:glowPulse 3s infinite ease-in-out;
+}
+@keyframes heroBtnPulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: .3; transform: scale(1); }
+  50% { opacity: .6; transform: scale(1.05); }
+}
 .btn-hero .arr{
   width:26px;height:26px;border-radius:50%;
   background:var(--purple);color:#fff;
@@ -492,34 +508,18 @@ p, .subtitle, .section-description, .card-description, .caption, .s-desc, .hc-ba
   <div class="orb-a"></div>
   <div class="orb-b"></div>
   <div class="grid-bg"></div>
-  <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-tag badge">مشروع التحول الاستراتيجي · 2026</div>
-      <h1 class="hero-h1">تعزيز الحضور الصناعي لشركة <span class="grad">I-TOP Therm</span></h1>
-      <p class="hero-sub">خطة استراتيجية متكاملة تهدف إلى تطوير الهوية المؤسسية والتوثيق الصناعي لتعزيز الثقة في السوق ورفع الحصة السوقية في مشاريع البنية التحتية.</p>
-      <div class="hero-actions">
-        <button class="btn-hero" onclick="document.getElementById('diagnosis').scrollIntoView({behavior:'smooth'})">
-          استكشاف الخطة <span class="arr">←</span>
-        </button>
-        <div class="hero-note">
-          <span class="star">★</span>
-          <span>رؤية 2030 · المحتوى المحلي</span>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-tag badge">مشروع التحول الاستراتيجي · 2026</div>
+        <h1 class="hero-h1">تعزيز الحضور الصناعي لشركة <span class="grad">I-TOP Therm</span></h1>
+        <p class="hero-sub">خطة استراتيجية متكاملة تهدف إلى تطوير الهوية المؤسسية والتوثيق الصناعي لتعزيز الثقة في السوق ورفع الحصة السوقية في مشاريع البنية التحتية.</p>
+        <div class="hero-actions">
+          <button class="btn-hero" onclick="document.getElementById('diagnosis').scrollIntoView({behavior:'smooth'})">
+            استكشاف الخطة <span class="arr">←</span>
+          </button>
         </div>
       </div>
     </div>
-    <div class="hero-card">
-      <div class="cc cc-tr"></div><div class="cc cc-tl"></div><div class="cc cc-br"></div><div class="cc cc-bl"></div>
-      <div class="hc-label">نظرة عامة على القدرات</div>
-      <div class="hc-grid">
-        <div class="hc-stat"><div class="hc-val">15K</div><div class="hc-lbl">طن سنوياً</div></div>
-        <div class="hc-stat"><div class="hc-val">9</div><div class="hc-lbl">خطوط إنتاج</div></div>
-      </div>
-      <div class="hc-badge">
-        <div class="hc-badge-dot"></div>
-        <p><strong>الهدف الاستراتيجي:</strong> التحول من "مصنع منتجات" إلى "شريك حلول بنية تحتية" موثوق.</p>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- STRATEGIC GOALS (TASK 3) -->
