@@ -9,20 +9,24 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:       #07050f;
-  --bg2:      #0d0a1a;
-  --surface:  #120f22;
-  --surface2: #1a1530;
-  --border:   rgba(120,90,200,.18);
-  --border2:  rgba(124,58,237,.35);
-  --purple:   #7c3aed;
-  --purple2:  #9b5cff;
-  --purple3:  #c4a0ff;
-  --glow:     rgba(124,58,237,.5);
-  --text:     #f1eefe;
-  --muted:    #8b7fac;
-  --dim:      #4a4165;
+  --bg:       #F4F2EE;
+  --bg2:      #ECE7E1;
+  --bg3:      #F8F6F2;
+  --surface:  #FAF8F5;
+  --surface2: #FFFFFF;
+  --border:   #DDD4CA;
+  --border2:  #CFC4B8;
+  --accent:   #8C6B4F;
+  --accent2:  #C8B7A6;
+  --accent3:  #E7DDD2;
+  --text:     #23211F;
+  --text2:    #3C3935;
+  --muted:    #6E6963;
+  --dim:      #9A948C;
   --white:    #ffffff;
+  --button:   #2B2926;
+  --button-h: #3A3733;
+  --shadow:   rgba(35, 33, 31, 0.05);
   --success:  #10b981;
   --error:    #ef4444;
 }
@@ -35,22 +39,13 @@ body{
 }
 ::-webkit-scrollbar{width:3px}
 ::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--purple);border-radius:2px}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
 
-/* global purple glow mesh */
-body::before{
-  content:'';position:fixed;inset:0;
-  background:
-    radial-gradient(ellipse 65% 55% at 65% -5%,  rgba(100,45,220,.30) 0%,transparent 60%),
-    radial-gradient(ellipse 45% 40% at 8%  70%,  rgba(80,25,180,.17) 0%,transparent 55%),
-    radial-gradient(ellipse 38% 32% at 92% 92%,  rgba(60,15,150,.13) 0%,transparent 50%);
-  pointer-events:none;z-index:0;
-}
 /* noise grain */
 body::after{
   content:'';position:fixed;inset:0;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  opacity:.03;pointer-events:none;z-index:1;
+  opacity:.02;pointer-events:none;z-index:1;
 }
 
 /* ── NAV ── */
@@ -58,19 +53,18 @@ nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   display:flex;align-items:center;justify-content:space-between;
   padding:0 3.5rem;height:66px;
-  background:rgba(7,5,15,.8);
+  background:rgba(244,242,238,.8);
   backdrop-filter:blur(24px) saturate(150%);
   border-bottom:1px solid var(--border);
 }
 .nav-logo{
   font-family:'IBM Plex Sans Arabic',sans-serif;
   font-weight:900;font-size:1.25rem;letter-spacing:.07em;
-  color:var(--white);display:flex;align-items:center;gap:.5rem;
+  color:var(--text);display:flex;align-items:center;gap:.5rem;
 }
 .nav-dot{
   width:9px;height:9px;border-radius:50%;
-  background:var(--purple2);
-  box-shadow:0 0 10px var(--purple2),0 0 22px var(--glow);
+  background:var(--accent);
 }
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{
@@ -79,35 +73,29 @@ nav{
 }
 .nav-links a:hover{color:var(--text)}
 .nav-cta{
-  background:var(--purple);color:white;
+  background:var(--button);color:white;
   padding:.45rem 1.3rem;border-radius:100px;
   font-size:.78rem;font-weight:600;
   border:none;cursor:pointer;
   font-family:'IBM Plex Sans Arabic',sans-serif;
-  box-shadow:0 0 20px var(--glow);
   transition:all .25s;
   text-decoration:none;
 }
-.nav-cta:hover{background:var(--purple2);box-shadow:0 0 30px var(--glow)}
+.nav-cta:hover{background:var(--button-h);}
 
 /* ── HERO ── */
 #hero {
   position:relative;min-height:100vh;
   display:flex;align-items:center;
   padding:120px 3.5rem 60px;overflow:hidden;z-index:2;
-}
-.orb-a{
-  position:absolute;top:-18%;right:-8%;
-  width:680px;height:680px;
-  background:radial-gradient(circle,rgba(100,50,220,.32) 0%,rgba(75,18,175,.14) 40%,transparent 68%);
-  border-radius:50%;pointer-events:none;
+  background: var(--bg);
 }
 .grid-bg{
   position:absolute;inset:0;
   background-image:
     linear-gradient(var(--border) 1px,transparent 1px),
     linear-gradient(90deg,var(--border) 1px,transparent 1px);
-  background-size:90px 90px;opacity:.5;
+  background-size:90px 90px;opacity:.3;
   mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 25%,transparent 78%);
 }
 .hero-inner{
@@ -119,22 +107,22 @@ nav{
 .hero-tag {
   display:inline-flex;align-items:center;gap:.5rem;
   font-size:.7rem;font-weight:600;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--purple3);
-  background:rgba(124,58,237,.1);
-  border:1px solid rgba(124,58,237,.28);
+  text-transform:uppercase;color:var(--accent);
+  background:var(--accent3);
+  border:1px solid var(--border);
   padding:.3rem .95rem;border-radius:100px;margin-bottom:1.5rem;
 }
 .hero-h1{
   font-weight:900;
   font-size:clamp(2.5rem,6vw,4.5rem);
   line-height:1.1;letter-spacing:-.02em;
-  color:var(--white);margin-bottom:1.5rem;
+  color:var(--text);margin-bottom:1.5rem;
 }
 .hero-h1 span.purple {
-  color: var(--purple2);
+  color: var(--accent);
 }
 .hero-sub{
-  font-size:1.1rem;color:#E5E7EB;line-height:1.6;
+  font-size:1.1rem;color:var(--muted);line-height:1.6;
   max-width:700px;margin-bottom:2.5rem;
 }
 .hero-stats {
@@ -150,29 +138,27 @@ nav{
 .stat-val {
   font-size: 3rem;
   font-weight: 900;
-  color: var(--white);
+  color: var(--text);
   display: block;
   line-height: 1;
 }
 .stat-lbl {
   font-size: 0.8rem;
-  color: var(--muted);
+  color: var(--dim);
   font-weight: 500;
   margin-top: 0.5rem;
 }
 .btn-primary {
   display:inline-flex;align-items:center;gap:.65rem;
-  background:var(--purple);color:white;
+  background:var(--button);color:white;
   padding:1rem 2rem;border-radius:100px;
   font-size:1rem;font-weight:600;
   border:none;cursor:pointer;text-decoration:none;
   transition:all .25s;
-  box-shadow:0 0 20px var(--glow);
 }
 .btn-primary:hover {
-  background:var(--purple2);
+  background:var(--button-h);
   transform:translateY(-2px);
-  box-shadow:0 0 30px var(--glow);
 }
 
 /* ── SECTIONS ── */
@@ -181,6 +167,12 @@ section {
   position: relative;
   z-index: 2;
 }
+section:nth-child(even) {
+  background: var(--bg2);
+}
+section:nth-child(odd) {
+  background: var(--bg);
+}
 .s-inner {
   max-width: 1100px;
   margin: 0 auto;
@@ -188,7 +180,7 @@ section {
 .s-tag {
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--purple3);
+  color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 1rem;
@@ -197,7 +189,7 @@ section {
 .s-title {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 900;
-  color: var(--white);
+  color: var(--text);
   margin-bottom: 2rem;
   line-height: 1.2;
 }
@@ -221,6 +213,7 @@ section {
   padding: 2rem;
   border-radius: 16px;
   transition: transform 0.3s;
+  box-shadow: 0 8px 24px var(--shadow);
 }
 .market-card:hover {
   transform: translateY(-5px);
@@ -228,7 +221,7 @@ section {
 }
 .market-card h3 {
   font-size: 1.25rem;
-  color: var(--white);
+  color: var(--text);
   margin-bottom: 1rem;
 }
 .market-card p {
@@ -244,10 +237,11 @@ section {
   gap: 2rem;
 }
 .diag-box {
-  background: rgba(255,255,255,0.03);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 2.5rem;
+  box-shadow: 0 8px 24px var(--shadow);
 }
 .diag-box h3 {
   font-size: 1.5rem;
@@ -267,11 +261,11 @@ section {
   align-items: flex-start;
   gap: 0.75rem;
   font-size: 0.95rem;
-  color: var(--text);
+  color: var(--text2);
 }
 .diag-list li::before {
   content: '•';
-  color: var(--purple2);
+  color: var(--accent);
   font-weight: bold;
 }
 
@@ -284,13 +278,13 @@ section {
 .gap-text {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--white);
+  color: var(--text);
   max-width: 900px;
   margin: 0 auto;
   line-height: 1.4;
 }
 .gap-highlight {
-  color: var(--purple2);
+  color: var(--accent);
   display: block;
   margin-top: 1rem;
 }
@@ -308,6 +302,7 @@ section {
   border-radius: 20px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 8px 24px var(--shadow);
 }
 .pillar-num {
   position: absolute;
@@ -315,12 +310,13 @@ section {
   left: 1.5rem;
   font-size: 4rem;
   font-weight: 900;
-  color: rgba(124,58,237,0.1);
+  color: var(--accent3);
+  opacity: 0.3;
   line-height: 1;
 }
 .pillar-card h3 {
   font-size: 1.4rem;
-  color: var(--white);
+  color: var(--text);
   margin-bottom: 1rem;
   position: relative;
   z-index: 1;
@@ -334,7 +330,7 @@ section {
 .pillar-list {
   list-style: none;
   font-size: 0.85rem;
-  color: var(--text);
+  color: var(--text2);
 }
 .pillar-list li {
   margin-bottom: 0.5rem;
@@ -345,7 +341,7 @@ section {
   content: '→';
   position: absolute;
   right: 0;
-  color: var(--purple2);
+  color: var(--accent);
 }
 
 /* ── FRAMEWORK ── */
@@ -359,16 +355,17 @@ section {
   background: var(--surface2);
   padding: 1.5rem;
   border-radius: 12px;
-  border-top: 4px solid var(--purple);
+  border-top: 4px solid var(--accent);
+  box-shadow: 0 8px 24px var(--shadow);
 }
 .phase-card h4 {
   font-size: 0.8rem;
-  color: var(--purple3);
+  color: var(--accent);
   margin-bottom: 0.5rem;
 }
 .phase-card h3 {
   font-size: 1.1rem;
-  color: var(--white);
+  color: var(--text);
   margin-bottom: 1rem;
 }
 .phase-list {
@@ -392,37 +389,94 @@ section {
   padding: 1.5rem;
   border-radius: 16px;
   text-align: center;
+  box-shadow: 0 8px 24px var(--shadow);
 }
-.kpi-card h4 {
+.kpi-val {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--accent);
+  display: block;
+}
+.kpi-lbl {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+/* ── WHY IT WORKS ── */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.why-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px var(--shadow);
+}
+.why-card h3 {
   font-size: 1.2rem;
-  color: var(--purple2);
-  margin-bottom: 0.5rem;
+  color: var(--text);
+  margin-bottom: 1rem;
 }
-.kpi-card p {
-  font-size: 0.8rem;
+.why-card p {
+  font-size: 0.9rem;
   color: var(--muted);
 }
 
 /* ── TEAM ── */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
 }
 .team-card {
   background: var(--surface);
-  padding: 1.5rem;
-  border-radius: 16px;
   border: 1px solid var(--border);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 24px var(--shadow);
 }
-.team-card h3 {
-  font-size: 1.1rem;
-  color: var(--white);
+.team-role {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
   margin-bottom: 0.5rem;
+  display: block;
 }
-.team-card p {
+.team-name {
+  font-size: 1.25rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+.team-desc {
   font-size: 0.85rem;
   color: var(--muted);
+}
+
+/* ── CTA ── */
+.cta-section {
+  background: linear-gradient(180deg, #D9C8B6 0%, #C8B7A6 100%);
+  text-align: center;
+  padding: 8rem 3.5rem;
+  color: var(--text);
+}
+.cta-h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+}
+.cta-p {
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.9;
 }
 
 /* ── FOOTER ── */
@@ -430,16 +484,24 @@ footer {
   padding: 4rem 3.5rem;
   border-top: 1px solid var(--border);
   text-align: center;
-  color: var(--dim);
+  background: var(--bg);
+}
+.f-logo {
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+.f-copy {
   font-size: 0.8rem;
+  color: var(--dim);
 }
 
 @media (max-width: 768px) {
   nav { padding: 0 1.5rem; }
-  section { padding: 4rem 1.5rem; }
-  .diag-grid { grid-template-columns: 1fr; }
-  .timeline { grid-template-columns: 1fr; }
   .nav-links { display: none; }
+  section { padding: 5rem 1.5rem; }
+  .diag-grid, .why-grid, .timeline { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -451,22 +513,21 @@ footer {
     I-TOP THERM
   </div>
   <ul class="nav-links">
-    <li><a href="#hero">الرئيسية</a></li>
-    <li><a href="#market">السوق</a></li>
+    <li><a href="#market">واقع السوق</a></li>
+    <li><a href="#diagnosis">التشخيص</a></li>
     <li><a href="#pillars">المحاور</a></li>
-    <li><a href="#roadmap">الخطة</a></li>
+    <li><a href="#framework">التنفيذ</a></li>
+    <li><a href="dashboard.html">لوحة البيانات</a></li>
   </ul>
-  <a href="dashboard.html" class="nav-cta">لوحة البيانات التفاعلية</a>
+  <a href="#cta" class="nav-cta">ابدأ التحول</a>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
-  <div class="orb-a"></div>
   <div class="grid-bg"></div>
   <div class="hero-inner">
-    <div class="hero-tag">خطة التحول الاستراتيجي 2026</div>
-    <h1 class="hero-h1">من مصنع أنابيب إلى<br><span class="purple">شريك حلول للبنية التحتية</span></h1>
-    <p class="hero-sub">خطة تنفيذية لمدة 12 شهراً لتعزيز الحضور الصناعي وبناء الجاهزية للمشاريع الكبرى في المملكة العربية السعودية.</p>
+    <div class="hero-tag">التحول الاستراتيجي 2026</div>
+    <h1 class="hero-h1">من مصنع أنابيب إلى <span class="purple">شريك حلول هندسية</span></h1>
+    <p class="hero-sub">إعادة تموضع I-TOP Therm كقائد صناعي في السوق السعودي من خلال التوثيق، الأتمتة، والانتشار الرقمي الممنهج.</p>
     
     <div class="hero-stats">
       <div class="stat-card">
@@ -478,305 +539,201 @@ footer {
         <span class="stat-lbl">خطوط إنتاج مؤتمتة</span>
       </div>
       <div class="stat-card">
-        <span class="stat-val">95%</span>
-        <span class="stat-lbl">نسبة الأتمتة الصناعية</span>
+        <span class="stat-val">25</span>
+        <span class="stat-lbl">سنة ضمان PPR</span>
       </div>
     </div>
 
-    <div class="hero-actions">
-      <a href="#pillars" class="btn-primary">استعراض الخطة الاستراتيجية ←</a>
-    </div>
+    <a href="#market" class="btn-primary">استكشف الاستراتيجية</a>
   </div>
 </section>
 
-<!-- MARKET REALITY -->
-<section id="market" style="background: var(--bg2);">
+<section id="market">
   <div class="s-inner">
-    <span class="s-tag">واقع السوق</span>
-    <h2 class="s-title">واقع السوق الصناعي في المملكة</h2>
-    <p class="s-desc">تشهد المملكة اليوم أكبر موجة استثمار في البنية التحتية في تاريخها، مما يفتح آفاقاً غير مسبوقة للمصانع الوطنية المؤهلة.</p>
+    <span class="s-tag">01. واقع السوق</span>
+    <h2 class="s-title">لماذا الآن؟</h2>
+    <p class="s-desc">السوق السعودي يمر بمرحلة تحول جذري تتطلب معايير هندسية وتوثيقية تتجاوز مجرد "التوريد".</p>
     
     <div class="market-grid">
       <div class="market-card">
-        <h3>توسع مشاريع البنية التحتية</h3>
-        <p>تضخ مئات المليارات في مشاريع المياه والطاقة والإسكان ضمن رؤية 2030.</p>
+        <h3>المشاريع الكبرى</h3>
+        <p>نيوم، ذا لاين، والقدية تتطلب شركاء لديهم توثيق فني كامل وليس فقط منتجات.</p>
       </div>
       <div class="market-card">
-        <h3>ارتفاع معايير التأهيل</h3>
-        <p>المناقصات الكبرى لم تعد تكتفي بالسعر، بل تتطلب توثيقاً فنياً وحضوراً مؤسسياً قوياً.</p>
+        <h3>المنافسة التقنية</h3>
+        <p>البقاء للأكثر قدرة على إثبات الجودة عبر البيانات ودراسات الحالة الموثقة.</p>
       </div>
       <div class="market-card">
-        <h3>تصاعد المنافسة المحلية</h3>
-        <p>المصانع التي لا تبني حضوراً واضحاً ستجد نفسها في حرب أسعار مستنزفة.</p>
-      </div>
-      <div class="market-card">
-        <h3>التحول نحو الشريك التقني</h3>
-        <p>المهندسون يبحثون عن شريك تقني ومستشار، وليس مجرد مورد للمواد.</p>
+        <h3>التحول الرقمي</h3>
+        <p>صناع القرار (المهندسين والاستشاريين) يبحثون عن الحلول رقمياً قبل التواصل الميداني.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CURRENT REALITY -->
 <section id="diagnosis">
   <div class="s-inner">
-    <span class="s-tag">التشخيص الحالي</span>
-    <h2 class="s-title">الواقع الحالي: فجوة الإدراك</h2>
-    <p class="s-desc">يمتلك المصنع قدرات إنتاجية حقيقية، لكن ما يراه السوق لا يعكس حجم هذه الإمكانيات.</p>
+    <span class="s-tag">02. التشخيص الحالي</span>
+    <h2 class="s-title">الفجوة بين القدرة والظهور</h2>
     
     <div class="diag-grid">
       <div class="diag-box success">
-        <h3>ما يمتلكه المصنع</h3>
+        <h3>نقاط القوة (الواقع)</h3>
         <ul class="diag-list">
-          <li>تصنيع سعودي بالكامل وفق أعلى المعايير</li>
-          <li>طاقة إنتاجية تتجاوز 15,000 طن سنوياً</li>
-          <li>9 خطوط إنتاج مؤتمتة بنسبة 95%</li>
-          <li>منتجات متكاملة: PPR / HDPE / UPVC</li>
-          <li>شهادات جودة دولية: ISO / SASO</li>
-          <li>ضمان يصل إلى 25 سنة على المنتجات</li>
+          <li>طاقة إنتاجية ضخمة تتجاوز 15,000 طن سنوياً.</li>
+          <li>9 خطوط إنتاج مؤتمتة بنسبة 95%.</li>
+          <li>جودة معتمدة ومطابقة للمواصفات العالمية.</li>
+          <li>تاريخ ممتد في توريد مشاريع كبرى.</li>
         </ul>
       </div>
       <div class="diag-box error">
-        <h3>ما لا يراه السوق</h3>
+        <h3>نقاط الضعف (الظهور)</h3>
         <ul class="diag-list">
-          <li>لا يوجد ملف مؤسسي يعكس حجم القدرات</li>
-          <li>المشاريع المنفذة غير موثقة - السوق لا يعلم عنها</li>
-          <li>الحضور الرقمي لا يتناسب مع حجم المصنع</li>
-          <li>لا توجد مواد فنية جاهزة للمناقصات الكبرى</li>
-          <li>ظهور ضعيف في الشبكات المهنية الهندسية</li>
-          <li>لا توجد هوية مؤسسية موحدة تعكس المكانة</li>
+          <li>غياب التوثيق البصري والهندسي للمشاريع المنفذة.</li>
+          <li>ضعف الحضور الرقمي في منصات صناع القرار (LinkedIn).</li>
+          <li>الاعتماد الكلي على المبيعات التقليدية الميدانية.</li>
+          <li>عدم وضوح الهوية كـ "شريك حلول" لدى الاستشاريين.</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- STRATEGIC GAP -->
-<div class="gap-section">
+<section class="gap-section">
   <div class="gap-text">
-    الفجوة ليست في الإنتاج.. الفجوة في كيفية تقديم هذا الإنتاج أمام صناع القرار.
-    <span class="gap-highlight">المقاولون والمهندسون لا يرون ما يكفي ليقرروا الشراكة.</span>
+    المشكلة ليست في جودة المنتج، بل في <span class="gap-highlight">"فجوة الثقة الرقمية والتوثيقية"</span> التي تمنع المصنع من دخول المناقصات الكبرى كخيار أول.
   </div>
-</div>
+</section>
 
-<!-- PILLARS -->
 <section id="pillars">
   <div class="s-inner">
-    <span class="s-tag">محاور التحول</span>
-    <h2 class="s-title">محاور التحول الاستراتيجي الخمسة</h2>
-    <p class="s-desc">خمسة محاور مترابطة، كل محور يبني على ما قبله حتى يكتمل التحول.</p>
+    <span class="s-tag">03. محاور التحول</span>
+    <h2 class="s-title">خمسة محاور. تحول شامل.</h2>
     
     <div class="pillars-grid">
       <div class="pillar-card">
-        <div class="pillar-num">01</div>
-        <h3>توثيق القدرات الصناعية</h3>
-        <p>توثيق التاريخ الصناعي الحقيقي للمصنع وتقديمه بطريقة يثق بها المهندسون والمقاولون.</p>
+        <span class="pillar-num">01</span>
+        <h3>التوثيق الصناعي</h3>
+        <p>تحويل المصنع من "مبنى" إلى "قصة نجاح" عبر تصوير احترافي لخطوط الإنتاج والعمليات.</p>
         <ul class="pillar-list">
-          <li>ملف مؤسسي شامل</li>
-          <li>توثيق المشاريع المنفذة</li>
-          <li>فيلم مؤسسي للمصنع</li>
-          <li>تصوير صناعي للمراحل</li>
+          <li>فيلم مؤسسي عالي الجودة.</li>
+          <li>مكتبة صور فنية للمنتجات.</li>
         </ul>
       </div>
       <div class="pillar-card">
-        <div class="pillar-num">02</div>
-        <h3>الجاهزية للمناقصات</h3>
-        <p>تطوير المواد الفنية والملفات التي تتطلبها المناقصات الكبرى على مستوى المشروع.</p>
+        <span class="pillar-num">02</span>
+        <h3>المكتبة الهندسية</h3>
+        <p>بناء ملفات فنية ودراسات حالة لكل مشروع تم توريده لإثبات الكفاءة عملياً.</p>
         <ul class="pillar-list">
-          <li>ملف فني متكامل</li>
-          <li>مكتبة مواصفات رقمية</li>
-          <li>سابقة أعمال موثقة</li>
-          <li>قوالب عروض فنية</li>
+          <li>توثيق 10 مشاريع كبرى.</li>
+          <li>كتيبات فنية محدثة.</li>
         </ul>
       </div>
       <div class="pillar-card">
-        <div class="pillar-num">03</div>
-        <h3>الحضور في القطاع الهندسي</h3>
-        <p>التواجد حيث يتواجد المهندسون والمقاولون (LinkedIn) لبناء الثقة قبل قرار الشراء.</p>
+        <span class="pillar-num">03</span>
+        <h3>التموضع الرقمي</h3>
+        <p>التواجد حيث يتواجد صناع القرار (الاستشاريون والمقاولون) وبناء سلطة معرفية.</p>
         <ul class="pillar-list">
-          <li>صفحة LinkedIn نشطة</li>
-          <li>محتوى تقني موجه</li>
-          <li>دراسات حالة للمشاريع</li>
-          <li>حضور في الشبكات المهنية</li>
+          <li>استراتيجية LinkedIn احترافية.</li>
+          <li>موقع إلكتروني تفاعلي.</li>
         </ul>
       </div>
       <div class="pillar-card">
-        <div class="pillar-num">04</div>
-        <h3>التموضع كشريك حلول</h3>
-        <p>الفرق بين مورد ومستشار هو الطريقة التي تقدم بها نفسك.</p>
+        <span class="pillar-num">04</span>
+        <h3>أتمتة التسويق</h3>
+        <p>بناء نظام لجذب العملاء المحتملين (Lead Generation) آلياً لدعم فريق المبيعات.</p>
         <ul class="pillar-list">
-          <li>هوية مؤسسية موحدة</li>
-          <li>لغة تواصل هندسية</li>
-          <li>مواد تعريفية متخصصة</li>
-          <li>حضور في المعارض</li>
-        </ul>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-num">05</div>
-        <h3>التواصل الصناعي الاستراتيجي</h3>
-        <p>الرسالة الصحيحة للشخص الصحيح في الوقت الصحيح.</p>
-        <ul class="pillar-list">
-          <li>خطة تواصل للاستشاريين</li>
-          <li>محتوى يثبت الخبرة</li>
-          <li>تقارير أداء دورية</li>
-          <li>قياس الأثر على الفرص</li>
+          <li>نظام CRM متكامل.</li>
+          <li>حملات مستهدفة للقطاع الصناعي.</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- EXECUTION FRAMEWORK -->
-<section id="roadmap" style="background: var(--bg2);">
+<section id="framework">
   <div class="s-inner">
-    <span class="s-tag">إطار التنفيذ</span>
-    <h2 class="s-title">خطة الـ 12 شهراً</h2>
+    <span class="s-tag">04. إطار التنفيذ</span>
+    <h2 class="s-title">خارطة الطريق 2026</h2>
+    
     <div class="timeline">
       <div class="phase-card">
-        <h4>المرحلة 1 (0-60 يوم)</h4>
-        <h3>توثيق القدرات</h3>
+        <h4>المرحلة 1</h4>
+        <h3>التأسيس (شهر 1-2)</h3>
         <ul class="phase-list">
-          <li>الملف المؤسسي الكامل</li>
-          <li>تصوير صناعي شامل</li>
-          <li>الفيلم المؤسسي</li>
-          <li>إطلاق صفحة LinkedIn</li>
+          <li>إطلاق الهوية البصرية الجديدة.</li>
+          <li>تصوير الفيلم المؤسسي.</li>
+          <li>تحديث الملف التعريفي.</li>
         </ul>
       </div>
       <div class="phase-card">
-        <h4>المرحلة 2 (60-120 يوم)</h4>
-        <h3>بناء المكتبة الفنية</h3>
+        <h4>المرحلة 2</h4>
+        <h3>بناء الأصول (شهر 3-4)</h3>
         <ul class="phase-list">
-          <li>توثيق 10 مشاريع كبرى</li>
-          <li>ملف المناقصات الكامل</li>
-          <li>مكتبة المواصفات الرقمية</li>
-          <li>قوالب التواصل</li>
+          <li>توثيق المشاريع الميدانية.</li>
+          <li>إطلاق الموقع الإلكتروني.</li>
+          <li>تجهيز المكتبة الفنية.</li>
         </ul>
       </div>
       <div class="phase-card">
-        <h4>المرحلة 3 (120-180 يوم)</h4>
-        <h3>تعزيز الحضور</h3>
+        <h4>المرحلة 3</h4>
+        <h3>الانتشار (شهر 5-8)</h3>
         <ul class="phase-list">
-          <li>تعزيز التواجد الهندسي</li>
-          <li>دراسات حالة للمشاريع</li>
-          <li>تواصل مع شركات المقاولات</li>
-          <li>المشاركة في الفعاليات</li>
+          <li>تفعيل حملات LinkedIn.</li>
+          <li>إعداد دراسات حالة للمشاريع المنفذة.</li>
+          <li>ندوات تقنية للاستشاريين.</li>
         </ul>
       </div>
       <div class="phase-card">
-        <h4>المرحلة 4 (6-12 شهر)</h4>
-        <h3>رفع الجاهزية</h3>
+        <h4>المرحلة 4</h4>
+        <h3>الاستدامة (شهر 9-12)</h3>
         <ul class="phase-list">
-          <li>مشاركة فعلية في المناقصات</li>
-          <li>بناء علاقات مع صناع القرار</li>
-          <li>استكشاف الأسواق الخليجية</li>
-          <li>التقرير السنوي الشامل</li>
+          <li>تحليل البيانات وتحسين الأداء.</li>
+          <li>بناء علاقات مع صناع القرار.</li>
+          <li>التوسع في الأسواق الإقليمية.</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- KPIs -->
 <section id="kpis">
   <div class="s-inner">
-    <span class="s-tag">مؤشرات الأداء</span>
-    <h2 class="s-title">الأثر المستهدف خلال 12 شهراً</h2>
+    <span class="s-tag">05. مؤشرات النجاح</span>
+    <h2 class="s-title">كيف نقيس التحول؟</h2>
+    
     <div class="kpi-grid">
       <div class="kpi-card">
-        <h4>مكتبة فنية</h4>
-        <p>توثيق فني كامل جاهز للمناقصات</p>
+        <span class="kpi-val">100%</span>
+        <span class="kpi-lbl">توثيق للأصول الصناعية</span>
       </div>
       <div class="kpi-card">
-        <h4>10+ مشاريع</h4>
-        <p>مشاريع كبرى موثقة فنياً</p>
+        <span class="kpi-val">+50</span>
+        <span class="kpi-lbl">دراسة حالة هندسية</span>
       </div>
       <div class="kpi-card">
-        <h4>حضور نشط</h4>
-        <p>تواصل أسبوعي مع المهندسين</p>
+        <span class="kpi-val">10k</span>
+        <span class="kpi-lbl">متابع متخصص على LinkedIn</span>
       </div>
       <div class="kpi-card">
-        <h4>50+ مقطع</h4>
-        <p>محتوى مرئي يوثق القدرات</p>
-      </div>
-      <div class="kpi-card">
-        <h4>جاهزية كاملة</h4>
-        <p>تأهيل المصنع للمشاريع الكبرى</p>
-      </div>
-      <div class="kpi-card">
-        <h4>3+ أسواق</h4>
-        <p>ظهور في الأسواق الخليجية</p>
+        <span class="kpi-val">30%</span>
+        <span class="kpi-lbl">زيادة في طلبات التأهيل</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHY IT WORKS -->
-<section id="why" style="background: var(--bg2);">
+<section id="cta" class="cta-section">
   <div class="s-inner">
-    <span class="s-tag">لماذا الآن؟</span>
-    <h2 class="s-title">لماذا يعمل هذا التحول؟</h2>
-    <div class="market-grid">
-      <div class="market-card">
-        <h3>قدرات موجودة بالفعل</h3>
-        <p>التحول لا يبني من الصفر، بل يظهر ما هو موجود بالفعل من طاقة إنتاجية وتاريخ.</p>
-      </div>
-      <div class="market-card">
-        <h3>سوق في توسع مستمر</h3>
-        <p>رؤية 2030 تخلق طلباً متصاعداً، والفرصة قائمة لمن يثبت جدارته.</p>
-      </div>
-      <div class="market-card">
-        <h3>دعم الصناعة المحلية</h3>
-        <p>التوجه الحكومي يدعم المنتج السعودي، والمصنع مؤهل بشهادات دولية.</p>
-      </div>
-      <div class="market-card">
-        <h3>الطلب على الحلول</h3>
-        <p>السوق يريد شركاء يفهمون المشروع، وهذا ما سيصبح عليه ITOP THERM.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TEAM -->
-<section id="team">
-  <div class="s-inner">
-    <span class="s-tag">فريق العمل</span>
-    <h2 class="s-title">الفريق التنفيذي للمشروع</h2>
-    <div class="team-grid">
-      <div class="team-card">
-        <h3>مدير التطوير والعلامة</h3>
-        <p>القائد التنفيذي للمشروع، يرفع تقاريره للإدارة العليا.</p>
-      </div>
-      <div class="team-card">
-        <h3>مختص التوثيق الصناعي</h3>
-        <p>مسؤول عن المحتوى، دراسات الحالة، والملف المؤسسي.</p>
-      </div>
-      <div class="team-card">
-        <h3>مصور ومنتج مرئي</h3>
-        <p>توثيق المصنع، العمليات، والفيلم المؤسسي.</p>
-      </div>
-      <div class="team-card">
-        <h3>مصمم الهوية المؤسسية</h3>
-        <p>مسؤول عن الهوية البصرية والمواد الفنية.</p>
-      </div>
-      <div class="team-card">
-        <h3>منسق علاقات السوق</h3>
-        <p>التواصل مع الاستشاريين والمقاولين وLinkedIn.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONCLUSION -->
-<section id="conclusion" style="background: var(--purple); color: white; text-align: center;">
-  <div class="s-inner">
-    <h2 class="s-title" style="color: white;">التحول الحقيقي يبدأ بقرار</h2>
-    <p class="s-desc" style="color: rgba(255,255,255,0.8); margin: 0 auto 2rem;">من مصنع أنابيب إلى شريك حلول للبنية التحتية. القدرات موجودة، الخطة جاهزة، والوقت هو الآن.</p>
-    <div class="hero-tag" style="background: white; color: var(--purple); border: none;">ITOP THERM · 2026</div>
+    <h2 class="cta-h2">التحول الحقيقي يبدأ بقرار</h2>
+    <p class="cta-p">نحن لا نغير شكل الموقع، نحن نغير طريقة إدراك السوق لقدرات I-TOP Therm الصناعية.</p>
+    <a href="dashboard.html" class="btn-primary" style="background:var(--button); color:white;">عرض لوحة بيانات التحول</a>
   </div>
 </section>
 
 <footer>
-  &copy; 2026 ITOP THERM — جميع الحقوق محفوظة. وثيقة محتوى استراتيجي سرية.
+  <div class="f-logo">I-TOP THERM</div>
+  <p class="f-copy">© 2026 جميع الحقوق محفوظة. استراتيجية التحول الرقمي والصناعي.</p>
 </footer>
 
 </body>
