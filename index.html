@@ -54,7 +54,7 @@ body::after{
 /* ── NAV ── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
-  display:flex;align-items:center;justify-content:space-between;
+  display:flex;align-items:center;justify-content:center;
   padding:0 3.5rem;height:66px;
   background:rgba(7,5,15,.8);
   backdrop-filter:blur(24px) saturate(150%);
@@ -70,7 +70,7 @@ nav{
   background:var(--purple2);
   box-shadow:0 0 10px var(--purple2),0 0 22px var(--glow);
 }
-.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links{display:none;gap:2rem;list-style:none}
 .nav-links a{
   font-size:.78rem;font-weight:500;letter-spacing:.04em;
   color:var(--muted);text-decoration:none;transition:color .2s;
@@ -485,14 +485,6 @@ p, .subtitle, .section-description, .card-description, .caption, .s-desc, .hc-ba
     <div class="nav-dot"></div>
     I-TOP THERM
   </div>
-  <ul class="nav-links">
-    <li><a href="#hero">البداية</a></li>
-    <li><a href="#diagnosis">التشخيص</a></li>
-    <li><a href="#pillars">المحاور</a></li>
-    <li><a href="#roadmap">الخطة</a></li>
-    <li><a href="#kpis">النتائج</a></li>
-  </ul>
-  <button class="nav-cta">عرض الخطة</button>
 </nav>
 
 <!-- HERO -->
