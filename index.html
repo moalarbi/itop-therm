@@ -95,7 +95,7 @@ nav{
 }
 
 	/* ── HERO ── */
-	#hero{
+	#hero, .hero, .hero-section, .main-hero {
 	  position:relative;min-height:100vh;
 	  display:flex;align-items:center;
 	  padding:80px 3.5rem 0;overflow:hidden;z-index:2;
@@ -128,7 +128,7 @@ nav{
   gap:5rem;align-items:center;padding-top:4.5rem;
 }
 /* ─ left ─ */
-	.hero-tag{
+	.hero-tag, .badge {
 	  display:inline-flex;align-items:center;gap:.5rem;
 	  font-size:.7rem;font-weight:600;letter-spacing:.14em;
 	  text-transform:uppercase;color:var(--purple3);
@@ -286,224 +286,284 @@ section{position:relative;z-index:2;padding:8rem 3.5rem 6rem}
 .diag-en{font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
 .d-row{display:flex;align-items:center;gap:.8rem;margin-bottom:.9rem;font-size:.88rem;color:var(--muted)}
 .d-dot{width:6px;height:6px;border-radius:50%}
-.dg{background:#10b981;box-shadow:0 0 8px #10b981}
-.dr{background:#ef4444;box-shadow:0 0 8px #ef4444}
-
-/* ── VISION ── */
-.vis-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem;align-items:center}
-.v-from, .v-to{padding:1.5rem;border-radius:16px}
-.v-from{background:rgba(255,255,255,.03);border:1px solid var(--border)}
-.v-to{background:rgba(124,58,237,.1);border:1px solid var(--border2)}
-.v-lbl{font-size:.65rem;font-weight:700;text-transform:uppercase;margin-bottom:.5rem}
-.v-lbl.m{color:var(--dim)}
-.v-lbl.a{color:var(--purple3)}
-.v-txt{font-size:1.1rem;font-weight:600}
-.v-txt.m{color:var(--muted)}
-.v-arrow{font-size:1.5rem;color:var(--purple2);text-align:center;margin:.5rem 0}
-.why-list{display:flex;flex-direction:column;gap:1rem}
-.why-item{display:flex;gap:1.2rem;padding:1.2rem}
-.w-icon{font-size:1.5rem;flex-shrink:0}
-.why-item h4{font-size:.9rem;margin-bottom:.3rem;color:var(--white)}
-	.why-item p{font-size:.8rem;color:#E5E7EB;line-height:1.5}
+.dg{background:#34d399;box-shadow:0 0 8px rgba(52,211,153,.4)}
+.dr{background:#f87171;box-shadow:0 0 8px rgba(248,113,113,.4)}
+.tg{color:#34d399}
+.tr{color:#f87171}
 
 /* ── PILLARS ── */
-.pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.2rem;margin-top:3rem}
+.pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3.5rem}
 .pillar{
-  padding:2rem;position:relative;overflow:hidden;
-  border:1px solid var(--border);border-radius:20px;
-  background:var(--surface);transition:all .3s;
+  padding:2.5rem 2rem;position:relative;overflow:hidden;
+  border:1px solid var(--border);background:rgba(255,255,255,.02);
+  border-radius:20px;transition:all .3s;
 }
-.pillar:hover{border-color:var(--c);transform:translateY(-5px)}
-.p-num{position:absolute;top:1rem;right:1rem;font-size:2rem;font-weight:900;opacity:.05}
+.pillar:hover{
+  border-color:var(--c);
+  background:rgba(255,255,255,.04);
+  transform:translateY(-5px);
+  box-shadow:0 20px 40px rgba(0,0,0,.3),0 0 0 1px var(--c);
+}
+.p-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:4.5rem;font-weight:900;color:var(--c);
+  opacity:.08;position:absolute;top:-.5rem;right:1rem;
+}
 .p-icon{font-size:2rem;margin-bottom:1.5rem}
-.p-en{font-size:.65rem;font-weight:700;text-transform:uppercase;color:var(--dim);margin-bottom:.3rem}
-.p-ar{font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:1.2rem}
-.p-list{list-style:none;display:flex;flex-direction:column;gap:.6rem}
-	.p-list li{font-size:.8rem;color:#E5E7EB;display:flex;align-items:center;gap:.5rem}
+.p-en{font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--c);margin-bottom:.4rem}
+.p-ar{font-size:1.25rem;font-weight:800;color:var(--white);margin-bottom:1.2rem}
+.p-list{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.p-list li{
+  font-size:.82rem;color:var(--muted);display:flex;align-items:center;gap:.6rem;
+}
 .p-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--c)}
 
 /* ── MEDIA ── */
-.media-top{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;margin-bottom:4rem;align-items:center}
-.prod-phase{padding:1.5rem;margin-bottom:1rem}
-.prod-ph-label{font-size:.7rem;font-weight:700;color:var(--purple3);margin-bottom:1rem}
-.prod-row{display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:.6rem;color:var(--muted)}
-.prod-row strong{color:var(--text)}
-.media-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
-.mcard{padding:2rem}
-.mcard-num{font-size:.7rem;font-weight:700;color:var(--purple3);margin-bottom:1rem}
-.mcard-icon{font-size:1.8rem;margin-bottom:1.2rem}
-.mcard h3{font-size:1rem;margin-bottom:.8rem}
-	.mcard p{font-size:.85rem;color:#E5E7EB;line-height:1.6;margin-bottom:1rem}
-.mcard ul{list-style:none;font-size:.8rem;color:var(--dim)}
-.mcard li{margin-bottom:.4rem}
+#media{background:var(--bg2)}
+.media-top{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:start;margin-bottom:4rem}
+.prod-phase{padding:1.8rem;margin-bottom:1.2rem}
+.prod-ph-label{font-size:.65rem;font-weight:700;color:var(--purple3);margin-bottom:1rem;text-transform:uppercase;letter-spacing:.1em}
+.prod-row{display:flex;align-items:center;gap:.8rem;margin-bottom:.7rem;font-size:.85rem;color:var(--muted)}
+.prod-row::before{content:'→';color:var(--purple2);font-weight:bold}
+.media-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.mcard{padding:2rem;text-align:center}
+.mcard-num{font-size:.7rem;font-weight:700;color:var(--dim);margin-bottom:1rem}
+.mcard-icon{font-size:2rem;margin-bottom:1.2rem}
+.mcard h3{font-size:1rem;font-weight:800;margin-bottom:.8rem;color:var(--white)}
+.mcard p{font-size:.8rem;color:var(--muted);line-height:1.6}
 
 /* ── ROADMAP ── */
-.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:3rem}
-.phase{padding:2rem;background:var(--surface);border-radius:20px;border:1px solid var(--border)}
-.ph-dot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--c);color:#fff;font-weight:800;font-size:.8rem;margin-bottom:1.2rem}
-.ph-badge{font-size:.65rem;font-weight:700;margin-bottom:.4rem}
-.ph-title{font-size:1.2rem;font-weight:800;margin-bottom:.2rem}
-.ph-ar{font-size:.9rem;font-weight:600;margin-bottom:1.5rem}
-	.ph-list{list-style:none;font-size:.8rem;color:#E5E7EB}
-.ph-list li{margin-bottom:.6rem;display:flex;gap:.5rem}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:4rem;position:relative}
+.timeline::before{
+  content:'';position:absolute;top:2.5rem;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--border),transparent);
+  z-index:1;
+}
+.phase{position:relative;z-index:2;padding-top:5rem}
+.ph-dot{
+  width:50px;height:50px;border-radius:50%;background:var(--bg);
+  border:2px solid var(--c);display:flex;align-items:center;justify-content:center;
+  font-weight:900;color:var(--c);position:absolute;top:0;left:50%;transform:translateX(-50%);
+  box-shadow:0 0 20px rgba(0,0,0,.5), inset 0 0 10px var(--c);
+}
+.ph-badge{
+  display:inline-block;font-size:.6rem;font-weight:700;padding:.2rem .7rem;
+  border-radius:100px;border:1px solid var(--c);color:var(--c);margin-bottom:.8rem;
+}
+.ph-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);margin-bottom:.3rem}
+.ph-ar{font-size:1.2rem;font-weight:800;margin-bottom:1.2rem}
+.ph-list{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.ph-list li{font-size:.78rem;color:var(--muted);display:flex;align-items:center;gap:.5rem}
 .ph-list li::before{content:'•';color:var(--c)}
 
 /* ── KPIs ── */
-.kpis-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.2rem;margin-top:3rem}
-.kpi{padding:1.5rem;text-align:center}
-.kpi-icon{font-size:1.5rem;margin-bottom:1rem}
-.kpi-val{font-size:2rem;font-weight:900;color:var(--white);margin-bottom:.2rem}
-.kpi-period{font-size:.6rem;color:var(--dim);text-transform:uppercase;margin-bottom:.8rem}
-	.kpi-label{font-size:.8rem;color:#E5E7EB;font-weight:500}
+.kpis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.kpi{padding:2.5rem 2rem;text-align:center;position:relative}
+.kpi-icon{font-size:1.8rem;margin-bottom:1.2rem;opacity:.8}
+.kpi-val, .metric-number {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:42px;font-weight:700;color:var(--white);
+  line-height:1;margin-bottom:.4rem;
+}
+.kpi-period{font-size:.65rem;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.8rem}
+.kpi-label{font-size:.95rem;font-weight:700;color:var(--white)}
+.kpi-description, .metric-description {
+  font-size: 14px;
+  color: #E5E7EB;
+  margin-top: 0.5rem;
+}
 
 /* ── TEAM ── */
-.team-wrap{margin-top:4rem;text-align:center}
-.team-dir{display:inline-block;padding:1.5rem 3rem;background:var(--surface2);border:1px solid var(--purple2);border-radius:16px;margin-bottom:2rem}
-.team-dir h3{font-size:1.1rem;margin-bottom:.4rem}
-.team-dir p{font-size:.8rem;color:var(--muted)}
-.team-conn{width:2px;height:40px;background:var(--border2);margin:0 auto 2rem}
-.team-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.2rem}
-.tcard{padding:1.5rem}
-.tcard-icon{font-size:1.5rem;margin-bottom:1rem}
-.tcard-role{font-size:.9rem;font-weight:700;margin-bottom:.5rem}
-	.tcard-desc{font-size:.75rem;color:#E5E7EB}
-.team-note{margin-top:3rem;font-size:.85rem;color:var(--dim)}
-.team-note span{color:var(--purple3)}
+#team{background:var(--bg2)}
+.team-wrap{max-width:900px;margin:0 auto;text-align:center}
+.team-dir{
+  display:inline-block;padding:2rem 3rem;border:1px solid var(--purple2);
+  border-radius:20px;background:rgba(124,58,237,.05);margin-bottom:3rem;
+}
+.team-dir h3{font-size:1.3rem;font-weight:800;margin-bottom:.5rem}
+.team-dir p{font-size:.85rem;color:var(--purple3)}
+.team-conn{width:2px;height:40px;background:var(--border);margin:0 auto 2rem}
+.team-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.tcard{padding:2rem 1.5rem}
+.tcard-icon{font-size:1.8rem;margin-bottom:1.2rem}
+.tcard-role{font-size:.95rem;font-weight:800;margin-bottom:.6rem}
+.tcard-desc{font-size:.78rem;color:var(--muted);line-height:1.5}
+.team-note{margin-top:4rem;font-size:.85rem;color:var(--dim);font-style:italic}
 
 /* ── CLOSE ── */
-#close{background:var(--bg2);text-align:center;overflow:hidden}
-.close-orb{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(124,58,237,.15) 0%,transparent 70%);pointer-events:none}
+#close{padding:12rem 3.5rem;text-align:center;overflow:hidden}
+.close-orb{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:800px;height:800px;
+  background:radial-gradient(circle,rgba(124,58,237,.15) 0%,transparent 70%);
+  pointer-events:none;
+}
 .close-inner{max-width:800px;margin:0 auto;position:relative;z-index:3}
-.close-title{font-size:clamp(2.5rem,7vw,4.5rem);font-weight:900;line-height:.9;margin-bottom:2.5rem;color:var(--white)}
-.close-title .grad{background:linear-gradient(130deg,var(--purple2),var(--purple3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.close-quote{font-size:1.03rem;line-height:1.82;color:var(--muted);border-right:3px solid var(--purple2);padding-right:1.5rem;text-align:right;margin-bottom:3rem}
-.close-quote strong{color:var(--text)}
-.decisions{display:flex;flex-direction:column;gap:.7rem;text-align:right;margin-bottom:3rem}
-.dec{display:flex;align-items:center;gap:1rem;padding:.88rem 1.4rem;border-radius:12px;background:rgba(255,255,255,.025);border:1px solid var(--border);transition:all .25s}
-.dec:hover{border-color:rgba(124,58,237,.42);background:rgba(124,58,237,.07);transform:translateX(-4px)}
-.dec-n{width:28px;height:28px;flex-shrink:0;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(124,58,237,.18);border:1px solid rgba(124,58,237,.38);color:var(--purple3);font-size:.77rem;font-weight:700}
-.dec span{font-size:.9rem;color:var(--text)}
-.close-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.cbtn-p{display:inline-flex;align-items:center;gap:.6rem;background:var(--white);color:var(--bg);padding:.75rem 1.75rem;border-radius:100px;font-size:.84rem;font-weight:700;border:none;cursor:pointer;font-family:'IBM Plex Sans Arabic',sans-serif;transition:all .25s}
-.cbtn-p .arr{width:26px;height:26px;border-radius:50%;background:var(--purple);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.68rem;transition:background .2s}
-.cbtn-p:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,0,0,.38)}
-.cbtn-p:hover .arr{background:var(--purple2)}
-.cbtn-s{display:inline-flex;align-items:center;gap:.6rem;background:transparent;color:var(--text);padding:.75rem 1.75rem;border-radius:100px;font-size:.84rem;font-weight:600;border:1px solid var(--border2);cursor:pointer;font-family:'IBM Plex Sans Arabic',sans-serif;transition:all .25s}
-.cbtn-s:hover{border-color:var(--purple2);color:var(--purple3)}
+.close-title{
+  font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;line-height:1;
+  color:var(--white);margin:2rem 0 3rem;
+}
+.close-quote{
+  font-size:1.2rem;color:var(--muted);line-height:1.7;margin-bottom:4rem;
+}
+.close-quote strong{color:var(--text);display:block;margin-bottom:1rem;font-size:1.4rem}
+.decisions{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;text-align:right;margin-bottom:4rem}
+.dec{
+  display:flex;align-items:center;gap:1rem;padding:1.2rem;
+  background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;
+}
+.dec-n{
+  width:28px;height:28px;border-radius:50%;background:var(--purple);
+  display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;flex-shrink:0;
+}
+.dec span{font-size:.88rem;font-weight:600}
+.close-btns{display:flex;align-items:center;justify-content:center;gap:1.5rem}
+.cbtn-p{
+  background:var(--white);color:var(--bg);padding:.9rem 2.2rem;
+  border-radius:100px;font-weight:700;border:none;cursor:pointer;
+  transition:all .3s;
+}
+.cbtn-p:hover{transform:translateY(-3px);box-shadow:0 15px 30px rgba(0,0,0,.4)}
+.cbtn-s{color:var(--white);font-weight:600;cursor:pointer;opacity:.7;transition:.3s}
+.cbtn-s:hover{opacity:1}
 
 /* ── FOOTER ── */
-footer{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 3.5rem;border-top:1px solid var(--border);font-size:.68rem;color:var(--dim);letter-spacing:.06em}
-
-/* ── REVEAL ── */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-x{opacity:0;transform:translateX(26px);transition:opacity .7s ease,transform .7s ease}
-.reveal-x.visible{opacity:1;transform:translateX(0)}
-
-/* ── KEYFRAMES ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(1.65)}}
-@keyframes orbFloat{from{transform:translate(0,0) scale(1)}to{transform:translate(-28px,36px) scale(1.07)}}
-
-
-/* ── RESPONSIVE ── */
-	@media(max-width:900px){
-	  nav{padding:0 1.2rem; height:60px;}
-	  .nav-logo{font-size:1.1rem;}
-	  .nav-links{display:none}
-	  .nav-cta{padding: 0.4rem 1rem; font-size: 0.7rem;}
-	  section{padding:4rem 1.2rem 3rem}
-	  #hero{padding-top: 110px;}
-	  .hero-inner{padding-top:2rem; gap:3rem; position:relative; z-index:5;}
-  .hero-h1{font-size: clamp(2rem, 8vw, 2.8rem); line-height: 1.1; margin-bottom: 1.2rem;}
-  .hero-sub{font-size: 0.9rem; line-height: 1.6; margin-bottom: 2rem;}
-  .hero-actions{gap: 1rem;}
-  .btn-hero{padding: 0.65rem 1.4rem; font-size: 0.8rem;}
-  .hero-card{padding: 1.5rem;}
-  .hc-val{font-size: 1.8rem;}
-  .hc-lbl{font-size: 0.65rem;}
-  .s-title{font-size: clamp(2rem, 8vw, 2.8rem); line-height: 1.1;}
-  .s-desc{font-size: 0.88rem; line-height: 1.6;}
-  .hero-inner, .diag-grid, .vis-grid, .media-top, .media-cards{grid-template-columns:1fr}
-  .pillars-grid, .timeline, .kpis-grid, .team-row{grid-template-columns:1fr}
-  .pillar, .phase, .kpi, .tcard, .mcard{padding: 1.5rem;}
-  .close-title{font-size: clamp(2.2rem, 9vw, 3.2rem);}
-  .close-quote{font-size: 0.95rem; padding-right: 1rem; margin-bottom: 2rem;}
-  .dec span{font-size: 0.85rem;}
-
-  footer{padding:1.5rem 1.2rem;flex-direction:column;gap:.8rem;text-align:center; font-size: 0.6rem;}
+footer{
+  padding:3rem 3.5rem;border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:.65rem;font-weight:700;letter-spacing:.15em;color:var(--dim);
+  text-transform:uppercase;
 }
-@media(max-width:480px){
-  .hero-h1{font-size: 1.8rem;}
-  .hc-grid{grid-template-columns: 1fr 1fr;}
-  .hero-actions{flex-direction: column; align-items: stretch;}
-  .btn-hero{justify-content: center;}
-  .hero-note{justify-content: center;}
+
+/* ── ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(0.2, 0.8, 0.2, 1)}
+.reveal-x{opacity:0;transform:translateX(30px);transition:all .8s cubic-bezier(0.2, 0.8, 0.2, 1)}
+.visible{opacity:1;transform:translate(0,0)}
+
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+@keyframes orbFloat{
+  0%{transform:translate(0,0) scale(1)}
+  100%{transform:translate(-20px,30px) scale(1.05)}
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(124,58,237,0.7)}
+  70%{box-shadow:0 0 0 10px rgba(124,58,237,0)}
+  100%{box-shadow:0 0 0 0 rgba(124,58,237,0)}
+}
+
+/* ── MOBILE ── */
+@media (max-width: 1024px) {
+  .hero-inner, .diag-grid, .media-top { grid-template-columns: 1fr; gap: 3rem; }
+  .media-cards, .timeline, .kpis-grid, .team-row { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  nav{padding:0 1.5rem}
+  .nav-links{display:none}
+  #hero, .hero, .hero-section, .main-hero { padding: 110px 1.5rem 4rem; text-align: center; }
+  .hero-inner{padding-top:1rem}
+  .hero-sub{margin:0 auto 2.5rem}
+  .hero-actions{justify-content:center}
+  section{padding:5rem 1.5rem}
+  .media-cards, .timeline, .kpis-grid, .team-row, .decisions { grid-template-columns: 1fr; }
+  footer{flex-direction:column;gap:1rem;text-align:center}
+  .badge { margin-top: 10px; }
+}
+
+/* Task 2: Improve small text readability */
+p, .subtitle, .section-description, .card-description, .caption, .s-desc, .hc-badge p, .mcard p, .tcard-desc, .ph-list li, .p-list li {
+  color: #E5E7EB !important;
 }
 </style>
 </head>
 <body>
 
-<!-- corner dots -->
-<div class="cdot" style="top:78px;right:3.5rem"></div>
-<div class="cdot" style="top:78px;left:3.5rem"></div>
-<div class="cdot" style="bottom:2rem;right:3.5rem"></div>
-<div class="cdot" style="bottom:2rem;left:3.5rem"></div>
+<div class="cdot" style="top:2rem;left:2rem"></div>
+<div class="cdot" style="bottom:3rem;right:4rem"></div>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-logo"><div class="nav-dot"></div>I-TOP THERM</div>
+  <div class="nav-logo">
+    <div class="nav-dot"></div>
+    I-TOP THERM
+  </div>
   <ul class="nav-links">
+    <li><a href="#hero">البداية</a></li>
     <li><a href="#diagnosis">التشخيص</a></li>
-    <li><a href="#vision">الرؤية</a></li>
     <li><a href="#pillars">المحاور</a></li>
-    <li><a href="#roadmap">التنفيذ</a></li>
-    <li><a href="#close">القرار</a></li>
+    <li><a href="#roadmap">الخطة</a></li>
+    <li><a href="#kpis">النتائج</a></li>
   </ul>
-  <button class="nav-cta" onclick="document.getElementById('close').scrollIntoView({behavior:'smooth'})">
-    التوصية الاستراتيجية
-  </button>
+  <button class="nav-cta">عرض الخطة</button>
 </nav>
 
 <!-- HERO -->
-<section id="hero">
+<section id="hero" class="main-hero">
   <div class="orb-a"></div>
   <div class="orb-b"></div>
   <div class="grid-bg"></div>
-
   <div class="hero-inner">
-    <div class="hero-left">
-      <div class="hero-tag">مشروع التحول الاستراتيجي · 2026</div>
-      <h1 class="hero-h1">الخطة الاستراتيجية لتحويل<br>I-TOP Therm إلى شريك موثوق في مشاريع البنية التحتية</h1>
-      <p class="hero-sub"><strong>Strategic Growth Plan</strong><br>2026 – 2028<br><br>بناء حضور صناعي قوي يعكس قدرات المصنع ويدعم توسع الشركة في مشاريع البنية التحتية داخل المملكة والأسواق الإقليمية.</p>
+    <div class="hero-content">
+      <div class="hero-tag badge">مشروع التحول الاستراتيجي · 2026</div>
+      <h1 class="hero-h1">تعزيز الحضور الصناعي لشركة <span class="grad">I-TOP Therm</span></h1>
+      <p class="hero-sub">خطة استراتيجية متكاملة تهدف إلى تطوير الهوية المؤسسية والتوثيق الصناعي لتعزيز الثقة في السوق ورفع الحصة السوقية في مشاريع البنية التحتية.</p>
       <div class="hero-actions">
         <button class="btn-hero" onclick="document.getElementById('diagnosis').scrollIntoView({behavior:'smooth'})">
-          اكتشف الخطة <span class="arr">↓</span>
+          استكشاف الخطة <span class="arr">←</span>
         </button>
-        <div class="hero-note"><span class="star">★</span> خطة 12 شهراً · 5 محاور</div>
+        <div class="hero-note">
+          <span class="star">★</span>
+          <span>رؤية 2030 · المحتوى المحلي</span>
+        </div>
       </div>
     </div>
-
-    <div class="hero-right">
-      <div class="hero-card">
-        <div class="cc cc-tl"></div><div class="cc cc-tr"></div>
-        <div class="cc cc-bl"></div><div class="cc cc-br"></div>
-        <div class="hc-label">الأهداف الاستراتيجية</div>
-        <div class="hc-grid">
-          <div class="hc-stat"><div class="hc-val">5</div><div class="hc-lbl">محاور التحول</div></div>
-          <div class="hc-stat"><div class="hc-val">12</div><div class="hc-lbl">شهر تنفيذ</div></div>
-          <div class="hc-stat"><div class="hc-val">30%+</div><div class="hc-lbl">نمو متوقع</div></div>
-          <div class="hc-stat"><div class="hc-val">50+</div><div class="hc-lbl">فيديو صناعي</div></div>
-        </div>
-        <div class="hc-badge">
-          <div class="hc-badge-dot"></div>
-          <p><strong>الهدف النهائي</strong><br>من مصنع أنابيب إلى شريك موثوق لحلول البنية التحتية</p>
-        </div>
+    <div class="hero-card">
+      <div class="cc cc-tr"></div><div class="cc cc-tl"></div><div class="cc cc-br"></div><div class="cc cc-bl"></div>
+      <div class="hc-label">نظرة عامة على القدرات</div>
+      <div class="hc-grid">
+        <div class="hc-stat"><div class="hc-val">15K</div><div class="hc-lbl">طن سنوياً</div></div>
+        <div class="hc-stat"><div class="hc-val">9</div><div class="hc-lbl">خطوط إنتاج</div></div>
+      </div>
+      <div class="hc-badge">
+        <div class="hc-badge-dot"></div>
+        <p><strong>الهدف الاستراتيجي:</strong> التحول من "مصنع منتجات" إلى "شريك حلول بنية تحتية" موثوق.</p>
       </div>
     </div>
   </div>
+</section>
 
-
+<!-- STRATEGIC GOALS (TASK 3) -->
+<section id="goals" style="background:var(--bg2)">
+  <div class="s-inner">
+    <div class="s-tag">الأهداف الاستراتيجية</div>
+    <h2 class="s-title reveal">أهداف واضحة.<br><span class="hi">نمو مستدام.</span></h2>
+    <div class="pillars-grid reveal">
+      <!-- CARD 1 -->
+      <div class="pillar" style="--c:#9b5cff">
+        <div class="p-num">12</div>
+        <div class="p-icon">📅</div>
+        <div class="p-ar">مدة تنفيذ الخطة</div>
+        <p class="s-desc">تنفيذ خطة تحول صناعي متكاملة لتعزيز حضور الشركة في السوق.</p>
+      </div>
+      <!-- CARD 2 -->
+      <div class="pillar" style="--c:#22d3ee">
+        <div class="p-num">5</div>
+        <div class="p-icon">🎯</div>
+        <div class="p-ar">محاور التحول</div>
+        <p class="s-desc">محاور استراتيجية تشمل العلامة الصناعية والمحتوى وتطوير الفرص السوقية.</p>
+      </div>
+      <!-- CARD 3 -->
+      <div class="pillar" style="--c:#f59e0b">
+        <div class="p-icon">🏆</div>
+        <div class="p-ar">تعزيز الحضور الصناعي</div>
+        <p class="s-desc">رفع مستوى ظهور المصنع أمام المقاولين والاستشاريين وصناع القرار في القطاع.</p>
+      </div>
+      <!-- CARD 4 -->
+      <div class="pillar" style="--c:#34d399">
+        <div class="p-icon">📈</div>
+        <div class="p-ar">توسيع الحصة السوقية</div>
+        <p class="s-desc">دعم فرص الشركة في مشاريع البنية التحتية.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- DIAGNOSIS -->
@@ -543,7 +603,7 @@ footer{position:relative;z-index:2;display:flex;align-items:center;justify-conte
 </section>
 
 <!-- VISION -->
-<section id="vision">
+<section id="vision" style="background:var(--bg2)">
   <div class="s-inner">
     <div class="s-tag">التحول الاستراتيجي</div>
     <h2 class="s-title reveal">التحول الاستراتيجي</h2>
@@ -578,7 +638,7 @@ footer{position:relative;z-index:2;display:flex;align-items:center;justify-conte
 </section>
 
 <!-- MEDIA -->
-<section id="media">
+<section id="media" style="background:var(--bg2)">
   <div class="s-inner">
     <div class="s-tag">استراتيجية التوثيق الصناعي المرئي</div>
     <h2 class="s-title reveal">بناء ثقة السوق عبر<br><span class="hi">توثيق القدرات الصناعية.</span></h2>
@@ -626,18 +686,54 @@ footer{position:relative;z-index:2;display:flex;align-items:center;justify-conte
   </div>
 </section>
 
-<!-- KPIs -->
-<section id="kpis">
+<!-- KPIs (TASK 4) -->
+<section id="kpis" style="background:var(--bg2)">
   <div class="s-inner">
     <div class="s-tag">مؤشرات الأداء المستهدفة</div>
     <h2 class="s-title reveal">نتائج قابلة<br><span class="hi">للقياس.</span></h2>
     <div class="kpis-grid">
-      <div class="kpi glass reveal" style="--c:#9b5cff"><div class="kpi-icon">🎬</div><div class="kpi-val">50+</div><div class="kpi-period">خلال 12 شهر</div><div class="kpi-label">فيديو صناعي منشور</div></div>
-      <div class="kpi glass reveal" style="--c:#22d3ee"><div class="kpi-icon">🌐</div><div class="kpi-val">5K+</div><div class="kpi-period">خلال 12 شهر</div><div class="kpi-label">متابع LinkedIn صناعي</div></div>
-      <div class="kpi glass reveal" style="--c:#f59e0b"><div class="kpi-icon">📋</div><div class="kpi-val">+50%</div><div class="kpi-period">تحسن سنوي</div><div class="kpi-label">عدد المناقصات المقدمة</div></div>
-      <div class="kpi glass reveal" style="--c:#a78bfa"><div class="kpi-icon">🏗</div><div class="kpi-val">30+</div><div class="kpi-period">موثقة رسمياً</div><div class="kpi-label">مشروع في مكتبة المشاريع</div></div>
-      <div class="kpi glass reveal" style="--c:#34d399"><div class="kpi-icon">💼</div><div class="kpi-val">100+</div><div class="kpi-period">شهرياً</div><div class="kpi-label">عميل محتمل في Pipeline</div></div>
-      <div class="kpi glass reveal" style="--c:#fb923c"><div class="kpi-icon">🚀</div><div class="kpi-val">3+</div><div class="kpi-period">أسواق جديدة</div><div class="kpi-label">فرص تصدير خليجية</div></div>
+      <!-- CARD 1 -->
+      <div class="kpi glass reveal" style="--c:#9b5cff">
+        <div class="kpi-icon">🎬</div>
+        <div class="metric-number">50+</div>
+        <div class="kpi-label">محتوى صناعي احترافي</div>
+        <p class="metric-description">توثيق عمليات المصنع والمشاريع بطريقة احترافية.</p>
+      </div>
+      <!-- CARD 2 -->
+      <div class="kpi glass reveal" style="--c:#22d3ee">
+        <div class="kpi-icon">🌐</div>
+        <div class="metric-number">5K+</div>
+        <div class="kpi-label">متابع مهني</div>
+        <p class="metric-description">بناء حضور قوي للشركة على LinkedIn الصناعي.</p>
+      </div>
+      <!-- CARD 3 -->
+      <div class="kpi glass reveal" style="--c:#f59e0b">
+        <div class="kpi-icon">📋</div>
+        <div class="metric-number">50%+</div>
+        <div class="kpi-label">زيادة المشاركة في المناقصات</div>
+        <p class="metric-description">تعزيز فرص الشركة في المشاريع الكبرى.</p>
+      </div>
+      <!-- CARD 4 -->
+      <div class="kpi glass reveal" style="--c:#a78bfa">
+        <div class="kpi-icon">🏗</div>
+        <div class="metric-number">30+</div>
+        <div class="kpi-label">مشروع موثق</div>
+        <p class="metric-description">بناء مكتبة مشاريع تعكس خبرة الشركة في السوق.</p>
+      </div>
+      <!-- CARD 5 -->
+      <div class="kpi glass reveal" style="--c:#34d399">
+        <div class="kpi-icon">💼</div>
+        <div class="metric-number">100+</div>
+        <div class="kpi-label">فرصة مشروع محتملة</div>
+        <p class="metric-description">توسيع قاعدة العملاء وبناء Pipeline للمبيعات.</p>
+      </div>
+      <!-- CARD 6 -->
+      <div class="kpi glass reveal" style="--c:#fb923c">
+        <div class="kpi-icon">🚀</div>
+        <div class="metric-number">3+</div>
+        <div class="kpi-label">أسواق خليجية</div>
+        <p class="metric-description">استكشاف فرص التصدير والتوسع الإقليمي.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -655,7 +751,6 @@ footer{position:relative;z-index:2;display:flex;align-items:center;justify-conte
         <div class="tcard glass reveal"><div class="tcard-icon">📝</div><div class="tcard-role">مختص المحتوى الرقمي</div><div class="tcard-desc">محتوى LinkedIn والمشاريع الرقمية</div></div>
         <div class="tcard glass reveal"><div class="tcard-icon">🎥</div><div class="tcard-role">مصور صناعي</div><div class="tcard-desc">إنتاج المحتوى المرئي الصناعي</div></div>
         <div class="tcard glass reveal"><div class="tcard-icon">🎨</div><div class="tcard-role">مصمم الهوية والمواد البصرية</div><div class="tcard-desc">الهوية البصرية والمواد التسويقية</div></div>
-        <div class="tcard glass reveal"><div class="tcard-icon">📊</div><div class="tcard-role">منسق إدارة العلاقات والعملاء</div><div class="tcard-desc">إدارة Pipeline والعلاقات الصناعية</div></div>
       </div>
       <div class="team-note reveal">يمكن البدء بفريق صغير والتوسع تدريجياً حسب مراحل التنفيذ.</div>
     </div>
@@ -663,7 +758,7 @@ footer{position:relative;z-index:2;display:flex;align-items:center;justify-conte
 </section>
 
 <!-- CLOSE -->
-<section id="close">
+<section id="close" style="background:var(--bg2)">
   <div class="close-orb"></div>
   <div class="grid-bg" style="opacity:.25"></div>
   <div class="close-inner">
