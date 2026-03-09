@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I-TOP Therm — Strategic Transformation</title>
+    <title>I-TOP Therm — التحول الاستراتيجي</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #FFFFFF;
@@ -29,12 +29,14 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background-color: var(--bg);
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.8;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            direction: rtl;
+            text-align: right;
         }
 
         .container {
@@ -176,6 +178,7 @@
             padding: 2.5rem;
             border: 1px solid var(--border);
             border-radius: 4px;
+            text-align: right;
         }
 
         .card h3 {
@@ -201,6 +204,7 @@
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 4px;
+            text-align: right;
         }
 
         .column h3 {
@@ -215,7 +219,7 @@
 
         .column li {
             position: relative;
-            padding-left: 1.5rem;
+            padding-right: 1.5rem;
             margin-bottom: 1rem;
             font-size: 1rem;
             color: var(--text);
@@ -225,7 +229,7 @@
         .column li::before {
             content: "•";
             position: absolute;
-            left: 0;
+            right: 0;
             color: var(--accent);
             font-weight: bold;
         }
@@ -259,6 +263,7 @@
             padding: 2rem;
             border: 1px solid var(--border);
             border-radius: 4px;
+            text-align: right;
         }
 
         .pillar h3 {
@@ -270,6 +275,27 @@
         .pillar p {
             font-size: 0.95rem;
             line-height: 1.6;
+        }
+
+        .pillar ul {
+            list-style: none;
+        }
+
+        .pillar li {
+            position: relative;
+            padding-right: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .pillar li::before {
+            content: "•";
+            position: absolute;
+            right: 0;
+            color: var(--accent);
+            font-weight: bold;
         }
 
         /* Timeline */
@@ -286,6 +312,7 @@
             border: 1px solid var(--border);
             border-radius: 4px;
             border-top: 3px solid var(--accent);
+            text-align: right;
         }
 
         .phase h4 {
@@ -308,7 +335,7 @@
 
         .phase li {
             position: relative;
-            padding-left: 1.25rem;
+            padding-right: 1.25rem;
             margin-bottom: 0.75rem;
             font-size: 0.95rem;
             color: var(--text);
@@ -318,7 +345,7 @@
         .phase li::before {
             content: "•";
             position: absolute;
-            left: 0;
+            right: 0;
             color: var(--accent);
             font-weight: bold;
         }
@@ -430,20 +457,20 @@
 
     <nav>
         <div class="container nav-inner">
+            <div class="nav-label">عرض استراتيجي</div>
             <div class="logo">I-TOP THERM</div>
-            <div class="nav-label">Strategic Presentation</div>
         </div>
     </nav>
 
     <!-- SECTION 1: HERO -->
     <section id="hero">
         <div class="container hero-content">
-            <h1 class="hero-h1">Strategic Transformation</h1>
-            <p class="hero-subheading">From Manufacturing<br>to Infrastructure Solutions Partner</p>
+            <h1 class="hero-h1">التحول الاستراتيجي</h1>
+            <p class="hero-subheading">I-TOP Therm<br>من مصنع منتجات<br>إلى شريك في حلول البنية التحتية</p>
             <div class="hero-body">
-                <p>The company already possesses strong industrial capabilities.</p>
-                <p>However market perception does not fully reflect this strength.</p>
-                <p>The opportunity today is to align the brand presence with the industrial capability.</p>
+                <p>تمتلك شركة I-TOP Therm قدرات صناعية قوية وخبرة إنتاجية متقدمة.</p>
+                <p>لكن إدراك السوق لهذه القدرات لا يعكس حجمها الحقيقي.</p>
+                <p>الفرصة اليوم ليست في التصنيع فقط، بل في بناء حضور صناعي يعكس هذه القوة في السوق.</p>
             </div>
         </div>
     </section>
@@ -451,19 +478,19 @@
     <!-- SECTION 2: MARKET SHIFT -->
     <section id="market" class="alt">
         <div class="container">
-            <h2>The Market is Changing</h2>
+            <h2>السوق يتغير</h2>
             <div class="three-cards">
                 <div class="card">
-                    <h3>Infrastructure Projects</h3>
-                    <p>Major projects increasingly rely on partners with proven expertise.</p>
+                    <h3>المشاريع الكبرى</h3>
+                    <p>المشاريع الكبرى تبحث عن شركاء قادرين على توثيق خبراتهم الصناعية وتقديم حضور مؤسسي واضح.</p>
                 </div>
                 <div class="card">
-                    <h3>Technical Competition</h3>
-                    <p>Competitive advantage is defined not only by product quality but by documented experience.</p>
+                    <h3>المنافسة التقنية</h3>
+                    <p>الميزة التنافسية لم تعد تعتمد على جودة المنتج وحدها، بل على توثيق الخبرة والتجارب المنفذة.</p>
                 </div>
                 <div class="card">
-                    <h3>Digital Trust</h3>
-                    <p>Industry decisions often begin with digital research and capability verification.</p>
+                    <h3>الثقة الرقمية</h3>
+                    <p>قرارات الاختيار أصبحت تبدأ غالباً بالبحث الرقمي والتحقق من القدرات والخبرات.</p>
                 </div>
             </div>
         </div>
@@ -472,24 +499,24 @@
     <!-- SECTION 3: CAPABILITY VS VISIBILITY -->
     <section id="capability">
         <div class="container">
-            <h2>Capability vs Market Visibility</h2>
+            <h2>الفجوة بين القدرة والظهور</h2>
             <div class="two-column">
                 <div class="column">
-                    <h3>Industrial Strength</h3>
+                    <h3>الظهور في السوق</h3>
                     <ul>
-                        <li>strong production capability</li>
-                        <li>modern manufacturing operations</li>
-                        <li>globally compliant quality</li>
-                        <li>experience supplying major projects</li>
+                        <li>محدودية توثيق المشاريع المنفذة</li>
+                        <li>حضور رقمي ضعيف في منصات صناع القرار</li>
+                        <li>الاعتماد على المبيعات التقليدية</li>
+                        <li>تموضع غير واضح كشريك حلول</li>
                     </ul>
                 </div>
                 <div class="column">
-                    <h3>Market Visibility</h3>
+                    <h3>القدرة الصناعية</h3>
                     <ul>
-                        <li>limited documentation of delivered projects</li>
-                        <li>minimal digital presence among decision makers</li>
-                        <li>reliance on traditional sales channels</li>
-                        <li>unclear positioning as a solutions partner</li>
+                        <li>بنية إنتاجية متقدمة</li>
+                        <li>عمليات تصنيع حديثة</li>
+                        <li>جودة مطابقة للمعايير العالمية</li>
+                        <li>خبرة في توريد مشاريع البنية التحتية</li>
                     </ul>
                 </div>
             </div>
@@ -499,40 +526,55 @@
     <!-- SECTION 4: CORE MESSAGE -->
     <section id="core" class="alt">
         <div class="container core-message">
-            <h2>The challenge is not product quality.</h2>
-            <p>The real challenge is the visibility and positioning gap.</p>
-            <p>This gap prevents the company from being perceived as a preferred partner in major infrastructure projects.</p>
+            <h2>المشكلة ليست في جودة المنتج.</h2>
+            <p>التحدي الحقيقي هو فجوة الظهور والتموضع.</p>
+            <p>هذه الفجوة تمنع الشركة من أن تُرى كخيار أول في المشاريع الكبرى.</p>
         </div>
     </section>
 
     <!-- SECTION 5: STRATEGIC OPPORTUNITY -->
     <section id="opportunity">
         <div class="container">
-            <h2>The Opportunity</h2>
-            <p>Strengthening the brand presence can transform the company from a product supplier into a recognized infrastructure solutions partner.</p>
+            <h2>الفرصة الاستراتيجية</h2>
+            <p>تعزيز حضور العلامة يمكن أن يحول الشركة من مورد منتجات إلى شريك موثوق في مشاريع البنية التحتية.</p>
         </div>
     </section>
 
     <!-- SECTION 6: TRANSFORMATION PILLARS -->
     <section id="pillars" class="alt">
         <div class="container">
-            <h2>Transformation Pillars</h2>
+            <h2>محاور التحول</h2>
+            <p style="margin-bottom: 3rem;">التحول لا يتعلق بتغيير الموقع فقط، بل بتغيير طريقة إدراك السوق لقدرات الشركة.</p>
             <div class="four-grid">
                 <div class="pillar">
-                    <h3>Industrial Documentation</h3>
-                    <p>Professional documentation of manufacturing capabilities.</p>
+                    <h3>التوثيق الصناعي</h3>
+                    <ul>
+                        <li>تصوير احترافي لخطوط الإنتاج</li>
+                        <li>إنتاج فيلم مؤسسي</li>
+                        <li>مكتبة صور صناعية للمنتجات</li>
+                    </ul>
                 </div>
                 <div class="pillar">
-                    <h3>Engineering Library</h3>
-                    <p>Technical case studies and project documentation.</p>
+                    <h3>المكتبة الهندسية</h3>
+                    <ul>
+                        <li>دراسات حالة للمشاريع</li>
+                        <li>ملفات فنية للمشاريع المنفذة</li>
+                        <li>توثيق الخبرة التنفيذية</li>
+                    </ul>
                 </div>
                 <div class="pillar">
-                    <h3>Digital Positioning</h3>
-                    <p>Professional presence across digital industry platforms.</p>
+                    <h3>التموضع الرقمي</h3>
+                    <ul>
+                        <li>حضور مهني في LinkedIn</li>
+                        <li>موقع إلكتروني يعكس القدرات الصناعية</li>
+                    </ul>
                 </div>
                 <div class="pillar">
-                    <h3>Marketing Infrastructure</h3>
-                    <p>Systems that support lead generation and sales.</p>
+                    <h3>بنية التسويق</h3>
+                    <ul>
+                        <li>نظام CRM لإدارة العلاقات</li>
+                        <li>حملات موجهة للقطاع الصناعي</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -541,42 +583,42 @@
     <!-- SECTION 7: TRANSFORMATION ROADMAP -->
     <section id="roadmap">
         <div class="container">
-            <h2>Transformation Roadmap</h2>
+            <h2>خارطة طريق التحول</h2>
             <div class="timeline">
                 <div class="phase">
-                    <h4>Phase 1</h4>
-                    <h3>Foundation</h3>
+                    <h4>المرحلة الأولى</h4>
+                    <h3>التأسيس</h3>
                     <ul>
-                        <li>visual identity</li>
-                        <li>corporate film</li>
-                        <li>updated company profile</li>
+                        <li>إطلاق الهوية المؤسسية</li>
+                        <li>إنتاج الفيلم التعريفي</li>
+                        <li>تحديث الملف التعريفي</li>
                     </ul>
                 </div>
                 <div class="phase">
-                    <h4>Phase 2</h4>
-                    <h3>Asset Development</h3>
+                    <h4>المرحلة الثانية</h4>
+                    <h3>بناء الأصول</h3>
                     <ul>
-                        <li>project documentation</li>
-                        <li>website launch</li>
-                        <li>engineering library</li>
+                        <li>توثيق المشاريع</li>
+                        <li>إطلاق الموقع الإلكتروني</li>
+                        <li>بناء المكتبة الفنية</li>
                     </ul>
                 </div>
                 <div class="phase">
-                    <h4>Phase 3</h4>
-                    <h3>Market Visibility</h3>
+                    <h4>المرحلة الثالثة</h4>
+                    <h3>الانتشار</h3>
                     <ul>
-                        <li>professional content</li>
-                        <li>case studies</li>
-                        <li>industry engagement</li>
+                        <li>نشر المحتوى الصناعي</li>
+                        <li>دراسات حالة للمشاريع</li>
+                        <li>التواصل مع الاستشاريين</li>
                     </ul>
                 </div>
                 <div class="phase">
-                    <h4>Phase 4</h4>
-                    <h3>Continuous Growth</h3>
+                    <h4>المرحلة الرابعة</h4>
+                    <h3>التوسع الاستراتيجي</h3>
                     <ul>
-                        <li>data analysis</li>
-                        <li>relationship building</li>
-                        <li>regional presence</li>
+                        <li>تحليل الأداء</li>
+                        <li>بناء علاقات مع صناع القرار</li>
+                        <li>تعزيز حضور الشركة في السوق الإقليمي</li>
                     </ul>
                 </div>
             </div>
@@ -586,16 +628,17 @@
     <!-- SECTION 8: SUCCESS SIGNALS -->
     <section id="success" class="alt">
         <div class="container">
-            <h2>What Successful Transformation Looks Like</h2>
+            <h2>كيف يظهر التحول؟</h2>
+            <p style="margin-bottom: 2rem;">يصبح التحول واضحاً عندما:</p>
             <div class="signals">
                 <div class="signal">
-                    <p>Increased recognition among consultants</p>
+                    <p>تزداد ثقة الاستشاريين بالشركة</p>
                 </div>
                 <div class="signal">
-                    <p>Stronger presence in industry discussions</p>
+                    <p>يتوسع حضورها في القطاع الصناعي</p>
                 </div>
                 <div class="signal">
-                    <p>Higher qualification for major projects</p>
+                    <p>تصبح خياراً مفضلاً في المشاريع الكبرى</p>
                 </div>
             </div>
         </div>
@@ -604,15 +647,17 @@
     <!-- FINAL SECTION -->
     <section id="final">
         <div class="container core-message">
-            <h2>Real transformation begins with a decision.</h2>
-            <p>This initiative is not about redesigning a website.</p>
-            <p>It is about reshaping how the market perceives the company's industrial capabilities.</p>
+            <h2>التحول الحقيقي يبدأ بقرار</h2>
+            <p>المنتج قوي بالفعل.</p>
+            <p>لكن العلامة يجب أن تعكس هذه القوة في السوق.</p>
+            <p>هذا التحول ليس مجرد تطوير موقع إلكتروني.</p>
+            <p>إنه إعادة تشكيل طريقة إدراك السوق لقدرات I-TOP Therm.</p>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            &copy; 2026 I-TOP THERM. Strategic Presentation Document.
+            &copy; 2026 I-TOP THERM. وثيقة عرض استراتيجي.
         </div>
     </footer>
 
