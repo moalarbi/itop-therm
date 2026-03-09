@@ -6,16 +6,16 @@
     <title>I-TOP Therm — Strategic Transformation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #FFFFFF;
-            --bg-alt: #F5F5F5;
+            --bg-light: #F8F8F8;
             --text: #1A1A1A;
             --text-muted: #666666;
             --accent: #000000;
-            --border: #E8E8E8;
-            --max-width: 900px;
+            --border: #E5E5E5;
+            --max-width: 1000px;
         }
 
         * {
@@ -37,85 +37,10 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Layout */
         .container {
             max-width: var(--max-width);
             margin: 0 auto;
             padding: 0 2rem;
-        }
-
-        section {
-            padding: 5rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        section:last-of-type {
-            border-bottom: none;
-        }
-
-        /* Typography */
-        h1 {
-            font-size: clamp(2.5rem, 6vw, 3.5rem);
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        h2 {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.01em;
-        }
-
-        h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 1rem;
-        }
-
-        p {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            margin-bottom: 1.25rem;
-            max-width: 800px;
-            line-height: 1.7;
-        }
-
-        .section-tag {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            display: block;
-            font-weight: 600;
-        }
-
-        /* Lists */
-        ul {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.8rem;
-            font-size: 1.05rem;
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
         }
 
         /* Navigation */
@@ -137,23 +62,79 @@
 
         .logo {
             font-weight: 700;
-            font-size: 1.1rem;
-            letter-spacing: 0.05em;
+            font-size: 1rem;
+            letter-spacing: 0.08em;
         }
 
         .nav-label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
-        /* Section 1: Hero */
+        /* Sections */
+        section {
+            padding: 8rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        section.alt {
+            background-color: var(--bg-light);
+        }
+
+        /* Typography */
+        h1 {
+            font-size: clamp(3rem, 8vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            line-height: 1.8;
+            max-width: 800px;
+        }
+
+        .subheading {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        /* Hero Section */
         #hero {
-            min-height: 85vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             text-align: center;
-            background-color: var(--bg);
+            padding: 10rem 0;
         }
 
         .hero-content {
@@ -161,167 +142,221 @@
         }
 
         .hero-h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            margin-bottom: 2rem;
-            font-weight: 700;
+            margin-bottom: 1.5rem;
         }
 
         .hero-subheading {
-            font-size: 1.4rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
+            font-size: 1.5rem;
             font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            line-height: 1.6;
         }
 
         .hero-body {
-            font-size: 1.1rem;
-            color: var(--text-muted);
             max-width: 700px;
             margin: 0 auto;
-            line-height: 1.8;
         }
 
-        /* Content sections */
-        .content-block {
-            max-width: 800px;
-        }
-
-        .section-intro {
+        .hero-body p {
             font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            line-height: 1.8;
+            margin-bottom: 1.5rem;
         }
 
-        /* Pillars Grid */
-        .pillars-grid {
+        /* Three Card Section */
+        .three-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .pillar-card {
-            background: var(--bg-alt);
-            padding: 2rem;
-            border-radius: 8px;
+        .card {
+            background: var(--bg);
+            padding: 2.5rem;
             border: 1px solid var(--border);
+            border-radius: 4px;
         }
 
-        .pillar-card h3 {
-            margin-bottom: 1rem;
+        .card h3 {
             font-size: 1.2rem;
+            margin-bottom: 1.25rem;
         }
 
-        .pillar-card p {
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
+        .card p {
+            font-size: 1rem;
+            line-height: 1.7;
         }
 
-        .pillar-card ul {
-            margin-bottom: 0;
-        }
-
-        .pillar-card li {
-            font-size: 0.95rem;
-        }
-
-        /* Phases Grid */
-        .phases-grid {
+        /* Two Column Section */
+        .two-column {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
             margin-top: 2rem;
         }
 
-        .phase-card {
-            background: var(--bg-alt);
-            padding: 1.5rem;
-            border-radius: 8px;
+        .column {
+            padding: 2rem;
+            background: var(--bg);
             border: 1px solid var(--border);
+            border-radius: 4px;
         }
 
-        .phase-card h4 {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+        .column h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .column ul {
+            list-style: none;
+        }
+
+        .column li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .column li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
             color: var(--accent);
-            margin-bottom: 0.75rem;
-            font-weight: 600;
+            font-weight: bold;
         }
 
-        .phase-card h3 {
+        /* Core Message */
+        .core-message {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .core-message h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .core-message p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        /* Four Pillar Grid */
+        .four-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pillar {
+            background: var(--bg);
+            padding: 2rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+        }
+
+        .pillar h3 {
             font-size: 1.1rem;
             margin-bottom: 1rem;
+            font-weight: 700;
         }
 
-        .phase-card ul {
-            margin-bottom: 0;
-        }
-
-        .phase-card li {
+        .pillar p {
             font-size: 0.95rem;
-            margin-bottom: 0.6rem;
+            line-height: 1.6;
         }
 
-        /* Core Issue Section */
-        #core-issue {
-            background-color: var(--bg-alt);
-            text-align: center;
+        /* Timeline */
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
         }
 
-        .core-issue-content {
-            max-width: 700px;
-            margin: 0 auto;
+        .phase {
+            background: var(--bg);
+            padding: 2rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            border-top: 3px solid var(--accent);
         }
 
-        .core-issue-h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
+        .phase h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .phase h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .phase ul {
+            list-style: none;
+        }
+
+        .phase li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
             color: var(--text);
+            line-height: 1.5;
         }
 
-        .core-issue-body {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            line-height: 1.8;
+        .phase li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
         }
 
-        /* Final Section */
-        #final {
-            background-color: var(--bg-alt);
+        /* Success Signals */
+        .signals {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .signal {
             text-align: center;
+            padding: 2rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
         }
 
-        .final-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .final-h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .final-body {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            line-height: 1.8;
+        .signal p {
+            font-size: 1.05rem;
+            line-height: 1.6;
         }
 
         /* Footer */
         footer {
             padding: 3rem 0;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #999;
             border-top: 1px solid var(--border);
         }
 
-        /* Mobile Optimization */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             section {
-                padding: 3rem 0;
+                padding: 5rem 0;
             }
 
             .container {
@@ -329,42 +364,64 @@
             }
 
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
             h2 {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
 
             p {
                 font-size: 1rem;
             }
 
-            .hero-subheading {
+            .subheading {
                 font-size: 1.2rem;
             }
 
-            .hero-body {
-                font-size: 1rem;
+            .hero-h1 {
+                font-size: 2.5rem;
             }
 
-            .pillars-grid,
-            .phases-grid {
+            .hero-subheading {
+                font-size: 1.3rem;
+            }
+
+            #hero {
+                min-height: auto;
+                padding: 6rem 0;
+            }
+
+            .three-cards,
+            .four-grid,
+            .timeline,
+            .signals {
                 grid-template-columns: 1fr;
             }
 
-            .pillar-card,
-            .phase-card {
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .column {
                 padding: 1.5rem;
             }
 
-            .core-issue-h2,
-            .final-h2 {
-                font-size: 1.8rem;
+            .card {
+                padding: 1.5rem;
             }
 
-            li {
-                font-size: 1rem;
+            .pillar {
+                padding: 1.5rem;
+            }
+
+            .phase {
+                padding: 1.5rem;
+            }
+
+            .signal {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -382,199 +439,174 @@
     <section id="hero">
         <div class="container hero-content">
             <h1 class="hero-h1">Strategic Transformation</h1>
-            <p class="hero-subheading">From a manufacturing plant<br>to an infrastructure solutions partner.</p>
+            <p class="hero-subheading">From Manufacturing<br>to Infrastructure Solutions Partner</p>
             <div class="hero-body">
-                <p>The company already has strong industrial capabilities.</p>
-                <p>However the market perception does not fully reflect the scale of those capabilities.</p>
-                <p>The opportunity today is not only manufacturing strength, but building a market presence that reflects it.</p>
+                <p>The company already possesses strong industrial capabilities.</p>
+                <p>However market perception does not fully reflect this strength.</p>
+                <p>The opportunity today is to align the brand presence with the industrial capability.</p>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 2: MARKET REALITY -->
-    <section id="market">
-        <div class="container content-block">
-            <span class="section-tag">Section 1</span>
+    <!-- SECTION 2: MARKET SHIFT -->
+    <section id="market" class="alt">
+        <div class="container">
             <h2>The Market is Changing</h2>
-            <p>The industrial market is evolving.</p>
-            <p>Product quality alone is no longer enough.</p>
-            <p>Major infrastructure projects now rely on partners who demonstrate:</p>
-            <ul>
-                <li>documented experience</li>
-                <li>institutional credibility</li>
-                <li>visible industrial capability</li>
-            </ul>
-            <p>Decision makers increasingly begin their evaluation through digital research and capability verification.</p>
+            <div class="three-cards">
+                <div class="card">
+                    <h3>Infrastructure Projects</h3>
+                    <p>Major projects increasingly rely on partners with proven expertise.</p>
+                </div>
+                <div class="card">
+                    <h3>Technical Competition</h3>
+                    <p>Competitive advantage is defined not only by product quality but by documented experience.</p>
+                </div>
+                <div class="card">
+                    <h3>Digital Trust</h3>
+                    <p>Industry decisions often begin with digital research and capability verification.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- SECTION 3: DIAGNOSIS -->
-    <section id="diagnosis">
-        <div class="container content-block">
-            <span class="section-tag">Section 2</span>
-            <h2>The Gap Between Capability and Visibility</h2>
-            <p>The company has strong industrial foundations.</p>
-            <ul>
-                <li>advanced production capacity</li>
-                <li>modern manufacturing operations</li>
-                <li>globally compliant product quality</li>
-                <li>experience supplying major projects</li>
-            </ul>
-            <p>Yet these capabilities are not clearly visible in the market.</p>
-            
-            <h3 style="margin-top: 2rem;">Current Limitations</h3>
-            <ul>
-                <li>limited industrial documentation of projects</li>
-                <li>weak digital presence among industry decision makers</li>
-                <li>reliance on traditional field sales</li>
-                <li>unclear positioning as an infrastructure solutions partner</li>
-            </ul>
+    <!-- SECTION 3: CAPABILITY VS VISIBILITY -->
+    <section id="capability">
+        <div class="container">
+            <h2>Capability vs Market Visibility</h2>
+            <div class="two-column">
+                <div class="column">
+                    <h3>Industrial Strength</h3>
+                    <ul>
+                        <li>strong production capability</li>
+                        <li>modern manufacturing operations</li>
+                        <li>globally compliant quality</li>
+                        <li>experience supplying major projects</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Market Visibility</h3>
+                    <ul>
+                        <li>limited documentation of delivered projects</li>
+                        <li>minimal digital presence among decision makers</li>
+                        <li>reliance on traditional sales channels</li>
+                        <li>unclear positioning as a solutions partner</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- SECTION 4: CORE ISSUE -->
-    <section id="core-issue">
-        <div class="container core-issue-content">
-            <h2 class="core-issue-h2">The issue is not product quality.</h2>
-            <p class="core-issue-body">The real challenge is the visibility and positioning gap.</p>
-            <p class="core-issue-body">This gap prevents the company from being perceived as a preferred partner in large infrastructure projects.</p>
+    <!-- SECTION 4: CORE MESSAGE -->
+    <section id="core" class="alt">
+        <div class="container core-message">
+            <h2>The challenge is not product quality.</h2>
+            <p>The real challenge is the visibility and positioning gap.</p>
+            <p>This gap prevents the company from being perceived as a preferred partner in major infrastructure projects.</p>
         </div>
     </section>
 
     <!-- SECTION 5: STRATEGIC OPPORTUNITY -->
     <section id="opportunity">
-        <div class="container content-block">
-            <span class="section-tag">Section 3</span>
+        <div class="container">
             <h2>The Opportunity</h2>
-            <p>Strengthening the brand presence can transform the company from:</p>
-            <p style="font-weight: 600; color: var(--text); margin: 2rem 0;">a product supplier</p>
-            <p style="font-weight: 600; color: var(--text); margin: 0 0 2rem 0;">into</p>
-            <p style="font-weight: 600; color: var(--text); margin: 0 0 2rem 0;">a recognized infrastructure solutions partner.</p>
-            <p>This requires structured marketing, industrial storytelling, and professional documentation of capabilities.</p>
+            <p>Strengthening the brand presence can transform the company from a product supplier into a recognized infrastructure solutions partner.</p>
         </div>
     </section>
 
     <!-- SECTION 6: TRANSFORMATION PILLARS -->
-    <section id="pillars">
+    <section id="pillars" class="alt">
         <div class="container">
-            <span class="section-tag">Section 4</span>
             <h2>Transformation Pillars</h2>
-            <p class="section-intro">This transformation focuses on changing how the market perceives the company's industrial capabilities.</p>
-            
-            <div class="pillars-grid">
-                <div class="pillar-card">
+            <div class="four-grid">
+                <div class="pillar">
                     <h3>Industrial Documentation</h3>
-                    <p>Transform the factory from a facility into a documented success story.</p>
-                    <ul>
-                        <li>professional production photography</li>
-                        <li>corporate film presenting manufacturing capabilities</li>
-                        <li>industrial image library for products and processes</li>
-                    </ul>
+                    <p>Professional documentation of manufacturing capabilities.</p>
                 </div>
-
-                <div class="pillar-card">
+                <div class="pillar">
                     <h3>Engineering Library</h3>
-                    <p>Create technical documentation for delivered projects.</p>
-                    <ul>
-                        <li>engineering case studies</li>
-                        <li>project documentation</li>
-                        <li>technical reference materials</li>
-                    </ul>
-                    <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-muted);">Purpose: demonstrate real project experience.</p>
+                    <p>Technical case studies and project documentation.</p>
                 </div>
-
-                <div class="pillar-card">
+                <div class="pillar">
                     <h3>Digital Positioning</h3>
-                    <p>Establish presence where industry decision makers operate.</p>
-                    <ul>
-                        <li>professional LinkedIn strategy</li>
-                        <li>a website that reflects industrial capability</li>
-                    </ul>
+                    <p>Professional presence across digital industry platforms.</p>
                 </div>
-
-                <div class="pillar-card">
-                    <h3>Marketing Automation</h3>
-                    <p>Support the sales team with a structured lead system.</p>
-                    <ul>
-                        <li>CRM implementation</li>
-                        <li>targeted campaigns for industrial sectors</li>
-                    </ul>
+                <div class="pillar">
+                    <h3>Marketing Infrastructure</h3>
+                    <p>Systems that support lead generation and sales.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 7: EXECUTION ROADMAP -->
+    <!-- SECTION 7: TRANSFORMATION ROADMAP -->
     <section id="roadmap">
         <div class="container">
-            <span class="section-tag">Section 5</span>
             <h2>Transformation Roadmap</h2>
-            <p class="section-intro">The transformation is implemented through progressive phases.</p>
-            
-            <div class="phases-grid">
-                <div class="phase-card">
+            <div class="timeline">
+                <div class="phase">
                     <h4>Phase 1</h4>
                     <h3>Foundation</h3>
                     <ul>
-                        <li>launch refined visual identity</li>
-                        <li>produce the corporate film</li>
-                        <li>update the corporate profile</li>
+                        <li>visual identity</li>
+                        <li>corporate film</li>
+                        <li>updated company profile</li>
                     </ul>
                 </div>
-
-                <div class="phase-card">
+                <div class="phase">
                     <h4>Phase 2</h4>
-                    <h3>Asset Building</h3>
+                    <h3>Asset Development</h3>
                     <ul>
-                        <li>document key projects</li>
-                        <li>launch the new website</li>
-                        <li>build the engineering library</li>
+                        <li>project documentation</li>
+                        <li>website launch</li>
+                        <li>engineering library</li>
                     </ul>
                 </div>
-
-                <div class="phase-card">
+                <div class="phase">
                     <h4>Phase 3</h4>
                     <h3>Market Visibility</h3>
                     <ul>
-                        <li>activate professional content</li>
-                        <li>publish case studies</li>
-                        <li>engage consultants and industry partners</li>
+                        <li>professional content</li>
+                        <li>case studies</li>
+                        <li>industry engagement</li>
                     </ul>
                 </div>
-
-                <div class="phase-card">
+                <div class="phase">
                     <h4>Phase 4</h4>
-                    <h3>Continuous Development</h3>
+                    <h3>Continuous Growth</h3>
                     <ul>
-                        <li>analyze performance data</li>
-                        <li>strengthen relationships with decision makers</li>
-                        <li>expand regional presence</li>
+                        <li>data analysis</li>
+                        <li>relationship building</li>
+                        <li>regional presence</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 8: MEASURING TRANSFORMATION -->
-    <section id="measuring">
-        <div class="container content-block">
-            <span class="section-tag">Section 6</span>
-            <h2>How Transformation Becomes Visible</h2>
-            <p>Transformation becomes visible when:</p>
-            <ul>
-                <li>the company becomes a trusted reference for infrastructure projects</li>
-                <li>its presence grows among consultants and contractors</li>
-                <li>its capabilities are clearly recognized in the market</li>
-            </ul>
+    <!-- SECTION 8: SUCCESS SIGNALS -->
+    <section id="success" class="alt">
+        <div class="container">
+            <h2>What Successful Transformation Looks Like</h2>
+            <div class="signals">
+                <div class="signal">
+                    <p>Increased recognition among consultants</p>
+                </div>
+                <div class="signal">
+                    <p>Stronger presence in industry discussions</p>
+                </div>
+                <div class="signal">
+                    <p>Higher qualification for major projects</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- FINAL SECTION -->
     <section id="final">
-        <div class="container final-content">
-            <h2 class="final-h2">Real transformation begins with a decision.</h2>
-            <p class="final-body">This initiative is not about redesigning a website.</p>
-            <p class="final-body">It is about reshaping how the market perceives the company's industrial capabilities.</p>
+        <div class="container core-message">
+            <h2>Real transformation begins with a decision.</h2>
+            <p>This initiative is not about redesigning a website.</p>
+            <p>It is about reshaping how the market perceives the company's industrial capabilities.</p>
         </div>
     </section>
 
